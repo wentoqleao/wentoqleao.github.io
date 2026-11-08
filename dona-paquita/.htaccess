@@ -57,9 +57,16 @@
     Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
 
-  # Minimal security headers
+  # Security headers
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Content-Security-Policy "frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  # HSTS: solo se envía por HTTPS. Activar cuando el dominio ya tenga SSL.
+  Header always set Strict-Transport-Security "max-age=31536000" env=HTTPS
+  Header unset X-Powered-By
 </IfModule>
 
 # ----- Correct MIME types (some shared hosts default wrong) -----
@@ -81,11 +88,20 @@
 </IfModule>
 
 # ----- HTTPS redirect (uncomment if your domain has SSL) -----
-# <IfModule mod_rewrite.c>
-#   RewriteEngine On
-#   RewriteCond %{HTTPS} !=on
-#   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
-# </IfModule>
+# Hostinger da SSL gratis: actívalo en el panel antes de subir este archivo.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
+# ----- No listar carpetas ni servir archivos ocultos o de trabajo -----
+Options -Indexes
+ServerSignature Off
+<FilesMatch "(^\.|\.(env|ini|log|sh|py|bak|old|orig|swp|sql|zip|tar|gz|map|md|fig|psd)$)">
+  Require all denied
+</FilesMatch>
 
 # ----- Pretty URLs: serve "/about" as "/about.html" (uncomment if multi-page) -----
 # <IfModule mod_rewrite.c>

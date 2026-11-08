@@ -31,7 +31,7 @@
     setTimeout(hide, 4000);
   }
 
-  function escHTML(s) { return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function escHTML(s) { return s.replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   var wordIndex = 0;
   function wrapWords(text) {
     return text.split(/(\s+)/).map(function (w) {
