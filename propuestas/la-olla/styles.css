@@ -357,3 +357,28 @@ footer .logo{color:var(--crema);display:inline-block;margin-bottom:10px}
 .drinks-note{font-size:.88rem}
 .social a{color:inherit}
 @media (max-width:700px){.drinks{grid-template-columns:minmax(0,1fr)}}
+
+/* ===== La Olla: paleta real (de sus historias de Instagram) ===== */
+:root{--rojo:#9E3C1D;--rojo-osc:#5E1C0F;--rojo-claro:#C1401A;--naranja:#E84F1D;--naranja-osc:#C53910;--mostaza:#F5BE0F;
+  --crema:#FFEFDE;--crema-2:#F5DFC8;--marron:#240D08;--marron-suave:#6E4334;--linea:rgba(36,13,8,.14)}
+body{background:var(--crema)}
+.hero h1 em{color:var(--mostaza)}
+.kicker{color:var(--naranja-osc)}
+.red .kicker,.hero .kicker,.cierre .kicker{color:var(--mostaza)}
+.btn:not(.btn-light):not(.btn-line){background:var(--naranja);border-color:var(--naranja);color:#fff}
+.btn:not(.btn-light):not(.btn-line):hover{background:var(--naranja-osc);border-color:var(--naranja-osc)}
+.add{background:var(--naranja)!important;border-color:var(--naranja)!important;color:#fff!important}
+.add:hover{background:var(--naranja-osc)!important;border-color:var(--naranja-osc)!important}
+.float-wa{background:var(--naranja);color:#fff}
+.cartbar{background:var(--marron)}
+.cartbar .btn{background:var(--mostaza)!important;color:var(--marron)!important;border-color:var(--mostaza)!important}
+.marquee{background:var(--naranja);border-color:var(--naranja-osc)}
+.marquee span::after{color:var(--mostaza);opacity:1}
+.filtro{background:rgba(94,28,15,.55)}
+.filtro[aria-pressed="true"]{background:var(--mostaza);color:var(--marron);border-color:var(--mostaza)}
+.stats b{color:var(--naranja-osc)}
+.drinks b{color:var(--naranja-osc)}
+.dish-img.ph{background-color:var(--rojo-osc)}
+.tabbar a.wa,.tabbar a.activo{color:var(--naranja-osc)}
+.qty button{background:var(--naranja);border-color:var(--naranja);color:#fff}
+.hero .menu-card .kicker{color:var(--naranja-osc)}
