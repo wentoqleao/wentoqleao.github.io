@@ -1,4 +1,4 @@
-/* Doña Paquita · pro.js: pedido con carrito y reserva de mesa por WhatsApp (IIFE, sin módulos) */
+/* Doña Paquita · pedidos.js: carrito de pedido y reserva de mesa por WhatsApp (IIFE, sin módulos) */
 (function () {
   "use strict";
   var WA = "51999999999"; // número del restaurante: solo dígitos, con código de país

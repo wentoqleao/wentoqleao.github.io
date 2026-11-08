@@ -317,3 +317,24 @@ footer .logo{color:var(--crema);display:inline-block;margin-bottom:10px}
 @media (max-width:700px){.qr-grid{grid-template-columns:minmax(0,1fr);gap:36px}.qr-card{justify-self:center}}
 .hero-in{padding-top:166px}
 @media (max-width:899px){.hero-in{padding-top:150px}}
+
+/* ===== Pro: respuesta automática de WhatsApp ===== */
+.bot-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:56px;align-items:center}
+.bot-grid > div > p:not(.kicker){color:var(--marron-suave);max-width:44ch;margin-top:14px}
+.bot-list{list-style:none;display:grid;gap:10px;margin-top:22px;padding:0}
+.bot-list li{display:flex;gap:10px;align-items:baseline;color:var(--marron)}
+.bot-list li::before{content:"✓";color:var(--rojo);font-weight:700}
+.phone{justify-self:center;width:min(360px,100%);background:#1c1412;border-radius:34px;padding:10px;box-shadow:0 30px 60px -30px rgba(56,34,28,.7)}
+.ph-head{display:flex;flex-direction:column;gap:2px;background:#2b1d19;color:var(--crema);padding:14px 18px;border-radius:26px 26px 0 0}
+.ph-head b{font:600 1rem var(--body)}
+.ph-head span{font-size:.75rem;opacity:.7}
+.ph-body{background:#efe6da;border-radius:0 0 26px 26px;padding:18px 14px 22px;display:flex;flex-direction:column;gap:12px;min-height:320px}
+.msg{max-width:86%;padding:10px 12px 18px;border-radius:14px;font-size:.88rem;line-height:1.45;color:#2a1d18;position:relative;margin:0;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.msg .t{position:absolute;right:10px;bottom:4px;font-size:.66rem;color:#7d6b62}
+.msg.out{align-self:flex-end;background:#dff3d2;border-bottom-right-radius:4px}
+.msg.in{align-self:flex-start;background:#fff;border-bottom-left-radius:4px}
+.typing{align-self:flex-start;background:#fff;border-radius:14px;padding:10px 14px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#b8a89e;animation:typing 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes typing{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+@media (max-width:899px){.bot-grid{grid-template-columns:minmax(0,1fr);gap:40px}}

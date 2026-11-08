@@ -64,6 +64,7 @@ a.shot{display:block}
 .tiers a{flex:1;text-align:center;text-decoration:none;font-weight:600;font-size:14px;padding:9px 10px;border:1px solid var(--ink);border-radius:999px;transition:background .2s,color .2s}
 .tiers a:hover{background:var(--ink);color:#fff}
 .tiers a:last-child{background:var(--acc);border-color:var(--acc);color:#fff}
+.packs.two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px}
 .packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
 .pack{border:1px solid var(--line);border-radius:20px;padding:30px 26px;background:var(--bg);display:flex;flex-direction:column;gap:14px}
 .pack.star{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -90,7 +91,7 @@ footer{padding:36px 0 48px;font-size:14px;color:var(--muted)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 @media (max-width:900px){
   nav{display:none}
-  .demos,.packs{grid-template-columns:minmax(0,1fr)}
+  .demos,.packs,.packs.two{grid-template-columns:minmax(0,1fr)}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
   .contact{grid-template-columns:minmax(0,1fr)}
 }
@@ -122,7 +123,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <a class="btn ghost" href="#contacto">Pedir mi página</a>
     </div>
     <div class="facts">
-      <div><b>3 a 10 días</b><span>de entrega, según el paquete</span></div>
+      <div><b>5 a 10 días</b><span>de entrega, según el paquete</span></div>
       <div><b>WhatsApp</b><span>pedidos y reservas directo a tu celular</span></div>
       <div><b>Google Maps</b><span>para que te encuentren cerca</span></div>
     </div>
@@ -138,10 +139,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <div class="demo">
           <a class="shot" href="dona-paquita/"><img src="assets/dona-paquita.webp" alt="Página web del restaurante Doña Paquita" loading="lazy" width="1280" height="800"></a>
           <div class="body">
-            <span class="tag">Restaurante · en 3 paquetes</span>
+            <span class="tag">Restaurante · en 2 paquetes</span>
             <h3>Doña Paquita</h3>
-            <p>La misma web en cada paquete, para que veas qué incluye cada uno: desde la página simple hasta pedidos con carrito y reservas.</p>
-            <div class="tiers"><a href="dona-paquita-basico/">Básico</a><a href="dona-paquita/">Negocio</a><a href="dona-paquita-pro/">Pro</a></div>
+            <p>La misma web en cada paquete: pedidos con carrito en Negocio, y además reservas, carta QR y respuesta automática en Pro.</p>
+            <div class="tiers"><a href="dona-paquita/">Ver Negocio</a><a href="dona-paquita-pro/">Ver Pro</a></div>
           </div>
         </div>
         <a class="demo" href="el-filo-barberia/">
@@ -172,27 +173,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <h2 class="serif">Paquetes</h2>
         <p>Precio fijo, sin sorpresas. 50% al empezar y 50% al entregar, por Yape, Plin o transferencia.</p>
       </div>
-      <div class="packs">
+      <div class="packs two">
         <div class="pack">
-          <h3>Básico</h3>
-          <div class="price">S/ 350 <small>pago único</small></div>
-          <p class="muted">Para el negocio que necesita estar en internet.</p>
-          <ul><li>Una página con tus servicios o productos</li><li>Fotos, horario y mapa</li><li>Botón de WhatsApp</li><li>Lista en 3 a 4 días</li></ul>
-        </div>
-        <div class="pack star">
           <h3>Negocio</h3>
           <div class="price">S/ 700 <small>pago único</small></div>
-          <p class="muted">Para restaurantes y negocios con varios servicios.</p>
-          <ul><li>Todo lo del Básico</li><li>Carta o catálogo, galería y reseñas</li><li>Dominio propio el primer año</li><li>Ficha en Google Maps</li></ul>
+          <p class="muted">Para vender por WhatsApp desde tu propia web.</p>
+          <ul><li>Página con tus productos o tu carta, fotos y precios</li><li>Carrito: el cliente arma su pedido y te llega por WhatsApp con el total</li><li>Galería, reseñas, horario y mapa</li><li>Dominio propio el primer año y ficha en Google Maps</li></ul>
         </div>
-        <div class="pack">
+        <div class="pack star">
           <h3>Pro</h3>
           <div class="price">S/ 1,100 <small>pago único</small></div>
-          <p class="muted">Para recibir pedidos o reservas desde la web.</p>
-          <ul><li>Todo lo de Negocio</li><li>Carta digital con código QR</li><li>Reservas o pedidos a WhatsApp</li><li>1 mes de mantenimiento gratis</li></ul>
+          <p class="muted">Para atender más rápido y llenar mesas.</p>
+          <ul><li>Todo lo de Negocio</li><li>Reservas de mesa o de turno por WhatsApp</li><li>Respuesta automática en tu WhatsApp Business, a cualquier hora</li><li>Carta digital con código QR y enlaces a Rappi y PedidosYa</li><li>1 mes de mantenimiento gratis</li></ul>
         </div>
       </div>
-      <p class="note">Todos incluyen 5 rondas de cambios. Mantenimiento opcional: S/ 60 al mes, con hosting, dominio y hasta 2 cambios al mes.</p>
+      <p class="note">Ambos incluyen 5 rondas de cambios. Mantenimiento opcional: S/ 60 al mes, con hosting, dominio y hasta 2 cambios al mes. ¿Quieres un bot que lea y conteste cada pedido? Se agrega aparte, con mensualidad.</p>
     </div>
   </section>
 

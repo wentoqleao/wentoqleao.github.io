@@ -15,11 +15,11 @@
 <script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="styles.css?v=20261108">
 <script defer src="main.js?v=20261108"></script>
-<script defer src="pro.js?v=20261108"></script>
+<script defer src="pedidos.js?v=20261108"></script>
 </head>
 <body class="pk-pro">
 <a class="skip" href="#contenido">Saltar al contenido</a>
-<nav class="pk" aria-label="Paquetes de esta demo"><span class="pk-l">Demo · elige el paquete:</span><a href="../dona-paquita-basico/">Básico <small>S/ 350</small></a><a href="../dona-paquita/">Negocio <small>S/ 700</small></a><a href="../dona-paquita-pro/" aria-current="page">Pro <small>S/ 1,100</small></a></nav>
+<nav class="pk" aria-label="Paquetes de esta demo"><span class="pk-l">Demo · elige el paquete:</span><a href="../dona-paquita/">Negocio <small>S/ 700</small></a><a href="../dona-paquita-pro/" aria-current="page">Pro <small>S/ 1,100</small></a></nav>
 <div class="splash" data-splash aria-hidden="true"><div class="splash-in"><b>Doña <em>Paquita</em></b><small>Cocina criolla · desde 1998</small></div></div>
 <div class="progress" data-progress aria-hidden="true"></div>
 <div class="cursor" data-cursor aria-hidden="true"><i class="dot"></i><i class="ring"></i></div>
@@ -203,11 +203,10 @@
       <div class="reveal" style="--d:120ms">
         <p class="kicker">Carta digital</p>
         <h2 class="sec-title">La carta <em>en cada mesa.</em></h2>
-        <p>Tus clientes escanean el código con la cámara del celular y ven la carta con fotos y precios. Si cambias un precio, se actualiza para todos sin reimprimir nada.</p>
+        <p>Escanea el código con la cámara del celular y mira la carta con fotos y precios, siempre actualizada.</p>
       </div>
     </div>
   </section>
-
   <section id="pedir">
     <div class="wrap">
       <div class="reveal"><p class="kicker">Delivery y para llevar</p><h2 class="sec-title">Arma tu pedido <em>desde la carta.</em></h2></div>
@@ -220,6 +219,28 @@
         <p>¿Prefieres una app de delivery? También estamos en:</p>
         <a class="app-btn rappi" href="https://www.rappi.com.pe/" target="_blank" rel="noopener noreferrer">Rappi</a>
         <a class="app-btn pya" href="https://www.pedidosya.com.pe/" target="_blank" rel="noopener noreferrer">PedidosYa</a>
+      </div>
+    </div>
+  </section>
+  <section class="bot-sec" id="respuesta">
+    <div class="wrap bot-grid">
+      <div class="reveal">
+        <p class="kicker">Atención al instante</p>
+        <h2 class="sec-title">Te respondemos <em>en segundos.</em></h2>
+        <p>Cuando envías tu pedido o tu reserva, nuestro WhatsApp te responde al momento, a cualquier hora.</p>
+        <ul class="bot-list">
+          <li>Confirmación de que recibimos tu pedido o reserva</li>
+          <li>Horario de atención y medios de pago</li>
+          <li>Luego te escribimos con el total y la hora de entrega</li>
+        </ul>
+      </div>
+      <div class="phone reveal" style="--d:150ms" role="img" aria-label="Ejemplo de conversación: el cliente envía su pedido y recibe una respuesta automática al instante">
+        <div class="ph-head"><b>Doña Paquita</b><span>Cuenta de empresa</span></div>
+        <div class="ph-body" aria-hidden="true">
+          <p class="msg out">Hola Doña Paquita, quiero hacer este pedido:<br>• 2 x Lomo saltado (S/ 56.00)<br>• 1 x Chicha morada (S/ 10.00)<br>Total referencial: S/ 66.00<span class="t">12:41</span></p>
+          <p class="msg in">¡Hola! Gracias por escribir a Doña Paquita. Recibimos tu pedido y en unos minutos te confirmamos el total y la hora de entrega.<br><br>Pagos: Yape, Plin o efectivo.<span class="t">12:41 · automático</span></p>
+          <div class="typing"><i></i><i></i><i></i></div>
+        </div>
       </div>
     </div>
   </section>
@@ -239,7 +260,6 @@
       </div>
     </div>
   </section>
-
   <section class="reservas" id="reservas">
     <div class="wrap res-grid">
       <div class="reveal">

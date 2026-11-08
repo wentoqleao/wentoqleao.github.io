@@ -15,10 +15,11 @@
 <script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="styles.css?v=20261108">
 <script defer src="main.js?v=20261108"></script>
+<script defer src="pedidos.js?v=20261108"></script>
 </head>
 <body class="pk-negocio">
 <a class="skip" href="#contenido">Saltar al contenido</a>
-<nav class="pk" aria-label="Paquetes de esta demo"><span class="pk-l">Demo · elige el paquete:</span><a href="../dona-paquita-basico/">Básico <small>S/ 350</small></a><a href="../dona-paquita/" aria-current="page">Negocio <small>S/ 700</small></a><a href="../dona-paquita-pro/">Pro <small>S/ 1,100</small></a></nav>
+<nav class="pk" aria-label="Paquetes de esta demo"><span class="pk-l">Demo · elige el paquete:</span><a href="../dona-paquita/" aria-current="page">Negocio <small>S/ 700</small></a><a href="../dona-paquita-pro/">Pro <small>S/ 1,100</small></a></nav>
 <div class="splash" data-splash aria-hidden="true"><div class="splash-in"><b>Doña <em>Paquita</em></b><small>Cocina criolla · desde 1998</small></div></div>
 <div class="progress" data-progress aria-hidden="true"></div>
 <div class="cursor" data-cursor aria-hidden="true"><i class="dot"></i><i class="ring"></i></div>
@@ -87,7 +88,7 @@
     <div class="wrap">
       <div class="carta-head reveal">
         <div><p class="kicker">Para hoy</p><h2 class="sec-title">La <em>carta</em></h2></div>
-        <p>Porciones generosas. Todos los fondos vienen con arroz blanco. Los puntos marcan el picante.</p>
+        <p>Toca «Agregar» y arma tu pedido. Todos los fondos vienen con arroz blanco. Los puntos marcan el picante.</p>
       </div>
       <div class="filtros reveal" role="group" aria-label="Filtrar la carta">
         <button class="filtro" type="button" id="f-todo" data-cat="todo" aria-pressed="true">Todo</button>
@@ -198,10 +199,10 @@
 
   <section id="pedir">
     <div class="wrap">
-      <div class="reveal"><p class="kicker">Delivery y para llevar</p><h2 class="sec-title">Pedir es <em>así de fácil.</em></h2></div>
+      <div class="reveal"><p class="kicker">Delivery y para llevar</p><h2 class="sec-title">Arma tu pedido <em>desde la carta.</em></h2></div>
       <div class="pedir-grid">
-        <div class="step reveal"><span class="n">Primero</span><h3>Escríbenos</h3><p>Mándanos tu pedido y tu dirección por WhatsApp.</p></div>
-        <div class="step reveal" style="--d:120ms"><span class="n">Después</span><h3>Te confirmamos</h3><p>Te decimos el total y el tiempo de entrega, normalmente 25 minutos.</p></div>
+        <div class="step reveal"><span class="n">Primero</span><h3>Elige tus platos</h3><p>Toca «Agregar» en la carta y ajusta las cantidades.</p></div>
+        <div class="step reveal" style="--d:120ms"><span class="n">Después</span><h3>Envíalo por WhatsApp</h3><p>El pedido llega listo con el total. Solo agrega tu dirección.</p></div>
         <div class="step reveal" style="--d:240ms"><span class="n">Al final</span><h3>Paga como prefieras</h3><p>Con Yape, Plin o en efectivo al recibir.</p></div>
       </div>
     </div>
@@ -264,6 +265,7 @@
 <div class="demo-note">Demo del paquete Negocio. El restaurante, los platos y las reseñas son de ejemplo.</div>
 
 <a class="float-wa" href="https://wa.me/51999999999?text=Hola%2C%20quisiera%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>
+<div class="cartbar" data-cart aria-hidden="true" aria-label="Tu pedido"><div class="info"><b data-cart-count>0 platos</b><span data-cart-total>S/ 0.00</span></div><a class="btn" data-cart-link href="#" target="_blank" rel="noopener noreferrer">Enviar pedido</a><button class="clear" type="button" data-clear aria-label="Vaciar pedido">×</button></div>
 <nav class="tabbar" aria-label="Accesos rápidos">
   <a href="#inicio" class="activo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 3l9 8v10h-6v-6H9v6H3z"/></svg>Inicio</a>
   <a href="#carta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18H5zM8 7h8v2H8zm0 4h8v2H8zm0 4h5v2H8z"/></svg>Carta</a>
