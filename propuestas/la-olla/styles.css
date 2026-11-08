@@ -382,3 +382,4 @@ body{background:var(--crema)}
 .tabbar a.wa,.tabbar a.activo{color:var(--naranja-osc)}
 .qty button{background:var(--naranja);border-color:var(--naranja);color:#fff}
 .hero .menu-card .kicker{color:var(--naranja-osc)}
+.btn-ver{margin-top:18px}
