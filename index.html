@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jose Aylas Gutierrez · Páginas web para negocios locales</title>
+<meta name="description" content="Diseño páginas web para restaurantes, barberías, farmacias y negocios de barrio en Perú. Pedidos y reservas por WhatsApp, Google Maps y entrega en días.">
+<link rel="canonical" href="https://wentoqleao.github.io/">
+<meta property="og:title" content="Jose Aylas Gutierrez · Páginas web para negocios locales">
+<meta property="og:description" content="Webs para restaurantes, barberías y farmacias con pedidos por WhatsApp.">
+<meta property="og:image" content="https://wentoqleao.github.io/assets/dona-paquita.webp">
+<meta property="og:type" content="website">
+<!-- Google Search Console: pega aquí la etiqueta de verificación -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1EA;--card:#FFFFFF;--ink:#161513;--muted:#5E5A52;--line:#DEDAD0;--acc:#C8431C;--acc-ink:#FFFFFF}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 "Inter Tight",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+.serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400}
+header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-weight:700;letter-spacing:-.01em;text-decoration:none}
+.logo span{color:var(--muted);font-weight:500}
+nav{display:flex;gap:26px;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 20px;border-radius:999px;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:var(--acc)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.hero{padding:96px 0 72px}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+h1{font-size:clamp(46px,8vw,104px);line-height:.98;letter-spacing:-.02em;margin:18px 0 26px;max-width:12ch}
+h1 em{color:var(--acc)}
+.lead{font-size:clamp(18px,2vw,21px);color:var(--muted);max-width:44ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:72px}
+.facts div{background:var(--bg);padding:22px 24px}
+.facts b{display:block;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:38px;line-height:1}
+.facts span{font-size:14px;color:var(--muted)}
+section{padding:88px 0;border-top:1px solid var(--line)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+h2{font-size:clamp(38px,5vw,62px);line-height:1;letter-spacing:-.015em}
+.head p{color:var(--muted);max-width:40ch}
+.demos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.demo{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.demo:hover{transform:translateY(-6px);box-shadow:0 24px 50px -24px rgba(22,21,19,.35)}
+.shot{aspect-ratio:16/10;overflow:hidden;background:#ddd;border-bottom:1px solid var(--line)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s}
+.demo:hover .shot img{transform:scale(1.04)}
+.demo .body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.tag{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.demo h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:32px;line-height:1}
+.demo p{color:var(--muted);font-size:15px}
+.demo .go{margin-top:auto;padding-top:8px;font-weight:600;font-size:15px}
+.packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.pack{border:1px solid var(--line);border-radius:20px;padding:30px 26px;background:var(--bg);display:flex;flex-direction:column;gap:14px}
+.pack.star{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pack.star .muted,.pack.star li{color:#C9C5BC}
+.pack h3{font-size:20px}
+.price{font-family:"Instrument Serif",Georgia,serif;font-size:52px;line-height:1}
+.price small{font-family:"Inter Tight",sans-serif;font-size:15px;color:var(--muted)}
+.pack.star .price small{color:#C9C5BC}
+.muted{color:var(--muted);font-size:15px}
+.pack ul{list-style:none;display:grid;gap:8px;font-size:15px;color:var(--muted)}
+.pack li::before{content:"✓";color:var(--acc);font-weight:700;margin-right:8px}
+.note{margin-top:22px;font-size:14px;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;counter-reset:s}
+.step{border-top:2px solid var(--ink);padding-top:18px}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:"Instrument Serif",Georgia,serif;font-size:40px;color:var(--acc);display:block;line-height:1;margin-bottom:10px}
+.step h3{font-size:19px;margin-bottom:6px}
+.step p{color:var(--muted);font-size:15px}
+.contact{background:var(--ink);color:#fff;border-radius:28px;padding:clamp(36px,6vw,72px);display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:32px;align-items:end}
+.contact h2 em{color:#F08A5D}
+.contact p{color:#C9C5BC}
+.contact .btn{background:var(--acc)}
+.contact .btn:hover{background:#fff;color:var(--ink)}
+footer{padding:36px 0 48px;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (max-width:900px){
+  nav{display:none}
+  .demos,.packs{grid-template-columns:minmax(0,1fr)}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  .hero{padding:64px 0 48px}
+  .facts{grid-template-columns:minmax(0,1fr)}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  section{padding:64px 0}
+  .bar .btn{padding:10px 16px;font-size:14px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#">Jose Aylas <span>· Diseño web</span></a>
+    <nav><a href="#trabajos">Trabajos</a><a href="#paquetes">Paquetes</a><a href="#proceso">Cómo trabajo</a></nav>
+    <a class="btn" href="#contacto">Escríbeme</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <p class="kicker">Páginas web para negocios de barrio</p>
+    <h1 class="serif">Tu negocio, <em>abierto</em> también en internet.</h1>
+    <p class="lead">Hago páginas web para restaurantes, barberías, farmacias y negocios locales. Tus clientes ven tu carta, tus precios y tu horario, y te escriben por WhatsApp con un clic.</p>
+    <div class="cta">
+      <a class="btn" href="#trabajos">Ver trabajos</a>
+      <a class="btn ghost" href="#contacto">Pedir mi página</a>
+    </div>
+    <div class="facts">
+      <div><b>3 a 10 días</b><span>de entrega, según el paquete</span></div>
+      <div><b>WhatsApp</b><span>pedidos y reservas directo a tu celular</span></div>
+      <div><b>Google Maps</b><span>para que te encuentren cerca</span></div>
+    </div>
+  </div>
+
+  <section id="trabajos">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="serif">Trabajos de muestra</h2>
+        <p>Tres ejemplos para negocios distintos. Ábrelos en tu celular: así los ven tus clientes.</p>
+      </div>
+      <div class="demos">
+        <a class="demo" href="dona-paquita/">
+          <div class="shot"><img src="assets/dona-paquita.webp" alt="Página web del restaurante Doña Paquita" loading="lazy" width="1280" height="800"></div>
+          <div class="body">
+            <span class="tag">Restaurante</span>
+            <h3>Doña Paquita</h3>
+            <p>Carta con fotos de cada plato, menú del día, ubicación y pedidos por WhatsApp.</p>
+            <span class="go">Ver demo →</span>
+          </div>
+        </a>
+        <a class="demo" href="el-filo-barberia/">
+          <div class="shot"><img src="assets/el-filo-barberia.webp" alt="Página web de la barbería El Filo" loading="lazy" width="1280" height="800"></div>
+          <div class="body">
+            <span class="tag">Barbería</span>
+            <h3>El Filo</h3>
+            <p>Precios de cortes, galería, equipo de barberos y reserva de turno que llega por WhatsApp.</p>
+            <span class="go">Ver demo →</span>
+          </div>
+        </a>
+        <a class="demo" href="botica-alivio/">
+          <div class="shot"><img src="assets/botica-alivio.webp" alt="Página web de la farmacia Botica Alivio" loading="lazy" width="1280" height="800"></div>
+          <div class="body">
+            <span class="tag">Farmacia</span>
+            <h3>Botica Alivio</h3>
+            <p>Buscador de productos, carrito que arma el pedido por WhatsApp y receta por foto.</p>
+            <span class="go">Ver demo →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="paquetes">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="serif">Paquetes</h2>
+        <p>Precio fijo, sin sorpresas. 50% al empezar y 50% al entregar, por Yape, Plin o transferencia.</p>
+      </div>
+      <div class="packs">
+        <div class="pack">
+          <h3>Básico</h3>
+          <div class="price">S/ 350 <small>pago único</small></div>
+          <p class="muted">Para el negocio que necesita estar en internet.</p>
+          <ul><li>Una página con tus servicios o productos</li><li>Fotos, horario y mapa</li><li>Botón de WhatsApp</li><li>Lista en 3 a 4 días</li></ul>
+        </div>
+        <div class="pack star">
+          <h3>Negocio</h3>
+          <div class="price">S/ 700 <small>pago único</small></div>
+          <p class="muted">Para restaurantes y negocios con varios servicios.</p>
+          <ul><li>Todo lo del Básico</li><li>Carta o catálogo, galería y reseñas</li><li>Dominio propio el primer año</li><li>Ficha en Google Maps</li></ul>
+        </div>
+        <div class="pack">
+          <h3>Pro</h3>
+          <div class="price">S/ 1,100 <small>pago único</small></div>
+          <p class="muted">Para recibir pedidos o reservas desde la web.</p>
+          <ul><li>Todo lo de Negocio</li><li>Carta digital con código QR</li><li>Reservas o pedidos a WhatsApp</li><li>1 mes de mantenimiento gratis</li></ul>
+        </div>
+      </div>
+      <p class="note">Todos incluyen 5 rondas de cambios. Mantenimiento opcional: S/ 60 al mes, con hosting, dominio y hasta 2 cambios al mes.</p>
+    </div>
+  </section>
+
+  <section id="proceso">
+    <div class="wrap">
+      <div class="head"><h2 class="serif">Cómo trabajo</h2></div>
+      <div class="steps">
+        <div class="step"><h3>Conversamos</h3><p>Me cuentas de tu negocio y eliges el paquete.</p></div>
+        <div class="step"><h3>Me pasas lo tuyo</h3><p>Fotos, carta o precios, horario y dirección.</p></div>
+        <div class="step"><h3>Te muestro el avance</h3><p>Revisas en tu celular y pides los cambios.</p></div>
+        <div class="step"><h3>Publicamos</h3><p>Tu página queda en línea y te enseño a compartirla.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <h2 class="serif">¿Hacemos la <em>página</em> de tu negocio?</h2>
+          <p style="margin-top:14px">Escríbeme por WhatsApp y te respondo el mismo día.</p>
+        </div>
+        <div><a class="btn" href="https://wa.me/51999999999?text=Hola%20Jose%2C%20vi%20tu%20portafolio%20y%20quiero%20una%20p%C3%A1gina%20web%20para%20mi%20negocio." target="_blank" rel="noopener">Escribir por WhatsApp →</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Jose Aylas Gutierrez · Diseño web en Perú</span><span>Los negocios de las demos son de ejemplo.</span></div>
+</footer>
+</body>
+</html>

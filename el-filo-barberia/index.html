@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El Filo Barbería</title>
+<meta name="description" content="Barbería clásica desde 2011. Cortes, fades y afeitado con navaja. Reserva tu turno por WhatsApp.">
+<meta name="theme-color" content="#12100E">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Antonio:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css?v=20261108">
+<script defer src="main.js?v=20261108"></script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="nav" data-nav>
+  <div class="wrap nav-in">
+    <a class="logo" href="#inicio"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 26 26 6M10 8l14 14"/><circle cx="8" cy="24" r="3.5"/><circle cx="24" cy="24" r="3.5"/></svg><span>El Filo<small>Barbería clásica</small></span></a>
+    <nav class="nav-links" aria-label="Secciones">
+      <a href="#servicios">Servicios</a><a href="#cortes">Cortes</a><a href="#equipo">Equipo</a><a href="#reserva">Reserva</a>
+    </nav>
+    <a class="btn" href="#reserva">Reservar turno</a>
+  </div>
+</header>
+
+<main id="contenido">
+  <section class="hero" id="inicio" style="padding:0">
+    <div class="hero-mesh" aria-hidden="true"></div>
+    <div class="wrap hero-in">
+      <div>
+        <div class="hero-meta"><span class="status" data-status><i></i><span>Lunes a sábado de 10:00 a 21:00</span></span><span>Av. Principal 456</span></div>
+        <h1><span class="line"><span>Corte</span></span><span class="line"><span>clásico,</span></span><span class="line"><span class="brass">navaja caliente.</span></span></h1>
+        <p class="lead">Barbería de barrio desde 2011. Reservas tu turno en un minuto, llegas y te sientas. Sin esperas.</p>
+        <div class="ctas">
+          <a class="btn" href="#reserva">Reservar turno</a>
+          <a class="btn btn-ghost" href="#servicios">Ver precios</a>
+        </div>
+        <div class="rating"><b>4,9</b><div><div class="stars" aria-label="5 estrellas">★★★★★</div>320 reseñas en Google</div></div>
+      </div>
+      <div class="hero-photo"><div class="frame"><div class="ph" data-label="Foto: Barbero trabajando"><img src="assets/img/hero.webp" alt="Barbero haciendo un fade con máquina" loading="lazy" onerror="this.remove()"></div></div><span class="tag">Desde 2011</span></div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="wrap serv-grid">
+      <div class="serv-head reveal">
+        <p class="kicker">Servicios y precios</p>
+        <h2 class="sec-title">Lo que <span>hacemos</span> bien.</h2>
+        <p class="lead">Precios en soles, con lavado incluido. El tiempo es aproximado y ya cuenta el acabado.</p>
+      </div>
+      <ul class="serv-list">
+          <li class="serv reveal" style="--d:0ms"><h3>Corte clásico<span class="min">40 min</span></h3><span class="price">S/ 25</span><p>Tijera y máquina, lavado y peinado con producto.</p></li>
+          <li class="serv reveal" style="--d:60ms"><h3>Fade o degradado<span class="min">45 min</span></h3><span class="price">S/ 30</span><p>Degradado bajo, medio o alto, terminado a navaja.</p></li>
+          <li class="serv reveal" style="--d:120ms"><h3>Corte y barba<span class="min">60 min</span></h3><span class="price">S/ 40</span><p>El combo completo: corte, perfilado y toalla caliente.</p></li>
+          <li class="serv reveal" style="--d:180ms"><h3>Afeitado con navaja<span class="min">35 min</span></h3><span class="price">S/ 30</span><p>Toalla caliente, espuma a brocha y bálsamo final.</p></li>
+          <li class="serv reveal" style="--d:240ms"><h3>Perfilado de barba<span class="min">20 min</span></h3><span class="price">S/ 18</span><p>Forma, contornos a navaja y aceite para barba.</p></li>
+          <li class="serv reveal" style="--d:300ms"><h3>Corte niño<span class="min">30 min</span></h3><span class="price">S/ 20</span><p>Para menores de 12 años, con paciencia incluida.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="gal" id="cortes">
+    <div class="wrap gal-head reveal">
+      <div><p class="kicker">Trabajos recientes</p><h2 class="sec-title">Cortes de <span>la semana.</span></h2></div>
+      <div class="gal-ctrl"><button type="button" data-dir="-1" aria-label="Anterior">←</button><button type="button" data-dir="1" aria-label="Siguiente">→</button></div>
+    </div>
+    <div class="track" data-track tabindex="0" aria-label="Galería de cortes">
+        <figure class="shot"><div class="ph" data-label="Foto: Fade"><img src="assets/img/fade.webp" alt="Fade: Degradado alto" loading="lazy" onerror="this.remove()"></div><figcaption><b>Fade</b><span>Degradado alto</span></figcaption></figure>
+        <figure class="shot"><div class="ph" data-label="Foto: Clásico"><img src="assets/img/clasico.webp" alt="Clásico: Raya al costado" loading="lazy" onerror="this.remove()"></div><figcaption><b>Clásico</b><span>Raya al costado</span></figcaption></figure>
+        <figure class="shot"><div class="ph" data-label="Foto: Barba"><img src="assets/img/barba.webp" alt="Barba: Perfilado completo" loading="lazy" onerror="this.remove()"></div><figcaption><b>Barba</b><span>Perfilado completo</span></figcaption></figure>
+        <figure class="shot"><div class="ph" data-label="Foto: Navaja"><img src="assets/img/navaja.webp" alt="Navaja: Afeitado tradicional" loading="lazy" onerror="this.remove()"></div><figcaption><b>Navaja</b><span>Afeitado tradicional</span></figcaption></figure>
+        <figure class="shot"><div class="ph" data-label="Foto: Texturizado"><img src="assets/img/texturizado.webp" alt="Texturizado: Corte con volumen" loading="lazy" onerror="this.remove()"></div><figcaption><b>Texturizado</b><span>Corte con volumen</span></figcaption></figure>
+        <figure class="shot"><div class="ph" data-label="Foto: Niños"><img src="assets/img/nino.webp" alt="Niños: Corte infantil" loading="lazy" onerror="this.remove()"></div><figcaption><b>Niños</b><span>Corte infantil</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section id="equipo">
+    <div class="wrap">
+      <div class="reveal"><p class="kicker">El equipo</p><h2 class="sec-title">Tres sillas, <span>tres manos.</span></h2></div>
+      <div class="team">
+        <article class="barber reveal" data-tilt style="--d:0ms"><div class="ph" data-label="Foto: Barbero Lucho"><img src="assets/img/barbero-lucho.webp" alt="Retrato de Lucho" loading="lazy" onerror="this.remove()"></div><div class="barber-body"><h3>Lucho</h3><p class="role">Fundador · 15 años</p><p>Abrió El Filo en 2011. Especialista en cortes clásicos y en clientes que no saben qué pedir.</p></div></article>
+        <article class="barber reveal" data-tilt style="--d:100ms"><div class="ph" data-label="Foto: Barbero Kevin"><img src="assets/img/barbero-kevin.webp" alt="Retrato de Kevin" loading="lazy" onerror="this.remove()"></div><div class="barber-body"><h3>Kevin</h3><p class="role">Fades y diseños</p><p>El de las líneas perfectas. Si quieres un degradado limpio o un diseño, es tu barbero.</p></div></article>
+        <article class="barber reveal" data-tilt style="--d:200ms"><div class="ph" data-label="Foto: Barbero Diego"><img src="assets/img/barbero-diego.webp" alt="Retrato de Diego" loading="lazy" onerror="this.remove()"></div><div class="barber-body"><h3>Diego</h3><p class="role">Barba y navaja</p><p>Toalla caliente, navaja y paciencia. Deja la barba como recién salida de revista.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="reserva">
+    <div class="wrap book-grid">
+      <div class="reveal">
+        <p class="kicker">Reserva</p>
+        <h2 class="sec-title">Elige tu <span>turno.</span></h2>
+        <p class="lead" style="margin-top:22px">Completa los datos y se abrirá WhatsApp con tu reserva ya escrita. El barbero te confirma en minutos.</p>
+        <div class="info-list">
+          <div class="info"><h3>Horario</h3>
+            <table class="horas"><tr><td>Lunes a sábado</td><td>10:00 a 21:00</td></tr><tr><td>Domingo</td><td>10:00 a 15:00</td></tr></table></div>
+          <div class="info"><h3>Dónde estamos</h3><address>Av. Principal 456, Tu ciudad, Perú<br>WhatsApp: 999 999 999</address><a class="maps" href="https://maps.google.com/?q=barberia" target="_blank" rel="noopener">Ver en Google Maps →</a></div>
+        </div>
+      </div>
+      <form class="form reveal" style="--d:120ms" data-book novalidate>
+        <div class="field"><label for="b-servicio">Servicio</label><select id="b-servicio"><option>Corte clásico</option><option>Fade o degradado</option><option>Corte y barba</option><option>Afeitado con navaja</option><option>Perfilado de barba</option><option>Corte niño</option></select></div>
+        <div class="row2">
+          <div class="field"><label for="b-barbero">Barbero</label><select id="b-barbero"><option>Cualquier barbero</option><option>Lucho</option><option>Kevin</option><option>Diego</option></select></div>
+          <div class="field"><label for="b-nombre">Tu nombre</label><input id="b-nombre" type="text" autocomplete="given-name" placeholder="Ej. Carlos"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="b-dia">Día</label><select id="b-dia"><option>Hoy</option></select></div>
+          <div class="field"><label for="b-hora">Hora</label><select id="b-hora"><option>10:00</option></select></div>
+        </div>
+        <p class="summary" data-summary aria-live="polite">Elige servicio, día y hora.</p>
+        <p class="err" data-err role="alert"></p>
+        <button class="btn" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>Reservar por WhatsApp</button>
+        <p class="ok" data-ok><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18"/><path d="M12 21l6 6 11-13"/></svg><span>Tu reserva está lista. Si WhatsApp no se abrió, <a data-oklink href="https://wa.me/51999999999?text=Hola%2C%20quiero%20reservar%20un%20corte" target="_blank" rel="noopener">tócalo aquí</a>.</span></p>
+      </form>
+    </div>
+  </section>
+  <div class="big" aria-hidden="true">El Filo</div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© El Filo Barbería · Av. Principal 456 · WhatsApp 999 999 999</span>
+    <span>Diseño web: <b>Jose Aylas Gutierrez</b></span>
+  </div>
+</footer>
+<div class="demo-note">Página de demostración: la barbería, los barberos y las reseñas son de ejemplo.</div>
+<div class="mbook"><span><b>¿Te toca corte?</b>Reserva en un minuto</span><a class="btn" href="#reserva">Reservar</a></div>
+</body>
+</html>
