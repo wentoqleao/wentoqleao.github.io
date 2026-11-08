@@ -245,3 +245,75 @@ footer .logo{color:var(--crema);display:inline-block;margin-bottom:10px}
   .cierre::before{animation:none}
   .marquee-track{animation-duration:80s}
 }
+
+/* ===== Selector de paquetes (solo demo) ===== */
+.pk{position:fixed;top:0;left:0;right:0;z-index:65;height:36px;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--marron);color:var(--crema);font:500 .78rem/1 var(--body);padding:0 12px}
+.pk-l{opacity:.75;margin-right:6px;letter-spacing:.04em}
+.pk a{color:var(--crema);text-decoration:none;padding:6px 12px;border-radius:999px;border:1px solid rgba(248,241,231,.25);white-space:nowrap;transition:background .2s,color .2s}
+.pk a small{opacity:.7;font-size:.72rem;margin-left:4px}
+.pk a:hover{background:rgba(248,241,231,.12)}
+.pk a[aria-current="page"]{background:var(--crema);color:var(--rojo);border-color:var(--crema);font-weight:700}
+.pk a[aria-current="page"] small{opacity:.85}
+.nav{top:36px}
+@media (max-width:440px){.pk-l{display:none}.pk a{padding:6px 10px}}
+@media (max-width:360px){.pk a small{display:none}}
+
+/* ===== Básico ===== */
+.pk-basico .tabbar{grid-template-columns:repeat(4,1fr)}
+
+/* ===== Pro: botón agregar ===== */
+.dish-add{display:flex;justify-content:flex-end;padding-top:12px}
+.add,.qty button{font:600 .9rem/1 var(--body);border:1.5px solid var(--rojo);background:var(--rojo);color:var(--crema);border-radius:999px;cursor:pointer;transition:background .2s,transform .2s}
+.add{padding:.75em 1.4em}
+.add:hover{background:var(--rojo-osc);transform:translateY(-1px)}
+.qty{display:flex;align-items:center;gap:6px}
+.qty[hidden],.add[hidden]{display:none}
+.qty button{width:38px;height:38px;padding:0;font-size:1.15rem}
+.qty output{min-width:28px;text-align:center;font:700 1.05rem var(--body);color:var(--marron)}
+
+/* ===== Pro: barra del pedido ===== */
+.cartbar{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:75;width:min(560px,calc(100% - 140px));transform:translate(-50%,140%);opacity:0;transition:transform .45s var(--ease),opacity .3s;display:flex;align-items:center;gap:14px;background:var(--marron);color:var(--crema);border-radius:18px;padding:12px 12px 12px 20px;box-shadow:0 20px 40px -18px rgba(0,0,0,.6)}
+.cartbar.show{transform:translate(-50%,0);opacity:1}
+.cartbar .info{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}
+.cartbar .info b{font:600 .85rem var(--body);opacity:.85}
+.cartbar .info span{font:600 1.35rem/1 var(--display)}
+.cartbar .btn{background:var(--crema);color:var(--rojo);border-color:var(--crema);padding:.85em 1.2em;font-size:.92rem}
+.cartbar .clear{background:none;border:0;color:var(--crema);opacity:.7;font-size:1.4rem;cursor:pointer;width:36px;height:36px;border-radius:50%}
+.cartbar .clear:hover{opacity:1;background:rgba(248,241,231,.12)}
+@media (max-width:899px){.cartbar{bottom:calc(76px + env(safe-area-inset-bottom,0px));width:calc(100% - 24px)}}
+
+/* ===== Pro: apps de delivery ===== */
+.apps{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:40px;padding-top:28px;border-top:1px solid var(--linea)}
+.apps p{margin:0 8px 0 0;color:var(--marron-suave)}
+.app-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font:700 .95rem var(--body);padding:.8em 1.3em;border-radius:999px;color:#fff}
+.app-btn.rappi{background:#E8412C}
+.app-btn.pya{background:#D7064F}
+.app-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+
+/* ===== Pro: reservas ===== */
+.reservas{background:var(--crema-2)}
+.res-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.res-grid > div p{color:var(--marron-suave);max-width:40ch;margin-top:14px}
+.res-form{display:grid;gap:16px}
+.res-form label{display:grid;gap:6px;font:600 .82rem var(--body);letter-spacing:.04em;color:var(--marron)}
+.res-form input,.res-form select{font:500 1rem var(--body);color:var(--marron);background:var(--crema);border:1.5px solid var(--linea);border-radius:12px;padding:.8em .9em;width:100%}
+.res-form input:focus,.res-form select:focus{outline:2px solid var(--rojo);outline-offset:1px;border-color:transparent}
+.res-form input[aria-invalid="true"]{border-color:var(--rojo)}
+.res-form .row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.res-form .err{min-height:1.2em;color:var(--rojo);font-size:.88rem;margin:0}
+.res-form .btn{width:100%}
+.res-ok{font-size:.9rem;color:var(--marron-suave);margin:0}
+.res-ok a{color:var(--rojo);font-weight:600}
+.res-ok[hidden]{display:none}
+@media (max-width:899px){.res-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:480px){.res-form .row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.res-form .row label:last-child{grid-column:1/-1}}
+
+/* ===== Pro: carta QR ===== */
+.qr-grid{display:grid;grid-template-columns:auto minmax(0,1fr);gap:56px;align-items:center}
+.qr-card{background:var(--blanco);border-radius:22px;padding:22px 22px 16px;box-shadow:0 22px 44px -26px rgba(56,34,28,.55);text-align:center;transform:rotate(-2deg)}
+.qr-card img{width:200px;height:200px}
+.qr-card span{display:block;margin-top:8px;font:600 .78rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--rojo)}
+.qr-grid p{color:var(--marron-suave);max-width:46ch;margin-top:14px}
+@media (max-width:700px){.qr-grid{grid-template-columns:minmax(0,1fr);gap:36px}.qr-card{justify-self:center}}
+.hero-in{padding-top:166px}
+@media (max-width:899px){.hero-in{padding-top:150px}}

@@ -59,6 +59,11 @@ h2{font-size:clamp(38px,5vw,62px);line-height:1;letter-spacing:-.015em}
 .demo h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:32px;line-height:1}
 .demo p{color:var(--muted);font-size:15px}
 .demo .go{margin-top:auto;padding-top:8px;font-weight:600;font-size:15px}
+a.shot{display:block}
+.tiers{display:flex;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}
+.tiers a{flex:1;text-align:center;text-decoration:none;font-weight:600;font-size:14px;padding:9px 10px;border:1px solid var(--ink);border-radius:999px;transition:background .2s,color .2s}
+.tiers a:hover{background:var(--ink);color:#fff}
+.tiers a:last-child{background:var(--acc);border-color:var(--acc);color:#fff}
 .packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
 .pack{border:1px solid var(--line);border-radius:20px;padding:30px 26px;background:var(--bg);display:flex;flex-direction:column;gap:14px}
 .pack.star{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -130,15 +135,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <p>Tres ejemplos para negocios distintos. Ábrelos en tu celular: así los ven tus clientes.</p>
       </div>
       <div class="demos">
-        <a class="demo" href="dona-paquita/">
-          <div class="shot"><img src="assets/dona-paquita.webp" alt="Página web del restaurante Doña Paquita" loading="lazy" width="1280" height="800"></div>
+        <div class="demo">
+          <a class="shot" href="dona-paquita/"><img src="assets/dona-paquita.webp" alt="Página web del restaurante Doña Paquita" loading="lazy" width="1280" height="800"></a>
           <div class="body">
-            <span class="tag">Restaurante</span>
+            <span class="tag">Restaurante · en 3 paquetes</span>
             <h3>Doña Paquita</h3>
-            <p>Carta con fotos de cada plato, menú del día, ubicación y pedidos por WhatsApp.</p>
-            <span class="go">Ver demo →</span>
+            <p>La misma web en cada paquete, para que veas qué incluye cada uno: desde la página simple hasta pedidos con carrito y reservas.</p>
+            <div class="tiers"><a href="dona-paquita-basico/">Básico</a><a href="dona-paquita/">Negocio</a><a href="dona-paquita-pro/">Pro</a></div>
           </div>
-        </a>
+        </div>
         <a class="demo" href="el-filo-barberia/">
           <div class="shot"><img src="assets/el-filo-barberia.webp" alt="Página web de la barbería El Filo" loading="lazy" width="1280" height="800"></div>
           <div class="body">
