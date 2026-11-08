@@ -5,100 +5,389 @@
 <meta name="robots" content="noindex, nofollow">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qOhFsq0QMV2REqNwk5hGH5bZE9SkX6gt6yeyKdYPv+U='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>La Olla Anticuchería · Anticuchos, parrillas y más</title>
 <meta name="description" content="Anticuchería en Villa El Salvador. Anticuchos, parrillas y tragos. Pedidos, delivery y reservas por WhatsApp.">
-<meta name="theme-color" content="#F6C238">
-<link rel="preload" href="assets/fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/jbmono.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#7E170F">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="styles.css?v=20261108">
 <script defer src="main.js?v=20261108"></script>
+<script defer src="pedidos.js?v=20261108"></script>
 </head>
-<body>
+<body class="pk-pro olla">
 <a class="skip" href="#contenido">Saltar al contenido</a>
-<div class="cursor-xy" data-xy aria-hidden="true">[000, 000]</div>
-<p class="proposal"><span class="pl">Propuesta de página web para La Olla Anticuchería · </span>diseño de Jose Aylas Gutierrez</p>
+<div class="pk"><span>Propuesta de página web para La Olla Anticuchería · diseño de Jose Aylas Gutierrez</span></div>
+<div class="splash" data-splash aria-hidden="true"><div class="splash-in"><img src="assets/img/logo.webp" alt="" width="110" height="110"><b>La <em>Olla</em></b><small>Anticuchería · Villa El Salvador</small></div></div>
+<div class="progress" data-progress aria-hidden="true"></div>
+<div class="cursor" data-cursor aria-hidden="true"><i class="dot"></i><i class="ring"></i></div>
 
-<header class="top" data-nav>
-  <a class="brand" href="#inicio"><img src="assets/img/logo.webp" alt="" width="40" height="40"><span>La Olla</span></a>
-  <nav class="links" aria-label="Secciones"><a href="#carta">02 Carta</a><a href="#pedir">03 Pedir</a><a href="#reservas">05 Reservar</a><a href="#local">06 Local</a></nav>
-  <a class="cta-top" href="https://wa.me/51975889322?text=Hola%20La%20Olla%2C%20quisiera%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg><span>Pedir</span></a>
+<header class="nav" data-nav>
+  <div class="wrap nav-in">
+    <a class="logo" href="#inicio"><img src="assets/img/logo.webp" alt="" width="40" height="40">La <em>Olla</em></a>
+    <nav class="nav-links" aria-label="Secciones">
+      <a href="#carta">La carta</a>
+      <a href="#pedir">Pedir</a>
+      <a href="#reservas">Reservar</a>
+      <a href="#visitanos">Visítanos</a>
+    </nav>
+    <a class="btn" href="https://wa.me/51975889322?text=Hola%20La%20Olla%2C%20quisiera%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>Pedir</a>
+  </div>
 </header>
 
 <main id="contenido">
-  <section class="hero" id="inicio">
-    <div class="grid hero-grid">
-      <div class="cell h-title">
-        <p class="kicker">01 · Anticuchería · Villa El Salvador · Lima</p>
-        <h1 class="reveal" data-split>Anticuchos,<br>parrillas<br><em>y más.</em></h1>
+  <section class="hero" id="inicio" style="padding:0">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap hero-in">
+      <div>
+        <p class="kicker">Anticuchería · Villa El Salvador</p>
+        <h1 data-split>Anticuchos, parrillas<br><em>y más.</em></h1>
+        <p class="sub">Corazón, pancita, molleja y rachi, ahumaditos a la brasa y servidos con papa dorada, choclo y sus cremas.</p>
+        <div class="ctas">
+          <a class="btn btn-light" href="https://wa.me/51975889322?text=Hola%20La%20Olla%2C%20quisiera%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>Pedir por WhatsApp</a>
+          <a class="btn btn-line" href="#carta">Ver la carta</a>
+        </div>
       </div>
-      <figure class="cell h-photo"><img src="assets/img/anticuchos.webp" alt="Anticuchos a la parrilla con papas doradas y choclo" width="640" height="480"><figcaption>[ fig. 01 ] corazón a la brasa · foto referencial</figcaption></figure>
-      <div class="cell h-status"><span class="lbl">Estado</span><p class="status" data-status><i></i><span>Lun a sáb 4:30 pm a 12 am · Dom 12 pm a 12 am</span></p></div>
-      <div class="cell h-addr"><span class="lbl">Dirección</span><p>Av. Micaela Bastidas 1526<br>Villa El Salvador</p></div>
-      <div class="cell h-tel"><span class="lbl">Pedidos y reservas</span><p><a href="tel:+51975889322">975 889 322</a></p></div>
-      <a class="cell h-go go-1" href="#carta"><span>Ver la carta</span><b>→</b></a>
-      <a class="cell h-go go-2" href="#reservas"><span>Reservar mesa</span><b>→</b></a>
+      <aside class="menu-card reveal" style="--d:300ms" aria-label="Los más pedidos">
+        <p class="kicker">Todos los días</p>
+        <h2>Los más pedidos</h2>
+        <ul>
+          <li><b>Mixto · S/ 30</b><span>Corazón, pancita, molleja y rachi</span></li>
+          <li><b>Promoción · S/ 30</b><span>2 palitos de corazón, pancita, choclo y queso</span></li>
+          <li><b>Combinado · S/ 28</b><span>2 palitos de corazón y pancita ahumadita</span></li>
+        </ul>
+        <div class="menu-price"><span>Parrilla para 2</span><strong>S/ 60</strong></div>
+      </aside>
     </div>
+    <a class="scroll-cue" href="#historia">Desliza</a>
   </section>
 
-  <div class="marquee" aria-hidden="true"><div class="mq-track"><span>Corazón</span><i>✕</i><span>Pancita</span><i>✕</i><span>Molleja</span><i>✕</i><span>Rachi</span><i>✕</i><span>Panceta</span><i>✕</i><span>Pollo a la parrilla</span><i>✕</i><span>Choclo con queso</span><i>✕</i><span>Parrilla familiar</span><i>✕</i><span>Pisco sour en jarra</span><i>✕</i><span>Corazón</span><i>✕</i><span>Pancita</span><i>✕</i><span>Molleja</span><i>✕</i><span>Rachi</span><i>✕</i><span>Panceta</span><i>✕</i><span>Pollo a la parrilla</span><i>✕</i><span>Choclo con queso</span><i>✕</i><span>Parrilla familiar</span><i>✕</i><span>Pisco sour en jarra</span><i>✕</i></div></div>
+  <div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Anticucho de corazón</span><span>Pancita</span><span>Molleja</span><span>Rachi</span><span>Panceta</span><span>Pollo a la parrilla</span><span>Choclo con queso</span><span>Ocopa</span><span>Parrilla familiar</span><span>Pisco sour en jarra</span><span>Anticucho de corazón</span><span>Pancita</span><span>Molleja</span><span>Rachi</span><span>Panceta</span><span>Pollo a la parrilla</span><span>Choclo con queso</span><span>Ocopa</span><span>Parrilla familiar</span><span>Pisco sour en jarra</span></div></div>
 
-  <section class="carta" id="carta">
-    <div class="grid sec-head">
-      <div class="cell"><p class="kicker">02 · La carta</p><h2 class="reveal">Elige, agrega<br>y pide.</h2></div>
-      <div class="cell sec-note"><p>Toca <b>[ + agregar ]</b> en lo que se te antoje. Tu pedido llega a nuestro WhatsApp con el total ya calculado. Precios en soles.</p></div>
-    </div>
-    <div class="tabs" role="group" aria-label="Categorías de la carta"><button class="tab" type="button" data-cat="pedidos" aria-pressed="true"><span>01</span>Los más pedidos</button><button class="tab" type="button" data-cat="anticuchos" aria-pressed="false"><span>02</span>Anticuchos</button><button class="tab" type="button" data-cat="duos" aria-pressed="false"><span>03</span>Dúos perfectos</button><button class="tab" type="button" data-cat="parrilla" aria-pressed="false"><span>04</span>Nuestra parrilla</button><button class="tab" type="button" data-cat="compartir" aria-pressed="false"><span>05</span>Para compartir</button><button class="tab" type="button" data-cat="entradas" aria-pressed="false"><span>06</span>Entradas</button><button class="tab" type="button" data-cat="complementos" aria-pressed="false"><span>07</span>Complementos</button><button class="tab" type="button" data-cat="bebidas" aria-pressed="false"><span>08</span>Bebidas y tragos</button></div>
-    <div class="groups"><div class="grp" data-cat="pedidos"><h3><span>01</span>Los más pedidos<em>4 opciones</em></h3><ul class="items"><li class="item"><div class="it-txt"><h4>Mixto</h4><p>Todo el sabor de la esquina directo a tu mesa: 1 palito de corazón, pancita, mollejita y rachi, con papa a la parrilla, ensalada y cremas.</p></div><span class="pr">S/ 30</span></li><li class="item"><div class="it-txt"><h4>Promoción</h4><p>2 palitos de corazón y pancita suavecita y ahumadita, con su choclito y su queso, papa a la parrilla, ensalada y cremas.</p></div><span class="pr">S/ 30</span></li><li class="item"><div class="it-txt"><h4>Combinado</h4><p>2 palitos de corazón y pancita suavecita y ahumadita, con papa a la parrilla, ensalada y cremas.</p></div><span class="pr">S/ 28</span></li><li class="item"><div class="it-txt"><h4>Pollo a la parrilla anticuchero</h4><p>Pechuga o pierna (400 g) jugosa y ahumadita, con papa a la parrilla, choclito, ensaladita y sus cremas.</p></div><span class="pr">S/ 28</span></li></ul></div><div class="grp" data-cat="anticuchos" hidden><h3><span>02</span>Anticuchos<em>4 opciones</em></h3><ul class="items"><li class="item"><div class="it-txt"><h4>Anticucho de corazón</h4><p>2 palos (300 g) jugositos y ahumaditos, con papa a la parrilla, choclo, ensaladita y sus cremas.</p></div><span class="pr">S/ 25</span></li><li class="item"><div class="it-txt"><h4>Anticucho de pollo</h4><p>2 palos (300 g) jugositos y ahumaditos, con papa a la parrilla, ensaladita y sus cremas.</p></div><span class="pr">S/ 25</span></li><li class="item"><div class="it-txt"><h4>Anticucho de panceta</h4><p>2 palos (300 g) con el punto exacto de grasita, con papa a la parrilla, choclo, ensaladita y sus cremas.</p></div><span class="pr">S/ 28</span></li><li class="item"><div class="it-txt"><h4>Cristhian Domínguez</h4><p>Para los que no se conforman con uno solo: 3 palos (450 g) de corazón, pollo y panceta, con papa a la parrilla, choclo, ensaladita y sus cremas.</p></div><span class="pr">S/ 38</span></li></ul></div><div class="grp" data-cat="duos" hidden><h3><span>03</span>Dúos perfectos<em>3 opciones</em></h3><ul class="items"><li class="item"><div class="it-txt"><h4>Anticuchos con rachi</h4><p>2 palitos de corazón (200 g) con rachi doradito y ahumado, choclito, papas a la parrilla, ensalada y cremas.</p></div><span class="pr">S/ 35</span></li><li class="item"><div class="it-txt"><h4>Anticuchos con molleja</h4><p>2 palitos de corazón (200 g) con mollejita suave y jugosa, choclito, papas a la parrilla, ensalada y cremas.</p></div><span class="pr">S/ 30</span></li><li class="item"><div class="it-txt"><h4>Arma tu dúo</h4><p>Combínalos como quieras: pancita, molleja o rachi, con choclito, papas a la parrilla, ensalada y cremas.</p></div><span class="pr">S/ 32</span></li></ul></div><div class="grp" data-cat="parrilla" hidden><h3><span>04</span>Nuestra parrilla<em>3 opciones</em></h3><ul class="items"><li class="item"><div class="it-txt"><h4>Pancita</h4><p>Suavecita, doradita y ahumada, con choclito, papas a la parrilla, ensalada y cremas.</p></div><span class="pr">S/ 22</span></li><li class="item"><div class="it-txt"><h4>Molleja</h4><p>Jugosa y bien ahumada, con choclito, papas a la parrilla, ensalada y cremas.</p></div><span class="pr">S/ 22</span></li><li class="item"><div class="it-txt"><h4>Rachi</h4><p>Suave, jugoso y bien ahumado, con choclito, papas a la parrilla, ensalada y cremas.</p></div><span class="pr">S/ 28</span></li></ul></div><div class="grp" data-cat="compartir" hidden><h3><span>05</span>Para compartir<em>2 opciones</em></h3><ul class="items"><li class="item"><div class="it-txt"><h4>Parrilla para 2</h4><p>2 palitos de corazón (200 g), pollo a la parrilla (250 g) y pancita ahumadita, con choclito, papas a la parrilla, ensalada y cremas.</p></div><span class="pr">S/ 60</span></li><li class="item"><div class="it-txt"><h4>Parrilla familiar</h4><p>4 palitos de corazón (400 g), 2 pollos a la parrilla (500 g), pancita, mollejita y rachi, con choclito, papas a la parrilla, ensalada y cremas.</p></div><span class="pr">S/ 120</span></li></ul></div><div class="grp" data-cat="entradas" hidden><h3><span>06</span>Entradas<em>2 opciones</em></h3><ul class="items"><li class="item"><div class="it-txt"><h4>Choclito con queso</h4><p>Tiernito, ligeramente dulce, con su punto de anís y queso paria.</p></div><span class="pr">S/ 10</span></li><li class="item"><div class="it-txt"><h4>Ocopa limeña</h4><p>Cremosita, con queso paria a la parrilla, huevito y trozos de maní.</p></div><span class="pr">S/ 20</span></li></ul></div><div class="grp" data-cat="complementos" hidden><h3><span>07</span>Complementos<em>11 opciones</em></h3><ul class="items"><li class="item"><div class="it-txt"><h4>Porción de papas a la parrilla</h4><p>Doraditas, suaves por dentro y con ese toque ahumado.</p></div><span class="pr">S/ 12</span></li><li class="item"><div class="it-txt"><h4>1/2 porción de papas a la parrilla</h4><p>Para sumar sin exagerar.</p></div><span class="pr">S/ 7</span></li><li class="item"><div class="it-txt"><h4>Choclo</h4><p>Dulcecito y tierno.</p></div><span class="pr">S/ 5</span></li><li class="item"><div class="it-txt"><h4>Arroz</h4><p>Blanco y suelto.</p></div><span class="pr">S/ 7</span></li><li class="item"><div class="it-txt"><h4>Palito de corazón (adicional)</h4></div><span class="pr">S/ 12</span></li><li class="item"><div class="it-txt"><h4>Palito de panceta (adicional)</h4></div><span class="pr">S/ 15</span></li><li class="item"><div class="it-txt"><h4>Palito de pollo (adicional)</h4></div><span class="pr">S/ 12</span></li><li class="item"><div class="it-txt"><h4>Rachi (adicional)</h4><p>Trocitos crujientes y sabrosos.</p></div><span class="pr">S/ 18</span></li><li class="item"><div class="it-txt"><h4>Molleja (adicional)</h4><p>Suavecita y doradita.</p></div><span class="pr">S/ 12</span></li><li class="item"><div class="it-txt"><h4>Chorizo parrillero</h4><p>Especiado y jugoso.</p></div><span class="pr">S/ 7</span></li><li class="item"><div class="it-txt"><h4>Ensalada</h4><p>Fresca y crocante.</p></div><span class="pr">S/ 10</span></li></ul></div><div class="grp" data-cat="bebidas" hidden><h3><span>08</span>Bebidas y tragos<em>pregunta precios</em></h3><ul class="items drinks"><li class="drink"><h4>Tragos</h4><p>Corona margarita, pisco sour, maracuyá sour, chilcano, algarrobina, Machu Picchu, piña colada, mojito, mojito de maracuyá, laguna azul, cóctel primavera, cóctel bárbaros, cuba libre y tequila.</p></li><li class="drink"><h4>Tragos en jarra</h4><p>Pisco sour y mojito.</p></li><li class="drink"><h4>Bebidas frías y cervezas</h4><p>Gaseosas, cerveza, agua de mesa, limonadas y chicha morada.</p></li><li class="drink"><h4>Vinos y licores</h4><p>Tabernero, Queirolo, Casillero del Diablo, Colección Privada, Viña Vieja, whisky y ron Cartavio.</p></li></ul></div></div>
-  </section>
-
-  <section class="stats" aria-label="La Olla en números">
-    <div class="grid stats-grid">
-      <div class="cell"><b data-count="6475">6475</b><span>seguidores en Instagram</span></div>
-      <div class="cell"><b data-count="29">29</b><span>platos en la carta</span></div>
-      <div class="cell"><b data-count="7">7</b><span>días a la semana</span></div>
-      <div class="cell"><b data-count="12" data-suffix=" am">12 am</b><span>cerramos la parrilla</span></div>
-    </div>
-  </section>
-
-  <section class="pedir" id="pedir">
-    <div class="grid sec-head">
-      <div class="cell"><p class="kicker">03 · Delivery y para llevar</p><h2 class="reveal">Tu pedido<br>en 3 pasos.</h2></div>
-      <div class="cell sec-note"><p>Sin apps ni registros. Armas tu pedido aquí y lo mandas por WhatsApp.</p></div>
-    </div>
-    <ol class="grid steps">
-      <li class="cell"><b>01</b><h3>Arma tu pedido</h3><p>Agrega tus platos desde la carta y ajusta las cantidades.</p></li>
-      <li class="cell"><b>02</b><h3>Envíalo</h3><p>Llega con el total. Solo escribe tu dirección o si pasas a recoger.</p></li>
-      <li class="cell"><b>03</b><h3>A la brasa</h3><p>Te confirmamos el tiempo de entrega y pagas como prefieras.</p></li>
-    </ol>
-  </section>
-
-  <section class="bot" id="respuesta">
-    <div class="grid bot-grid">
-      <div class="cell">
-        <p class="kicker">04 · Atención al instante</p>
-        <h2 class="reveal">Respondemos<br>en segundos.</h2>
-        <p class="body">Cuando envías tu pedido o tu reserva, nuestro WhatsApp te responde al momento, aunque la parrilla esté a full.</p>
+  <section class="story" id="historia">
+    <div class="wrap story-grid">
+      <div class="reveal">
+        <p class="kicker">La Olla</p>
+        <h2 class="sec-title">El sabor de la esquina, <em>a la brasa.</em></h2>
       </div>
-      <div class="cell log" role="img" aria-label="Ejemplo: el cliente envía su pedido y recibe una respuesta automática al instante">
-        <p class="log-h">whatsapp · la olla anticuchería</p>
-        <p class="ln out"><span>20:14 cliente</span>Hola La Olla, quiero hacer este pedido:<br>• 1 x Parrilla para 2 (S/ 60.00)<br>• 1 x Choclito con queso (S/ 10.00)<br>Total referencial: S/ 70.00</p>
-        <p class="ln in"><span>20:14 la olla · automático</span>¡Hola! Gracias por escribir a La Olla. Ya recibimos tu pedido y en unos minutos te confirmamos el tiempo de entrega.</p>
-        <p class="ln wait"><span>20:15 la olla</span>escribiendo<i class="blink">_</i></p>
+      <div class="reveal" style="--d:120ms">
+        <p>Anticuchos jugositos y ahumados, parrillas para compartir y tragos en jarra. Todo sale de la parrilla al momento, con papa dorada, choclo, ensaladita y sus cremas.</p>
+        <p>Atendemos todos los días en Villa El Salvador: en el local, para llevar o con delivery.</p>
+        <div class="stats">
+          <div><b data-count="6475">6475</b><span>seguidores en Instagram</span></div>
+          <div><b data-count="29">29</b><span>platos en la carta</span></div>
+          <div><b data-count="7">7</b><span>días a la semana</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="red" id="carta">
+    <div class="wrap">
+      <div class="carta-head reveal">
+        <div><p class="kicker">Recién salido de la parrilla</p><h2 class="sec-title">La <em>carta</em></h2></div>
+        <p>Toca «Agregar» y arma tu pedido. Todo viene con papa a la parrilla, ensalada y cremas, salvo los complementos.</p>
+      </div>
+      <div class="filtros reveal" role="group" aria-label="Filtrar la carta">
+        <button class="filtro" type="button" data-cat="pedidos" aria-pressed="true">Los más pedidos</button>
+        <button class="filtro" type="button" data-cat="anticuchos" aria-pressed="false">Anticuchos</button>
+        <button class="filtro" type="button" data-cat="duos" aria-pressed="false">Dúos perfectos</button>
+        <button class="filtro" type="button" data-cat="parrilla" aria-pressed="false">Nuestra parrilla</button>
+        <button class="filtro" type="button" data-cat="compartir" aria-pressed="false">Para compartir</button>
+        <button class="filtro" type="button" data-cat="entradas" aria-pressed="false">Entradas</button>
+        <button class="filtro" type="button" data-cat="complementos" aria-pressed="false">Complementos</button>
+        <button class="filtro" type="button" data-cat="bebidas" aria-pressed="false">Bebidas y tragos</button>
+      </div>
+      <div class="platos">
+        <article class="dish reveal" data-cat="pedidos" data-tilt style="--d:0ms">
+          <div class="dish-img ph"><span>Foto: Mixto</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Mixto</h3><span class="price">S/ 30</span></div>
+            <p>Todo el sabor de la esquina directo a tu mesa: 1 palito de corazón, pancita, mollejita y rachi, con papa a la parrilla, ensalada y cremas.</p>
+            <div class="dish-foot"><span class="tag">Más pedido</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="pedidos" data-tilt style="--d:90ms">
+          <div class="dish-img ph"><span>Foto: Promoción</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Promoción</h3><span class="price">S/ 30</span></div>
+            <p>2 palitos de corazón y pancita suavecita y ahumadita, con su choclito y su queso, papa a la parrilla, ensalada y cremas.</p>
+            <div class="dish-foot"><span class="tag">Más pedido</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="pedidos" data-tilt style="--d:180ms">
+          <div class="dish-img ph"><span>Foto: Combinado</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Combinado</h3><span class="price">S/ 28</span></div>
+            <p>2 palitos de corazón y pancita suavecita y ahumadita, con papa a la parrilla, ensalada y cremas.</p>
+            <div class="dish-foot"><span class="tag">Más pedido</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="pedidos" data-tilt style="--d:0ms">
+          <div class="dish-img ph"><span>Foto: Pollo a la parrilla anticuchero</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pollo a la parrilla anticuchero</h3><span class="price">S/ 28</span></div>
+            <p>Pechuga o pierna (400 g) jugosa y ahumadita, con papa a la parrilla, choclito, ensaladita y sus cremas.</p>
+            <div class="dish-foot"><span class="tag">Más pedido</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="anticuchos" data-tilt style="--d:90ms" hidden>
+          <div class="dish-img"><img src="assets/img/anticuchos.webp" alt="Anticuchos de corazón a la parrilla" loading="lazy" width="640" height="480"></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Anticucho de corazón</h3><span class="price">S/ 25</span></div>
+            <p>2 palos (300 g) jugositos y ahumaditos, con papa a la parrilla, choclo, ensaladita y sus cremas.</p>
+            <div class="dish-foot"><span class="tag light">Anticucho</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="anticuchos" data-tilt style="--d:180ms" hidden>
+          <div class="dish-img ph"><span>Foto: Anticucho de pollo</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Anticucho de pollo</h3><span class="price">S/ 25</span></div>
+            <p>2 palos (300 g) jugositos y ahumaditos, con papa a la parrilla, ensaladita y sus cremas.</p>
+            <div class="dish-foot"><span class="tag light">Anticucho</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="anticuchos" data-tilt style="--d:0ms" hidden>
+          <div class="dish-img ph"><span>Foto: Anticucho de panceta</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Anticucho de panceta</h3><span class="price">S/ 28</span></div>
+            <p>2 palos (300 g) con el punto exacto de grasita, con papa a la parrilla, choclo, ensaladita y sus cremas.</p>
+            <div class="dish-foot"><span class="tag light">Anticucho</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="anticuchos" data-tilt style="--d:90ms" hidden>
+          <div class="dish-img ph"><span>Foto: Cristhian Domínguez</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Cristhian Domínguez</h3><span class="price">S/ 38</span></div>
+            <p>Para los que no se conforman con uno solo: 3 palos (450 g) de corazón, pollo y panceta, con papa a la parrilla, choclo, ensaladita y sus cremas.</p>
+            <div class="dish-foot"><span class="tag light">Anticucho</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="duos" data-tilt style="--d:180ms" hidden>
+          <div class="dish-img ph"><span>Foto: Anticuchos con rachi</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Anticuchos con rachi</h3><span class="price">S/ 35</span></div>
+            <p>2 palitos de corazón (200 g) con rachi doradito y ahumado, choclito, papas a la parrilla, ensalada y cremas.</p>
+            <div class="dish-foot"><span class="tag light">Dúo</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="duos" data-tilt style="--d:0ms" hidden>
+          <div class="dish-img ph"><span>Foto: Anticuchos con molleja</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Anticuchos con molleja</h3><span class="price">S/ 30</span></div>
+            <p>2 palitos de corazón (200 g) con mollejita suave y jugosa, choclito, papas a la parrilla, ensalada y cremas.</p>
+            <div class="dish-foot"><span class="tag light">Dúo</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="duos" data-tilt style="--d:90ms" hidden>
+          <div class="dish-img ph"><span>Foto: Arma tu dúo</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Arma tu dúo</h3><span class="price">S/ 32</span></div>
+            <p>Combínalos como quieras: pancita, molleja o rachi, con choclito, papas a la parrilla, ensalada y cremas.</p>
+            <div class="dish-foot"><span class="tag light">Dúo</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="parrilla" data-tilt style="--d:180ms" hidden>
+          <div class="dish-img ph"><span>Foto: Pancita</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pancita</h3><span class="price">S/ 22</span></div>
+            <p>Suavecita, doradita y ahumada, con choclito, papas a la parrilla, ensalada y cremas.</p>
+            <div class="dish-foot"><span class="tag light">Parrilla</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="parrilla" data-tilt style="--d:0ms" hidden>
+          <div class="dish-img ph"><span>Foto: Molleja</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Molleja</h3><span class="price">S/ 22</span></div>
+            <p>Jugosa y bien ahumada, con choclito, papas a la parrilla, ensalada y cremas.</p>
+            <div class="dish-foot"><span class="tag light">Parrilla</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="parrilla" data-tilt style="--d:90ms" hidden>
+          <div class="dish-img ph"><span>Foto: Rachi</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Rachi</h3><span class="price">S/ 28</span></div>
+            <p>Suave, jugoso y bien ahumado, con choclito, papas a la parrilla, ensalada y cremas.</p>
+            <div class="dish-foot"><span class="tag light">Parrilla</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="compartir" data-tilt style="--d:180ms" hidden>
+          <div class="dish-img ph"><span>Foto: Parrilla para 2</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Parrilla para 2</h3><span class="price">S/ 60</span></div>
+            <p>2 palitos de corazón (200 g), pollo a la parrilla (250 g) y pancita ahumadita, con choclito, papas a la parrilla, ensalada y cremas.</p>
+            <div class="dish-foot"><span class="tag light">Para compartir</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="compartir" data-tilt style="--d:0ms" hidden>
+          <div class="dish-img ph"><span>Foto: Parrilla familiar</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Parrilla familiar</h3><span class="price">S/ 120</span></div>
+            <p>4 palitos de corazón (400 g), 2 pollos a la parrilla (500 g), pancita, mollejita y rachi, con choclito, papas a la parrilla, ensalada y cremas.</p>
+            <div class="dish-foot"><span class="tag light">Para compartir</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="entradas" data-tilt style="--d:90ms" hidden>
+          <div class="dish-img ph"><span>Foto: Choclito con queso</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Choclito con queso</h3><span class="price">S/ 10</span></div>
+            <p>Tiernito, ligeramente dulce, con su punto de anís y queso paria.</p>
+            <div class="dish-foot"><span class="tag light">Entrada</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="entradas" data-tilt style="--d:180ms" hidden>
+          <div class="dish-img ph"><span>Foto: Ocopa limeña</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Ocopa limeña</h3><span class="price">S/ 20</span></div>
+            <p>Cremosita, con queso paria a la parrilla, huevito y trozos de maní.</p>
+            <div class="dish-foot"><span class="tag light">Entrada</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="complementos" data-tilt style="--d:0ms" hidden>
+          <div class="dish-img ph"><span>Foto: Porción de papas a la parrilla</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Porción de papas a la parrilla</h3><span class="price">S/ 12</span></div>
+            <p>Doraditas, suaves por dentro y con ese toque ahumado.</p>
+            <div class="dish-foot"><span class="tag light">Complemento</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="complementos" data-tilt style="--d:90ms" hidden>
+          <div class="dish-img ph"><span>Foto: 1/2 porción de papas a la parrilla</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>1/2 porción de papas a la parrilla</h3><span class="price">S/ 7</span></div>
+            <p>Para sumar sin exagerar.</p>
+            <div class="dish-foot"><span class="tag light">Complemento</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="complementos" data-tilt style="--d:180ms" hidden>
+          <div class="dish-img ph"><span>Foto: Choclo</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Choclo</h3><span class="price">S/ 5</span></div>
+            <p>Dulcecito y tierno.</p>
+            <div class="dish-foot"><span class="tag light">Complemento</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="complementos" data-tilt style="--d:0ms" hidden>
+          <div class="dish-img ph"><span>Foto: Arroz</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Arroz</h3><span class="price">S/ 7</span></div>
+            <p>Blanco y suelto.</p>
+            <div class="dish-foot"><span class="tag light">Complemento</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="complementos" data-tilt style="--d:90ms" hidden>
+          <div class="dish-img ph"><span>Foto: Palito de corazón (adicional)</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Palito de corazón (adicional)</h3><span class="price">S/ 12</span></div>
+            <div class="dish-foot"><span class="tag light">Complemento</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="complementos" data-tilt style="--d:180ms" hidden>
+          <div class="dish-img ph"><span>Foto: Palito de panceta (adicional)</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Palito de panceta (adicional)</h3><span class="price">S/ 15</span></div>
+            <div class="dish-foot"><span class="tag light">Complemento</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="complementos" data-tilt style="--d:0ms" hidden>
+          <div class="dish-img ph"><span>Foto: Palito de pollo (adicional)</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Palito de pollo (adicional)</h3><span class="price">S/ 12</span></div>
+            <div class="dish-foot"><span class="tag light">Complemento</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="complementos" data-tilt style="--d:90ms" hidden>
+          <div class="dish-img ph"><span>Foto: Rachi (adicional)</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Rachi (adicional)</h3><span class="price">S/ 18</span></div>
+            <p>Trocitos crujientes y sabrosos.</p>
+            <div class="dish-foot"><span class="tag light">Complemento</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="complementos" data-tilt style="--d:180ms" hidden>
+          <div class="dish-img ph"><span>Foto: Molleja (adicional)</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Molleja (adicional)</h3><span class="price">S/ 12</span></div>
+            <p>Suavecita y doradita.</p>
+            <div class="dish-foot"><span class="tag light">Complemento</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="complementos" data-tilt style="--d:0ms" hidden>
+          <div class="dish-img ph"><span>Foto: Chorizo parrillero</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Chorizo parrillero</h3><span class="price">S/ 7</span></div>
+            <p>Especiado y jugoso.</p>
+            <div class="dish-foot"><span class="tag light">Complemento</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="complementos" data-tilt style="--d:90ms" hidden>
+          <div class="dish-img ph"><span>Foto: Ensalada</span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Ensalada</h3><span class="price">S/ 10</span></div>
+            <p>Fresca y crocante.</p>
+            <div class="dish-foot"><span class="tag light">Complemento</span></div>
+          </div>
+        </article>
+        <article class="dish drinks-card reveal" data-cat="bebidas" hidden>
+          <div class="dish-body"><h3>Bebidas y tragos</h3><ul class="drinks"><li><b>Tragos</b><span>Corona margarita, pisco sour, maracuyá sour, chilcano, algarrobina, Machu Picchu, piña colada, mojito, mojito de maracuyá, laguna azul, cóctel primavera, cóctel bárbaros, cuba libre y tequila.</span></li><li><b>Tragos en jarra</b><span>Pisco sour y mojito.</span></li><li><b>Bebidas frías y cervezas</b><span>Gaseosas, cerveza, agua de mesa, limonadas y chicha morada.</span></li><li><b>Vinos y licores</b><span>Tabernero, Queirolo, Casillero del Diablo, Colección Privada, Viña Vieja, whisky y ron Cartavio.</span></li></ul><p class="drinks-note">Pregunta por precios y promociones por WhatsApp.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="qr-sec" id="qr">
+    <div class="wrap qr-grid">
+      <div class="qr-card reveal"><img src="assets/img/qr-carta.svg" alt="Código QR que abre la carta" width="200" height="200"><span>Escanea la carta</span></div>
+      <div class="reveal" style="--d:120ms">
+        <p class="kicker">Carta digital</p>
+        <h2 class="sec-title">La carta <em>en cada mesa.</em></h2>
+        <p>Escanea el código con la cámara del celular y mira la carta con fotos y precios, siempre actualizada.</p>
+      </div>
+    </div>
+  </section>
+  <section id="pedir">
+    <div class="wrap">
+      <div class="reveal"><p class="kicker">Delivery y para llevar</p><h2 class="sec-title">Arma tu pedido <em>desde la carta.</em></h2></div>
+      <div class="pedir-grid">
+        <div class="step reveal"><span class="n">Primero</span><h3>Elige tus platos</h3><p>Toca «Agregar» en la carta y ajusta las cantidades.</p></div>
+        <div class="step reveal" style="--d:120ms"><span class="n">Después</span><h3>Envíalo por WhatsApp</h3><p>El pedido llega listo con el total. Solo agrega tu dirección.</p></div>
+        <div class="step reveal" style="--d:240ms"><span class="n">Al final</span><h3>Paga como prefieras</h3><p>Con Yape, Plin o en efectivo al recibir.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="bot-sec" id="respuesta">
+    <div class="wrap bot-grid">
+      <div class="reveal">
+        <p class="kicker">Atención al instante</p>
+        <h2 class="sec-title">Te respondemos <em>en segundos.</em></h2>
+        <p>Cuando envías tu pedido o tu reserva, nuestro WhatsApp te responde al momento, a cualquier hora.</p>
+        <ul class="bot-list">
+          <li>Confirmación de que recibimos tu pedido o reserva</li>
+          <li>Horario de atención y medios de pago</li>
+          <li>Luego te escribimos con el total y la hora de entrega</li>
+        </ul>
+      </div>
+      <div class="phone reveal" style="--d:150ms" role="img" aria-label="Ejemplo de conversación: el cliente envía su pedido y recibe una respuesta automática al instante">
+        <div class="ph-head"><b>La Olla Anticuchería</b><span>Cuenta de empresa</span></div>
+        <div class="ph-body" aria-hidden="true">
+          <p class="msg out">Hola La Olla, quiero hacer este pedido:<br>• 1 x Parrilla para 2 (S/ 60.00)<br>• 1 x Choclito con queso (S/ 10.00)<br>Total referencial: S/ 70.00<span class="t">20:14</span></p>
+          <p class="msg in">¡Hola! Gracias por escribir a La Olla. Ya recibimos tu pedido y en unos minutos te confirmamos el tiempo de entrega.<br><br>Pagos: Yape, Plin o efectivo.<span class="t">20:14 · automático</span></p>
+          <div class="typing"><i></i><i></i><i></i></div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="reservas" id="reservas">
-    <div class="grid res-grid">
-      <div class="cell">
-        <p class="kicker">05 · Reservas</p>
-        <h2 class="reveal">Tu mesa,<br>lista.</h2>
-        <p class="body">Cumpleaños, after office o la reunión del fin de semana. Reserva en un minuto y te confirmamos por WhatsApp.</p>
-        <p class="body alt">¿Prefieres llamar? <a href="tel:+51975889322">975 889 322</a></p>
+    <div class="wrap res-grid">
+      <div class="reveal">
+        <p class="kicker">Reserva tu mesa</p>
+        <h2 class="sec-title">Tu mesa, <em>lista al llegar.</em></h2>
+        <p>Cumpleaños, after office o la reunión del fin de semana. Elige el día, la hora y cuántos son, y te confirmamos por WhatsApp.</p>
       </div>
-      <form class="cell res-form" data-reserva novalidate>
+      <form class="card res-form reveal" style="--d:120ms" data-reserva novalidate>
         <label for="r-nombre">Nombre<input id="r-nombre" name="nombre" autocomplete="name" maxlength="40" required></label>
         <div class="row">
           <label for="r-dia">Día<select id="r-dia" name="dia"></select></label>
@@ -106,39 +395,59 @@
           <label for="r-personas">Personas<select id="r-personas" name="personas"></select></label>
         </div>
         <p class="err" data-err role="alert"></p>
-        <button class="btn-res" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>Reservar por WhatsApp <b>→</b></button>
+        <button class="btn" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>Reservar por WhatsApp</button>
         <p class="res-ok" data-ok hidden>Se abrió WhatsApp con tu reserva. ¿No se abrió? <a data-oklink href="#" target="_blank" rel="noopener noreferrer">Toca aquí</a>.</p>
       </form>
     </div>
   </section>
 
-  <section class="local" id="local">
-    <div class="grid local-grid">
-      <div class="cell big-addr">
-        <p class="kicker">06 · Encuéntranos</p>
-        <h2 class="reveal">Av. Micaela<br>Bastidas 1526</h2>
-        <p class="body">Villa El Salvador, cruce con Av. Arriba Perú. En Google Maps nos encuentras como «La Olla Anticucheria».</p>
+  <section id="visitanos">
+    <div class="wrap">
+      <div class="reveal"><p class="kicker">Horario y local</p><h2 class="sec-title">Te esperamos <em>en Villa El Salvador.</em></h2></div>
+      <div class="visit-grid">
+        <div class="card reveal">
+          <h3>Horario</h3>
+          <table class="horas">
+            <tr><td>Lunes a sábado</td><td>4:30 pm a 12:00 am</td></tr>
+            <tr><td>Domingo</td><td>12:00 pm a 12:00 am</td></tr>
+          </table>
+        </div>
+        <div class="card reveal" style="--d:120ms">
+          <h3>El local</h3>
+          <address>Av. Micaela Bastidas 1526<br>Villa El Salvador (cruce con Av. Arriba Perú)</address>
+          <p>Pedidos y reservas: <a href="tel:+51975889322"><b>975 889 322</b></a></p>
+        </div>
+        <a class="mapa reveal" style="--d:240ms" href="https://www.google.com/maps/search/?api=1&amp;query=La%20Olla%20Anticucheria%20Av%20Micaela%20Bastidas%201526%20Villa%20El%20Salvador" target="_blank" rel="noopener noreferrer"><span class="btn">Ver en Google Maps</span></a>
       </div>
-      <div class="cell hours">
-        <span class="lbl">Horario</span>
-        <table><tr><td>Lunes a sábado</td><td>16:30 — 00:00</td></tr><tr><td>Domingo</td><td>12:00 — 00:00</td></tr></table>
-      </div>
-      <a class="cell h-go" href="https://www.google.com/maps/search/?api=1&amp;query=La%20Olla%20Anticucheria%20Av%20Micaela%20Bastidas%201526%20Villa%20El%20Salvador" target="_blank" rel="noopener noreferrer"><span>Cómo llegar</span><b>↗</b></a>
-      <a class="cell h-go" href="https://www.instagram.com/la_olla_anticucheria/" target="_blank" rel="noopener noreferrer"><span>Instagram</span><b>↗</b></a>
-      <a class="cell h-go" href="https://www.facebook.com/profile.php?id=61565937345789" target="_blank" rel="noopener noreferrer"><span>Facebook</span><b>↗</b></a>
+    </div>
+  </section>
+
+  <section class="red cierre">
+    <div class="wrap reveal">
+      <p class="kicker">Reservas y pedidos</p>
+      <h2>La parrilla ya está <em>prendida.</em></h2>
+      <a class="btn btn-light" href="https://wa.me/51975889322?text=Hola%20La%20Olla%2C%20quisiera%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>Reservar por WhatsApp</a>
     </div>
   </section>
 </main>
 
-<footer class="foot">
-  <div class="grid foot-grid">
-    <div class="cell"><img src="assets/img/logo.webp" alt="La Olla Anticuchería" width="72" height="72"></div>
-    <div class="cell mono">LA OLLA ANTICUCHERÍA<br>Av. Micaela Bastidas 1526, Villa El Salvador<br>Tel. 975 889 322</div>
-    <div class="cell mono small">Propuesta de diseño: Jose Aylas Gutierrez.<br>Precios tomados de la carta publicada en Instagram.<br>La foto es referencial.</div>
+<footer>
+  <div class="wrap foot-grid">
+    <div><a class="logo" href="#inicio"><img src="assets/img/logo.webp" alt="" width="40" height="40">La <em>Olla</em></a><p>Anticuchos, parrillas y más en Villa El Salvador.</p><p class="social"><a href="https://www.instagram.com/la_olla_anticucheria/" target="_blank" rel="noopener noreferrer">Instagram</a> · <a href="https://www.facebook.com/profile.php?id=61565937345789" target="_blank" rel="noopener noreferrer">Facebook</a></p></div>
+    <div><h4>Contacto</h4><p>Av. Micaela Bastidas 1526, Villa El Salvador<br>WhatsApp: 975 889 322</p></div>
+    <div><h4>Diseño web</h4><p>Jose Aylas Gutierrez</p></div>
   </div>
 </footer>
+<div class="demo-note">Propuesta de diseño para La Olla Anticuchería. Precios tomados de su carta en Instagram; la foto es referencial.</div>
 
-<div class="cartbar" data-cart aria-hidden="true" aria-label="Tu pedido"><div class="info"><b data-cart-count>0 productos</b><span data-cart-total>S/ 0.00</span></div><a class="send" data-cart-link href="#" target="_blank" rel="noopener noreferrer">Enviar pedido →</a><button class="clear" type="button" data-clear aria-label="Vaciar pedido">✕</button></div>
-<nav class="tabbar" aria-label="Accesos rápidos"><a href="#carta">Carta</a><a href="#pedir">Pedir</a><a href="#reservas">Reservar</a><a href="#local">Local</a><a class="wa" href="https://wa.me/51975889322?text=Hola%20La%20Olla%2C%20quisiera%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer">WhatsApp</a></nav>
+<a class="float-wa" href="https://wa.me/51975889322?text=Hola%20La%20Olla%2C%20quisiera%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>
+<div class="cartbar" data-cart aria-hidden="true" aria-label="Tu pedido"><div class="info"><b data-cart-count>0 productos</b><span data-cart-total>S/ 0.00</span></div><a class="btn" data-cart-link href="#" target="_blank" rel="noopener noreferrer">Enviar pedido</a><button class="clear" type="button" data-clear aria-label="Vaciar pedido">×</button></div>
+<nav class="tabbar" aria-label="Accesos rápidos">
+  <a href="#inicio" class="activo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 3l9 8v10h-6v-6H9v6H3z"/></svg>Inicio</a>
+  <a href="#carta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18H5zM8 7h8v2H8zm0 4h8v2H8zm0 4h5v2H8z"/></svg>Carta</a>
+  <a href="#pedir"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 14H7zM9 7a3 3 0 0 1 6 0h-2a1 1 0 0 0-2 0z"/></svg>Pedir</a>
+  <a href="#reservas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h2v2h6V2h2v2h3v18H4V4h3zm11 8H6v10h12zM8 12h3v3H8z"/></svg>Reservar</a>
+  <a class="wa" href="https://wa.me/51975889322?text=Hola%20La%20Olla%2C%20quisiera%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>WhatsApp</a>
+</nav>
 </body>
 </html>
