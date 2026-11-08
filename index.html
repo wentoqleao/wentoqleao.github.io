@@ -64,6 +64,11 @@ a.shot{display:block}
 .tiers a{flex:1;text-align:center;text-decoration:none;font-weight:600;font-size:14px;padding:9px 10px;border:1px solid var(--ink);border-radius:999px;transition:background .2s,color .2s}
 .tiers a:hover{background:var(--ink);color:#fff}
 .tiers a:last-child{background:var(--acc);border-color:var(--acc);color:#fff}
+.resto{margin-top:22px;border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:24px;align-items:center;background:var(--card)}
+.resto h3{font-size:30px;line-height:1.05;margin-top:6px}
+.resto ul{list-style:none;display:grid;gap:10px;font-size:15px;color:var(--muted)}
+.resto b{color:var(--ink)}
+@media (max-width:900px){.resto{grid-template-columns:minmax(0,1fr)}}
 .packs.two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px}
 .packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
 .pack{border:1px solid var(--line);border-radius:20px;padding:30px 26px;background:var(--bg);display:flex;flex-direction:column;gap:14px}
@@ -173,21 +178,34 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <h2 class="serif">Paquetes</h2>
         <p>Precio fijo, sin sorpresas. 50% al empezar y 50% al entregar, por Yape, Plin o transferencia.</p>
       </div>
-      <div class="packs two">
+      <div class="packs">
         <div class="pack">
-          <h3>Negocio</h3>
-          <div class="price">S/ 700 <small>pago único</small></div>
-          <p class="muted">Para vender por WhatsApp desde tu propia web.</p>
-          <ul><li>Página con tus productos o tu carta, fotos y precios</li><li>Carrito: el cliente arma su pedido y te llega por WhatsApp con el total</li><li>Galería, reseñas, horario y mapa</li><li>Dominio propio el primer año y ficha en Google Maps</li></ul>
+          <h3>Básico</h3>
+          <div class="price">S/ 350 <small>pago único</small></div>
+          <p class="muted">Para el negocio que necesita estar en internet.</p>
+          <ul><li>Una página con tus servicios o productos</li><li>Fotos, horario y mapa</li><li>Botón de WhatsApp</li><li>Lista en 3 a 4 días</li></ul>
         </div>
         <div class="pack star">
+          <h3>Negocio</h3>
+          <div class="price">S/ 700 <small>pago único</small></div>
+          <p class="muted">Para negocios con varios servicios o productos.</p>
+          <ul><li>Todo lo del Básico</li><li>Catálogo, galería y reseñas</li><li>Dominio propio el primer año</li><li>Ficha en Google Maps</li></ul>
+        </div>
+        <div class="pack">
           <h3>Pro</h3>
           <div class="price">S/ 1,100 <small>pago único</small></div>
-          <p class="muted">Para atender más rápido y llenar mesas.</p>
-          <ul><li>Todo lo de Negocio</li><li>Reservas de mesa o de turno por WhatsApp</li><li>Respuesta automática en tu WhatsApp Business, a cualquier hora</li><li>Carta digital con código QR y enlaces a Rappi y PedidosYa</li><li>1 mes de mantenimiento gratis</li></ul>
+          <p class="muted">Para recibir pedidos o reservas desde la web.</p>
+          <ul><li>Todo lo de Negocio</li><li>Pedidos o reservas a WhatsApp</li><li>Respuesta automática en WhatsApp Business</li><li>1 mes de mantenimiento gratis</li></ul>
         </div>
       </div>
-      <p class="note">Ambos incluyen 5 rondas de cambios. Mantenimiento opcional: S/ 60 al mes, con hosting, dominio y hasta 2 cambios al mes. ¿Quieres un bot que lea y conteste cada pedido? Se agrega aparte, con mensualidad.</p>
+      <div class="resto">
+        <div><span class="kicker">Para restaurantes</span><h3 class="serif">Dos paquetes pensados para vender más</h3></div>
+        <ul>
+          <li><b>Negocio · S/ 700:</b> carta con fotos y carrito; el pedido te llega por WhatsApp con el total.</li>
+          <li><b>Pro · S/ 1,100:</b> además, reservas de mesa, carta QR, Rappi y PedidosYa, y respuesta automática en WhatsApp.</li>
+        </ul>
+      </div>
+      <p class="note">Todos incluyen 5 rondas de cambios. Mantenimiento opcional: S/ 60 al mes, con hosting, dominio y hasta 2 cambios al mes. ¿Quieres un bot que lea y conteste cada pedido? Se agrega aparte, con mensualidad.</p>
     </div>
   </section>
 
