@@ -1,6 +1,6 @@
-/* La Olla Anticuchería · app.js (IIFE, sin módulos) */
 (function () {
   "use strict";
+  /* La Olla Anticuchería · main.js (IIFE, sin módulos) · arquetipo Brutalist Grid */
   var WA = "51975889322"; // solo dígitos, con código de país
   function safe(fn, name) { try { fn(); } catch (e) { if (window.console) console.warn("[init] " + name, e); } }
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -27,6 +27,60 @@
     return h12 + ":" + mm + " " + ap;
   }
 
+
+  var canHover = window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  function initSplit() {
+    $$("[data-split]").forEach(function (el) {
+      if (el.dataset.splitDone) return; el.dataset.splitDone = "1";
+      el.setAttribute("aria-label", el.textContent.replace(/\s+/g, " ").trim());
+      var lines = [], cur = document.createDocumentFragment();
+      Array.prototype.slice.call(el.childNodes).forEach(function (n) {
+        if (n.nodeName === "BR") { lines.push(cur); cur = document.createDocumentFragment(); }
+        else cur.appendChild(n);
+      });
+      lines.push(cur);
+      el.textContent = "";
+      lines.forEach(function (frag, i) {
+        var outer = document.createElement("span"), inner = document.createElement("span");
+        outer.className = "split-line"; outer.setAttribute("aria-hidden", "true");
+        inner.style.setProperty("--d", (i * 110) + "ms"); inner.appendChild(frag);
+        outer.appendChild(inner); el.appendChild(outer);
+      });
+    });
+    var go = function () { document.documentElement.classList.add("is-in"); };
+    requestAnimationFrame(function () { setTimeout(go, 80); });
+    setTimeout(go, 1500);
+  }
+
+  function initCount() {
+    var els = $$("[data-count]"); if (!els.length || !("IntersectionObserver" in window)) return;
+    var run = function (el) {
+      var end = parseFloat(el.dataset.count), suf = el.dataset.suffix || "", t0 = null;
+      var step = function (t) {
+        if (!t0) t0 = t;
+        var p = Math.min(1, (t - t0) / 1300), v = Math.round(end * (1 - Math.pow(1 - p, 3)));
+        el.textContent = String(v).padStart(String(end).length, "0") + suf;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    var io = new IntersectionObserver(function (en) { en.forEach(function (e) { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } }); }, { threshold: 0.01 });
+    els.forEach(function (e) { io.observe(e); });
+  }
+
+  function initCursor() {
+    if (!canHover) return;
+    var c = $("[data-xy]"); if (!c) return;
+    window.addEventListener("mousemove", function (e) {
+      if (e.clientX === 0 && e.clientY === 0) return;
+      c.textContent = "[" + String(Math.round(e.clientX)).padStart(3, "0") + ", " + String(Math.round(e.clientY)).padStart(3, "0") + "]";
+      c.style.transform = "translate(" + (e.clientX + 16) + "px," + (e.clientY + 18) + "px)";
+      c.classList.add("on");
+    }, { passive: true });
+    document.addEventListener("mouseleave", function () { c.classList.remove("on"); });
+  }
+
   function initStatus() {
     var el = $("[data-status]"); if (!el) return;
     var n = limaNow(), r = HOURS[n.day], open = n.h >= r[0] && n.h < r[1];
@@ -43,13 +97,13 @@
   }
 
   function initReveal() {
-    var els = $$(".reveal");
+    var els = $$(".reveal:not([data-split])");
     if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("is-visible"); }); return; }
     var io = new IntersectionObserver(function (en) {
       en.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); } });
     }, { threshold: 0.01, rootMargin: "0px 0px -2% 0px" });
     els.forEach(function (e) { io.observe(e); });
-    setTimeout(function () { $$(".reveal:not(.is-visible)").forEach(function (el) { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("is-visible"); }); }, 6000);
+    setTimeout(function () { $$(".reveal:not(.is-visible):not([data-split])").forEach(function (el) { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("is-visible"); }); }, 6000);
   }
 
   function initTabs() {
@@ -132,7 +186,7 @@
   }
 
   function boot() {
-    safe(initStatus, "estado"); safe(initNav, "nav"); safe(initReveal, "reveal"); safe(initTabs, "tabs"); safe(initCart, "carrito"); safe(initReserva, "reserva");
+    safe(initSplit, "split"); safe(initStatus, "estado"); safe(initCount, "contador"); safe(initCursor, "cursor"); safe(initNav, "nav"); safe(initReveal, "reveal"); safe(initTabs, "tabs"); safe(initCart, "carrito"); safe(initReserva, "reserva");
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
 })();
