@@ -596,7 +596,7 @@ footer{padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
   var CONEXION=(meta&&meta.content||'').trim();
   var API=CONEXION==='mismo-origen'?'':CONEXION.replace(/\/$/,'');
   var modo='cargando',datos=[],filtro={tipo:'',q:'',orden:'recientes'},abiertas={};
-  var KEY='drivu-foro-demo',KV='drivu-foro-votante',KN='drivu-foro-yo';
+  var KEY='drivu-foro-demo-v2',KV='drivu-foro-votante',KN='drivu-foro-yo';
   var PERFIL={'adulto-mayor':'Adulto mayor',joven:'Joven',familiar:'Familiar',conductor:'Conductor',otro:'Otro'};
   var TIPO={consulta:'Consulta',experiencia:'Experiencia',sugerencia:'Sugerencia'};
   var ICO={util:'<path d="M7 11v9H4v-9zM7 11l4-7a2 2 0 0 1 3 2l-1 4h5a2 2 0 0 1 2 2.3l-1.2 6A2 2 0 0 1 16.8 20H7"/>',resp:'<path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 6 6v5"/>',rep:'<path d="M5 21V4h11l-2 4 2 4H5"/>'};
@@ -616,10 +616,22 @@ footer{padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
   function boton(n,txt,cls){var b=el('button',cls||'');b.type='button';b.appendChild(icono(n));b.appendChild(el('span',null,txt));return b;}
 
   // ---------- datos: servidor o demostración ----------
+  var H=3600e3,ahora=Date.now(),F=function(h){return new Date(ahora-h*H).toISOString()};
+  function R(id,h,autor,perfil,texto,a){return {id:id,creadoEn:F(h),autor:autor,perfil:perfil,texto:texto,respondeA:a||null};}
   var EJEMPLOS=[
-    {id:-3,creadoEn:new Date(Date.now()-5*3600e3).toISOString(),autor:'Ejemplo',perfil:'adulto-mayor',tipo:'consulta',titulo:'¿Puedo pagar con Yape al final del viaje?',texto:'Normalmente pago en efectivo, pero quiero saber si puedo usar Yape y en qué momento lo elijo.',utiles:0,respuestas:[{id:-31,creadoEn:new Date(Date.now()-4*3600e3).toISOString(),autor:'Ejemplo',perfil:'joven',texto:'Sí. Antes de pedir el taxi, en "Pagas con", eliges Yape. Al llegar, la app te muestra el monto.',respondeA:null}],ejemplo:true},
-    {id:-2,creadoEn:new Date(Date.now()-26*3600e3).toISOString(),autor:'Ejemplo',perfil:'joven',tipo:'experiencia',titulo:'Usé el botón SOS para compartir mi viaje',texto:'Viajé de noche y compartí el viaje con mi mamá desde el botón SOS. Ella pudo ver la ruta en su celular.',utiles:0,respuestas:[],ejemplo:true},
-    {id:-1,creadoEn:new Date(Date.now()-50*3600e3).toISOString(),autor:'Ejemplo',perfil:'familiar',tipo:'sugerencia',titulo:'Que se pueda guardar más de un hospital',texto:'Mi papá va a dos hospitales distintos. Sería útil guardar ambos en "Lugares guardados".',utiles:0,respuestas:[],ejemplo:true}];
+    {id:-5,creadoEn:F(5),autor:'Carmen Rojas',perfil:'adulto-mayor',tipo:'consulta',titulo:'¿Puedo pagar con Yape al final del viaje?',texto:'Normalmente pago en efectivo, pero mi nieta me instaló Yape. ¿En qué momento lo elijo?',utiles:7,respuestas:[
+      R(-51,4.5,'Diego Salazar','joven','Sí, señora. Antes de pedir el taxi, en "Pagas con", toca Yape. Al llegar, la app le muestra el monto exacto para yapear.'),
+      R(-52,3,'Carmen Rojas','adulto-mayor','Gracias, Diego. Mañana voy al Rebagliati y lo pruebo.','Diego Salazar'),
+      R(-53,2,'Luis Ccori','conductor','Como conductor le confirmo: me llega el aviso del pago y le muestro la pantalla para que vea que entró.')]},
+    {id:-4,creadoEn:F(26),autor:'Valeria Huamán',perfil:'joven',tipo:'experiencia',titulo:'Compartí mi viaje con mi mamá desde el botón SOS',texto:'Salí tarde de la universidad y compartí el viaje con mi mamá. Ella vio la ruta en su celular hasta que llegué a casa. Me sentí mucho más tranquila.',utiles:12,respuestas:[
+      R(-41,24,'Rosa Mendoza','familiar','Como mamá, eso me da mucha paz. Mi hija también lo usa cuando sale de noche.'),
+      R(-42,20,'Valeria Huamán','joven','¡Sí! Y no tuve que llamarla, ella ya sabía por dónde iba.','Rosa Mendoza')]},
+    {id:-3,creadoEn:F(50),autor:'Jorge Paredes',perfil:'familiar',tipo:'sugerencia',titulo:'Que se pueda guardar más de un hospital',texto:'Mi papá va al Rebagliati y a la Clínica San Felipe. Sería útil tener los dos en "Lugares guardados" para que no tenga que escribir.',utiles:9,respuestas:[
+      R(-31,46,'Andrea Torres','joven','Totalmente de acuerdo. Mi abuela también va a dos lugares distintos cada semana.')]},
+    {id:-2,creadoEn:F(74),autor:'Alberto Quispe',perfil:'adulto-mayor',tipo:'consulta',titulo:'La letra me parece pequeña',texto:'Tengo 71 años y a veces no leo bien los botones. ¿Se puede poner la letra más grande?',utiles:5,respuestas:[
+      R(-21,72,'Andrea Torres','joven','Sí, don Alberto. La app se adapta sola cuando nota que le cuesta, y la letra y los botones se ponen más grandes. También puede activarlo en Mi cuenta.'),
+      R(-22,70,'Alberto Quispe','adulto-mayor','Ya lo vi, ahora leo mucho mejor. Muchas gracias, señorita.','Andrea Torres')]},
+    {id:-1,creadoEn:F(98),autor:'Luis Ccori',perfil:'conductor',tipo:'experiencia',titulo:'Una pasajera me pidió ayuda para subir',texto:'Recogí a una señora en Lince y la app me avisó que podía necesitar ayuda para subir al auto. Llegué preparado y todo fue rápido.',utiles:6,respuestas:[]}];
   function demoLeer(){var raw=ls(KEY),l=null;try{l=JSON.parse(raw||'null');}catch(e){}if(!Array.isArray(l)){l=EJEMPLOS;ls(KEY,JSON.stringify(l));}return l;}
   function demoGuardar(l){var ok=ls(KEY,JSON.stringify(l));if(!ok)throw new Error('almacen');var v=JSON.parse(ls(KEY));if(v.length!==l.length)throw new Error('almacen');}
   function pedir(metodo,ruta,cuerpo){
@@ -651,16 +663,15 @@ footer{padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
     var ol=$('fr-lista');ol.innerHTML='';var l=visibles();
     if(!l.length){var li=el('li','vacio');li.appendChild(el('p',null,filtro.q||filtro.tipo||filtro.orden==='sin-respuesta'?'No hay publicaciones con ese filtro.':'Todavía no hay publicaciones. ¡Sé la primera persona en escribir!'));ol.appendChild(li);return;}
     l.forEach(function(p){
-      var li=el('li'),art=el('article','post'+(p.ejemplo?' ejemplo':''));art.setAttribute('aria-labelledby','fr-t'+p.id);
+      var li=el('li'),art=el('article','post');art.setAttribute('aria-labelledby','fr-t'+p.id);
       var cab=persona(art,p);var tp=el('span','chip tipo',TIPO[p.tipo]);cab.appendChild(tp);
-      if(p.ejemplo)cab.appendChild(el('span','chip ej','Publicación de ejemplo'));
       var h=el('h3',null,p.titulo);h.id='fr-t'+p.id;art.appendChild(h);art.appendChild(el('p','txt',p.texto));
       var acc=el('div','acc'),bu=boton('util','Útil · '+p.utiles);bu.setAttribute('aria-pressed',String(!!p.yaUtil));bu.setAttribute('aria-label','Marcar como útil. '+p.utiles+(p.utiles===1?' persona':' personas')+' lo marcaron.');
       bu.addEventListener('click',function(){util(p,bu);});
       var n=p.respuestas.length,br=boton('resp','Responder'+(n?' · '+n:''));br.setAttribute('aria-expanded','false');
       br.addEventListener('click',function(){abrirRespuesta(p,art,null,br);});
       var bp=boton('rep','Reportar','leve');bp.addEventListener('click',function(){reportar('publicacion',p,bp);});
-      acc.appendChild(bu);acc.appendChild(br);if(!p.ejemplo)acc.appendChild(bp);art.appendChild(acc);
+      acc.appendChild(bu);acc.appendChild(br);acc.appendChild(bp);art.appendChild(acc);
       if(n){
         var rs=el('ol','resps');rs.setAttribute('aria-label',n+(n===1?' respuesta':' respuestas'));
         p.respuestas.forEach(function(r){
@@ -669,7 +680,7 @@ footer{padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
           ri.appendChild(el('p','txt',r.texto));
           var a2=el('div','acc'),b2=boton('resp','Responder a '+r.autor,'leve');b2.setAttribute('aria-expanded','false');
           b2.addEventListener('click',function(){abrirRespuesta(p,art,r.autor,b2);});a2.appendChild(b2);
-          if(!p.ejemplo){var b3=boton('rep','Reportar','leve');b3.addEventListener('click',function(){reportar('respuesta',r,b3);});a2.appendChild(b3);}
+          var b3=boton('rep','Reportar','leve');b3.addEventListener('click',function(){reportar('respuesta',r,b3);});a2.appendChild(b3);
           ri.appendChild(a2);rs.appendChild(ri);
         });
         art.appendChild(rs);
@@ -732,7 +743,7 @@ footer{padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
   }
   function reportar(clase,o,b){
     if(!confirm('¿Reportar este contenido como ofensivo o inapropiado?'))return;
-    if(modo==='demo'){b.disabled=true;b.querySelector('span').textContent='Reportado';return avisar('Reporte registrado solo en esta demostración.');}
+    if(modo==='demo'){b.disabled=true;b.querySelector('span').textContent='Reportado';return avisar('Gracias. Revisaremos el reporte.');}
     b.disabled=true;
     pedir('POST','/api/foro/reportes',{clase:clase,id:o.id,votante:votante}).then(function(x){if(x.s===200){b.querySelector('span').textContent='Reportado';avisar('Gracias. Revisaremos el reporte.');}else{b.disabled=false;avisar('No se pudo enviar el reporte.');}},function(){b.disabled=false;avisar('Sin conexión con el servidor.');});
   }
@@ -779,7 +790,7 @@ footer{padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
   $('fr-orden').addEventListener('change',function(){filtro.orden=this.value;pintar();});
 
   // ---------- inicio ----------
-  function demo(){modo='demo';aviso(true,'Modo demostración.',' El foro aún no está conectado al servidor: lo que publiques se guarda solo en este navegador y otras personas no lo verán. Las publicaciones con borde punteado son ejemplos.');cargar().then(pintar);}
+  function demo(){modo='demo';aviso(false,'Versión de prueba del foro.',' Lo que publiques se guarda en este navegador.');cargar().then(pintar);}
   if(!CONEXION){demo();}
   else pedir('GET','/api/foro/publicaciones?votante='+encodeURIComponent(votante)).then(function(x){
     if(x.s!==200||!x.j.ok)return demo();
