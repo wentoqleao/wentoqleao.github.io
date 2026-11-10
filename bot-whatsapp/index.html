@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Demo de bot de WhatsApp para restaurantes · Jose Aylas Gutierrez</title>
+<meta name="description" content="Prueba cómo un bot de WhatsApp atiende un restaurante: carta, pedidos, reservas, horario y delivery.">
+<meta name="theme-color" content="#075E54">
+<link rel="stylesheet" href="bot.css?v=20261110">
+</head>
+<body>
+<main class="layout">
+  <section class="intro">
+    <a class="back" href="../">← Volver al portafolio</a>
+    <p class="kicker">Demo interactiva · bot de WhatsApp</p>
+    <h1>Así atiende un bot a los clientes de tu restaurante.</h1>
+    <p>Escríbele como lo haría un cliente: "hola", "quiero 2 lomos saltados", "mesa para 4 el sábado" o "¿hacen delivery?". También puedes tocar las opciones.</p>
+    <ul class="feats">
+      <li><b>Toma pedidos</b> y los resume con el total, la dirección y el pago.</li>
+      <li><b>Separa mesas</b> pidiendo solo los datos que faltan.</li>
+      <li><b>Responde al instante</b> horario, carta, ubicación y medios de pago, a cualquier hora.</li>
+      <li><b>Pasa a una persona</b> cuando hay una queja o no entiende.</li>
+    </ul>
+    <p class="note">Es una simulación con el restaurante de ejemplo Doña Paquita: nada sale de esta página. En tu negocio funciona en tu propio número de WhatsApp.</p>
+    <a class="cta" href="https://wa.me/51933952330?text=Hola%20Jose%2C%20prob%C3%A9%20la%20demo%20del%20bot%20y%20quiero%20uno%20para%20mi%20negocio" target="_blank" rel="noopener noreferrer">Quiero este bot para mi negocio</a>
+  </section>
+
+  <section class="phone" aria-label="Simulación de chat de WhatsApp">
+    <header class="ph-head">
+      <span class="avatar" aria-hidden="true">DP</span>
+      <div><b>Doña Paquita</b><span data-status>Cuenta de empresa</span></div>
+      <button class="reset" type="button" data-reset aria-label="Reiniciar la conversación">Reiniciar</button>
+    </header>
+    <div class="chat" data-chat role="log" aria-live="polite" aria-relevant="additions"></div>
+    <div class="chips" data-chips></div>
+    <form class="composer" data-form autocomplete="off">
+      <label class="sr" for="msg">Escribe un mensaje</label>
+      <input id="msg" name="msg" type="text" maxlength="200" placeholder="Escribe un mensaje" data-input>
+      <button type="submit" aria-label="Enviar">➤</button>
+    </form>
+  </section>
+</main>
+<script src="bot.js?v=20261110"></script>
+</body>
+</html>
