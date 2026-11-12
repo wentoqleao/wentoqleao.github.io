@@ -109,6 +109,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   section{padding:64px 0}
   .bar .btn{padding:10px 16px;font-size:14px}
 }
+/* Proporción: el título no desborda pantallas bajas */
+@media (min-width:700px){.hero{padding:clamp(56px,10svh,96px) 0 clamp(48px,8svh,72px)}h1{font-size:clamp(46px,min(7.4vw,12svh),104px)}}
 </style>
 </head>
 <body>
