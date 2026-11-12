@@ -1,0 +1,398 @@
+(function () {
+  /* La Olla Anticuchería · asistente de pedidos y reservas. Sin servidor: arma el mensaje y lo abre en el WhatsApp del local. */
+  "use strict";
+
+  var WA = "51975889322";
+  if (!/^519\d{8}$/.test(WA)) return;
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Datos del local ---------- */
+  var DIRECCION = "Av. Micaela Bastidas 1526, Villa El Salvador (cruce con Av. Arriba Perú)";
+  var MAPS = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("La Olla Anticuchería, Av. Micaela Bastidas 1526, Villa El Salvador");
+  var HOURS = { 0: [12, 24], 1: [16.5, 24], 2: [16.5, 24], 3: [16.5, 24], 4: [16.5, 24], 5: [16.5, 24], 6: [16.5, 24] };
+  var DIAS = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+  var NUM = { un: 1, uno: 1, una: 1, dos: 2, tres: 3, cuatro: 4, cinco: 5, seis: 6, siete: 7, ocho: 8, nueve: 9, diez: 10, doce: 12, quince: 15, veinte: 20 };
+  var MENU = [
+    { n: "Mixto", p: 30, a: ["mixto"] },
+    { n: "Promoción", p: 30, a: ["promocion", "promo"] },
+    { n: "Combinado", p: 28, a: ["combinado"] },
+    { n: "Pollo a la parrilla anticuchero", p: 28, a: ["pollo a la parrilla", "pollo anticuchero", "pollo parrillero"] },
+    { n: "Anticucho de corazón", p: 25, a: ["anticuchos de corazon", "anticucho de corazon", "corazon", "anticuchos", "anticucho"] },
+    { n: "Anticucho de pollo", p: 25, a: ["anticuchos de pollo", "anticucho de pollo"] },
+    { n: "Anticucho de panceta", p: 28, a: ["anticuchos de panceta", "anticucho de panceta", "panceta"] },
+    { n: "Cristhian Domínguez", p: 38, a: ["cristhian dominguez", "christian dominguez", "cristhian", "christian", "dominguez"] },
+    { n: "Anticuchos con rachi", p: 35, a: ["anticuchos con rachi", "con rachi"] },
+    { n: "Anticuchos con molleja", p: 30, a: ["anticuchos con molleja", "con molleja"] },
+    { n: "Arma tu dúo", p: 32, a: ["arma tu duo", "duo"] },
+    { n: "Pancita", p: 22, a: ["pancita", "pancitas"] },
+    { n: "Molleja", p: 22, a: ["molleja", "mollejita"] },
+    { n: "Rachi", p: 28, a: ["rachi"] },
+    { n: "Parrilla para 2", p: 60, a: ["parrilla para 2", "parrilla para dos", "parrilla de 2"] },
+    { n: "Parrilla familiar", p: 120, a: ["parrilla familiar", "familiar"] },
+    { n: "Choclito con queso", p: 10, a: ["choclito con queso", "choclo con queso"] },
+    { n: "Ocopa limeña", p: 20, a: ["ocopa"] },
+    { n: "Porción de papas a la parrilla", p: 12, a: ["porcion de papas", "papas a la parrilla", "papas"] },
+    { n: "1/2 porción de papas a la parrilla", p: 7, a: ["media porcion de papas", "1/2 porcion de papas", "media porcion", "1/2 porcion", "media de papas"] },
+    { n: "Choclo", p: 5, a: ["choclo"] },
+    { n: "Arroz", p: 7, a: ["arroz"] },
+    { n: "Palito de corazón (adicional)", p: 12, a: ["palito de corazon", "palitos de corazon"] },
+    { n: "Palito de panceta (adicional)", p: 15, a: ["palito de panceta", "palitos de panceta"] },
+    { n: "Palito de pollo (adicional)", p: 12, a: ["palito de pollo", "palitos de pollo"] },
+    { n: "Rachi (adicional)", p: 18, a: ["rachi adicional"] },
+    { n: "Molleja (adicional)", p: 12, a: ["molleja adicional"] },
+    { n: "Chorizo parrillero", p: 7, a: ["chorizo"] },
+    { n: "Ensalada", p: 10, a: ["ensalada"] }
+  ];
+  MENU.forEach(function (m, i) { m.id = "p" + i; });
+  var ALIASES = [];
+  MENU.forEach(function (m) { m.a.forEach(function (a) { ALIASES.push({ a: a, m: m }); }); });
+  ALIASES.sort(function (x, y) { return y.a.length - x.a.length; });
+  var BEBIDAS = /(chicha|gaseosa|inca|coca|cerveza|pilsen|cristal|cusquena|pisco|sour|chilcano|mojito|jarra|agua|limonada|algarrobina|machu picchu|pina colada|laguna azul|cuba libre|tequila|margarita|vino|whisky|ron)/;
+
+  /* ---------- Interfaz ---------- */
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  var fab = el("button", "ol-fab"); fab.type = "button";
+  fab.setAttribute("aria-expanded", "false"); fab.setAttribute("aria-controls", "ol-panel");
+  var dot = el("span", "dot", "🔥"); dot.setAttribute("aria-hidden", "true");
+  fab.appendChild(dot); fab.appendChild(document.createTextNode("Pide o reserva aquí"));
+  var panel = el("div", "ol-panel"); panel.id = "ol-panel"; panel.hidden = true;
+  panel.setAttribute("role", "dialog"); panel.setAttribute("aria-label", "Asistente de La Olla");
+  var head = el("div", "ol-head");
+  var logo = el("img"); logo.src = "assets/img/logo.webp"; logo.alt = ""; logo.width = 40; logo.height = 40;
+  var hd = el("div"); hd.appendChild(el("b", null, "La Olla Anticuchería")); var st = el("span", null, ""); hd.appendChild(st);
+  var close = el("button", null, "×"); close.type = "button"; close.setAttribute("aria-label", "Cerrar el chat");
+  head.appendChild(logo); head.appendChild(hd); head.appendChild(close);
+  var chat = el("div", "ol-chat"); chat.setAttribute("role", "log"); chat.setAttribute("aria-live", "polite");
+  var chipsBox = el("div", "ol-chips");
+  var form = el("form", "ol-form"); form.setAttribute("autocomplete", "off");
+  var lab = el("label", "ol-sr", "Escribe tu mensaje"); lab.htmlFor = "ol-input";
+  var input = el("input"); input.id = "ol-input"; input.type = "text"; input.maxLength = 200; input.placeholder = "Escribe: \"2 mixtos y una chicha\"";
+  var send = el("button", null, "➤"); send.type = "submit"; send.setAttribute("aria-label", "Enviar");
+  form.appendChild(lab); form.appendChild(input); form.appendChild(send);
+  panel.appendChild(head); panel.appendChild(chat); panel.appendChild(chipsBox); panel.appendChild(form);
+  document.body.appendChild(fab); document.body.appendChild(panel);
+
+  function status() { st.textContent = isOpen() ? "Abierto ahora · responde al instante" : "Cerrado ahora · igual te tomo el pedido"; }
+  var started = false;
+  function open() {
+    panel.hidden = false; fab.setAttribute("aria-expanded", "true"); status();
+    if (!started) { started = true; welcome(); }
+    setTimeout(function () { input.focus(); }, 50);
+  }
+  function shut() { panel.hidden = true; fab.setAttribute("aria-expanded", "false"); fab.focus(); }
+  fab.addEventListener("click", open);
+  close.addEventListener("click", shut);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !panel.hidden) shut(); });
+
+  /* ---------- Mensajes ---------- */
+  var queue = [], busy = false;
+  function addMsg(kind, text, links) {
+    var m = el("div", "ol-msg " + kind, text);
+    if (links && links.length) {
+      var box = el("div", "ol-links");
+      links.forEach(function (l) {
+        var a = el("a", l.wa ? "wa" : "", l.t);
+        a.href = l.href;
+        if (/^https:/.test(l.href)) { a.target = "_blank"; a.rel = "noopener noreferrer"; }
+        box.appendChild(a);
+      });
+      m.appendChild(box);
+    }
+    chat.appendChild(m); chat.scrollTop = chat.scrollHeight;
+  }
+  function chips(list) {
+    chipsBox.textContent = "";
+    (list || []).forEach(function (label) {
+      var b = el("button", null, label); b.type = "button";
+      b.addEventListener("click", function () { user(label); });
+      chipsBox.appendChild(b);
+    });
+    chat.scrollTop = chat.scrollHeight;
+  }
+  function say(items, next) { queue.push({ items: [].concat(items), chips: next }); if (!busy) pump(); }
+  function pump() {
+    var job = queue.shift();
+    if (!job) { busy = false; return; }
+    busy = true; chips([]);
+    var i = 0;
+    (function step() {
+      if (i >= job.items.length) { chips(job.chips); pump(); return; }
+      var it = job.items[i++], txt = typeof it === "string" ? it : it.t;
+      var ty = el("div", "ol-typing"); ty.setAttribute("aria-hidden", "true");
+      ty.appendChild(el("i")); ty.appendChild(el("i")); ty.appendChild(el("i"));
+      chat.appendChild(ty); chat.scrollTop = chat.scrollHeight;
+      st.textContent = "escribiendo…";
+      setTimeout(function () {
+        ty.remove(); status();
+        addMsg("in", txt, typeof it === "string" ? null : it.links);
+        step();
+      }, reduce ? 120 : Math.min(1200, 400 + txt.length * 5));
+    })();
+  }
+
+  /* ---------- Utilidades ---------- */
+  function norm(t) { return String(t).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[¿?¡!.,;]/g, " ").replace(/\s+/g, " ").trim(); }
+  function has(t, words) { for (var i = 0; i < words.length; i++) if (new RegExp("(^|\\s)" + words[i]).test(t)) return true; return false; }
+  function clean(s, max) { return String(s).replace(/[<>]/g, "").replace(/\s+/g, " ").trim().slice(0, max); }
+  function soles(n) { return "S/ " + n.toFixed(2); }
+  function waLink(text) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(text); }
+  function hhmm(h) {
+    if (h >= 24) return "12:00 am";
+    var hh = Math.floor(h), mm = Math.round((h - hh) * 60), ap = hh >= 12 ? "pm" : "am", h12 = hh % 12 === 0 ? 12 : hh % 12;
+    return h12 + ":" + (mm < 10 ? "0" : "") + mm + " " + ap;
+  }
+  function nowH() { var d = new Date(); return d.getHours() + d.getMinutes() / 60; }
+  function isOpen() { var r = HOURS[new Date().getDay()], h = nowH(); return h >= r[0] && h < r[1]; }
+  function alas(h) { return (Math.floor(h) % 12 === 1 ? "a la " : "a las ") + hhmm(h); }
+  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+  /* ---------- Conversación ---------- */
+  var MENU_CHIPS = ["Ver la carta", "Hacer un pedido", "Reservar mesa", "Horario y ubicación", "Delivery y pagos", "Tragos", "Hablar con alguien"];
+  var PLATO_CHIPS = ["Mixto", "Promoción", "Combinado", "Parrilla para 2", "Anticucho de corazón", "Listo, es todo"];
+  var S;
+  function fresh() { S = { state: "menu", cart: {}, notes: [], order: {}, res: {}, misses: 0 }; }
+  fresh();
+
+  function welcome() {
+    var r = HOURS[new Date().getDay()];
+    var aviso = isOpen() ? "" : "\n\nAhorita la parrilla está apagada 😴 Hoy atendemos desde las " + hhmm(r[0]) + ", pero igual te dejo el pedido o la reserva listos.";
+    say(["¡Hola! Bienvenido a La Olla Anticuchería 🔥 Anticuchos, parrillas y tragos en Villa El Salvador." + aviso, "¿Qué se te antoja hoy?"], MENU_CHIPS);
+  }
+  function more(extra) { S.state = "menu"; say([(extra ? extra + "\n\n" : "") + "¿Te ayudo con algo más?"], MENU_CHIPS); }
+  function carta() {
+    S.state = "menu";
+    say([{ t: "Los más pedidos:\n• Mixto · S/ 30 (corazón, pancita, molleja y rachi)\n• Promoción · S/ 30\n• Combinado · S/ 28\n• Parrilla para 2 · S/ 60\n\nTodo viene con papa a la parrilla, ensalada y cremas.", links: [{ t: "Ver la carta completa", href: "carta/" }] },
+      "Para pedir, escríbeme el plato y la cantidad, por ejemplo: \"2 mixtos y una porción de papas\"."], ["Hacer un pedido", "Reservar mesa", "Volver al inicio"]);
+  }
+  function horario() {
+    S.state = "menu";
+    say([{ t: "Atendemos:\n• Lunes a sábado: 4:30 pm a 12:00 am\n• Domingo: 12:00 pm a 12:00 am\n\n📍 " + DIRECCION + ".", links: [{ t: "Abrir en Google Maps", href: MAPS }] }, "¿Te ayudo con algo más?"], MENU_CHIPS);
+  }
+  function delivery() {
+    more("Sí hacemos delivery 🛵 El costo depende de tu zona y te lo confirman al enviar tu pedido.\nTambién puedes recogerlo en el local.\nPagos: Yape, Plin o efectivo.");
+  }
+  function tragos() {
+    more("🍹 Tragos: pisco sour, chilcano, maracuyá sour, mojito, algarrobina, Machu Picchu, piña colada, laguna azul, cuba libre y más.\nJarras de pisco sour y mojito.\nTambién cervezas, gaseosas, limonadas y chicha morada.\n\nLos precios de bebidas te los confirman en el local o por WhatsApp.");
+  }
+  function handoff(reason, prefill) {
+    S.state = "menu"; S.misses = 0;
+    say([{ t: reason || "Te paso con alguien del local para ayudarte mejor.", links: [{ t: "Escribir a La Olla por WhatsApp", href: waLink(prefill || "Hola La Olla, tengo una consulta."), wa: true }] }], ["Volver al inicio"]);
+  }
+
+  /* Pedido */
+  function findDishes(t) {
+    var found = [], rest = " " + t + " ";
+    ALIASES.forEach(function (x) {
+      var re = new RegExp("(\\s)" + x.a.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&") + "(?:s|es)?(?=\\s)");
+      var m = re.exec(rest);
+      if (!m) return;
+      var before = rest.slice(Math.max(0, m.index - 18), m.index).trim().split(" ");
+      var q = 1;
+      for (var j = before.length - 1; j >= 0 && j >= before.length - 3; j--) {
+        if (/^\d{1,2}$/.test(before[j])) { q = parseInt(before[j], 10); break; }
+        if (NUM[before[j]]) { q = NUM[before[j]]; break; }
+      }
+      rest = rest.slice(0, m.index) + " " + new Array(m[0].length).join("_") + rest.slice(m.index + m[0].length);
+      var prev = found.filter(function (f) { return f.m === x.m; })[0];
+      if (prev) prev.q += q; else found.push({ m: x.m, q: Math.max(1, Math.min(q, 20)) });
+    });
+    return found;
+  }
+  function drinkNote(raw) {
+    var parts = String(raw).split(/,| y | e | con /i).filter(function (x) { return BEBIDAS.test(norm(x)); });
+    return parts.length ? "Bebida: " + clean(parts.join(", "), 60) : "";
+  }
+  function cartInfo() {
+    var lines = [], total = 0;
+    MENU.forEach(function (m) { var q = S.cart[m.id]; if (!q) return; lines.push("• " + q + " x " + m.n + " · " + soles(q * m.p)); total += q * m.p; });
+    S.notes.forEach(function (n) { lines.push("• " + n + " (precio por confirmar)"); });
+    return { text: lines.join("\n"), total: total };
+  }
+  function startOrder() { S.state = "items"; say(["¡Claro! ¿Qué te provoca? Escríbeme el plato y la cantidad (ej.: \"2 mixtos y una chicha\") o toca una opción."], PLATO_CHIPS); }
+  function addDishes(list, raw) {
+    list.forEach(function (f) { S.cart[f.m.id] = (S.cart[f.m.id] || 0) + f.q; });
+    var note = drinkNote(raw);
+    if (note) S.notes.push(note);
+    S.state = "items";
+    var c = cartInfo();
+    say(["Anotado ✍️\n" + c.text + "\nSubtotal: " + soles(c.total), "¿Algo más o es todo?"], PLATO_CHIPS);
+  }
+  function askMode() {
+    var c = cartInfo();
+    if (!c.total && !S.notes.length) { say(["Aún no tienes nada en tu pedido. ¿Qué te provoca?"], PLATO_CHIPS); return; }
+    S.state = "mode"; say(["¿Es para delivery o para recoger en el local?"], ["Delivery", "Recojo en el local"]);
+  }
+  function askPay() { S.state = "pay"; say(["¿Cómo pagarías?"], ["Yape", "Plin", "Efectivo"]); }
+  function confirmOrder() {
+    S.state = "confirm";
+    var c = cartInfo();
+    say(["Tu pedido:\n" + c.text + "\nTotal referencial: " + soles(c.total) + (S.order.mode === "delivery" ? " + delivery según tu zona" : "") +
+      "\n\n" + (S.order.mode === "delivery" ? "Entrega en: " + S.order.addr : "Recojo en el local") + "\nPago: " + S.order.pay, "¿Está todo bien?"], ["Sí, enviar pedido", "Cambiar algo"]);
+  }
+  function sendOrder() {
+    var c = cartInfo();
+    var msg = "Hola La Olla, quiero hacer este pedido:\n" + c.text + "\nTotal referencial: " + soles(c.total) +
+      "\n" + (S.order.mode === "delivery" ? "Es para delivery a: " + S.order.addr : "Paso a recogerlo al local") + "\nPago con: " + S.order.pay;
+    S.cart = {}; S.notes = []; S.order = {}; S.state = "menu";
+    say([{ t: "¡Listo! Toca el botón y se abre WhatsApp con tu pedido para La Olla. Ellos te confirman el tiempo" + (msg.indexOf("delivery") > -1 ? " y el costo del delivery" : "") + ".", links: [{ t: "Enviar pedido por WhatsApp", href: waLink(msg), wa: true }] }], ["Volver al inicio"]);
+  }
+
+  /* Reserva */
+  function parsePeople(t) {
+    var re = /(?:para|somos|mesa de|de)\s+(\d{1,2}|[a-z]+)|(\d{1,2})\s*(?:personas|pers|adultos)/g, m;
+    while ((m = re.exec(t))) { var w = m[1] || m[2], v = /^\d+$/.test(w) ? parseInt(w, 10) : (NUM[w] || 0); if (v > 0 && v <= 60) return v; }
+    return 0;
+  }
+  function parseDay(t) {
+    var today = new Date().getDay();
+    if (/(^|\s)hoy(\s|$)/.test(t)) return today;
+    if (/manana/.test(t)) return (today + 1) % 7;
+    var names = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
+    for (var i = 0; i < 7; i++) if (t.indexOf(names[i]) !== -1) return i;
+    return -1;
+  }
+  function parseTime(t) {
+    var h, ap, m = t.match(/(\d{1,2}):(\d{2})\s*(am|pm)?/);
+    if (m) { h = +m[1] + (+m[2]) / 60; ap = m[3] || ""; }
+    else { m = t.match(/(?:a las|a la|tipo|las|la)\s+(\d{1,2})\s*(am|pm)?(\s|$)/); if (!m) return -1; h = +m[1]; ap = m[2] || ""; }
+    if (ap === "pm" && h < 12) h += 12;
+    else if (ap === "am" && h === 12) h = 24;
+    else if (!ap && h >= 1 && h < 12) h += 12;
+    return h;
+  }
+  function dayName(d) { var today = new Date().getDay(); return d === today ? "hoy" : d === (today + 1) % 7 ? "mañana" : "el " + DIAS[d]; }
+  function slotChips(day) {
+    var r = HOURS[day], out = [], from = r[0];
+    if (day === new Date().getDay()) from = Math.max(from, Math.ceil(nowH() + 0.5));
+    [13, 15, 17, 19, 20, 21, 22].forEach(function (h) { if (h >= from && h <= r[1] - 1 && out.length < 5) out.push(hhmm(h)); });
+    return out;
+  }
+  function nextRes() {
+    var R = S.res;
+    if (!R.people) { S.state = "res_people"; say(["¿Para cuántas personas?"], ["2", "4", "6", "8", "Más de 15"]); return; }
+    if (R.people > 15) { handoff("Para grupos de más de 15 personas lo coordina directamente el local 🙌", "Hola La Olla, quiero reservar para un grupo de " + R.people + " personas."); return; }
+    if (R.day === undefined || R.day < 0) { S.state = "res_day"; say(["¿Para qué día?"], ["Hoy", "Mañana", "Viernes", "Sábado", "Domingo"]); return; }
+    if (R.time === undefined || R.time < 0) {
+      var sl = slotChips(R.day);
+      if (!sl.length) { R.day = -1; S.state = "res_day"; say(["Para hoy ya no nos quedan horarios 😕 ¿Te parece otro día?"], ["Mañana", "Sábado", "Domingo"]); return; }
+      S.state = "res_time";
+      say(["¿A qué hora? " + cap(dayName(R.day)) + " atendemos de " + hhmm(HOURS[R.day][0]) + " a " + hhmm(HOURS[R.day][1]) + "."], sl);
+      return;
+    }
+    if (!R.name) { S.state = "res_name"; say(["¿A nombre de quién la separo?"], []); return; }
+    if (R.occasion === undefined) { S.state = "res_occ"; say(["¿Es por alguna ocasión especial?"], ["Cumpleaños", "Reunión de amigos", "Ninguna"]); return; }
+    S.state = "res_confirm";
+    say(["Mesa para " + R.people + ", " + dayName(R.day) + " " + alas(R.time) + ", a nombre de " + R.name + (R.occasion ? " (" + R.occasion.toLowerCase() + ")" : "") + ". ¿Está bien?"], ["Sí, enviar reserva", "Cambiar algo"]);
+  }
+  function setTime(h) {
+    var r = HOURS[S.res.day];
+    if (h < r[0] || h > r[1] - 1) { S.res.time = -1; say([cap(dayName(S.res.day)) + " a esa hora estamos cerrados. Atendemos de " + hhmm(r[0]) + " a " + hhmm(r[1]) + "."], []); }
+    else S.res.time = h;
+    nextRes();
+  }
+  function startRes(t) {
+    S.res = {};
+    var p = parsePeople(t), d = parseDay(t), h = parseTime(t);
+    if (p) S.res.people = p;
+    if (d >= 0) S.res.day = d;
+    say(["¡Con gusto te separamos una mesa! 🪑"], []);
+    if (d >= 0 && h >= 0) { setTime(h); return; }
+    nextRes();
+  }
+  function sendRes() {
+    var R = S.res; S.res = {}; S.state = "menu";
+    var msg = "Hola La Olla, quiero reservar una mesa.\nNombre: " + R.name + "\nDía: " + cap(dayName(R.day)) + "\nHora: " + hhmm(R.time) + "\nPersonas: " + R.people + (R.occasion ? "\nOcasión: " + R.occasion : "");
+    say([{ t: "¡Listo! Toca el botón para enviar tu reserva por WhatsApp. La Olla te la confirma por ahí.", links: [{ t: "Enviar reserva por WhatsApp", href: waLink(msg), wa: true }] }], ["Volver al inicio"]);
+  }
+
+  /* ---------- Intención primero, respuesta después ---------- */
+  function brain(raw) {
+    var t = norm(raw);
+    if (!t) return;
+    if (has(t, ["volver al inicio", "inicio", "menu"]) && t.length < 20) { S.state = "menu"; S.misses = 0; welcome(); return; }
+    if (has(t, ["cancelar", "cancela"])) { S.cart = {}; S.notes = []; S.order = {}; S.res = {}; more("Listo, lo cancelé."); return; }
+    if (has(t, ["queja", "reclamo", "llego frio", "frio", "falto", "faltaba", "me cobraron", "demoro mucho", "pesimo", "malogr"])) {
+      handoff("Uy, lo sentimos mucho. Escríbele directo al local para solucionarlo al toque:", "Hola La Olla, tuve un problema con mi pedido: " + clean(raw, 150));
+      return;
+    }
+    if (has(t, ["hablar con alguien", "una persona", "asesor", "humano", "encargad"])) { handoff(); return; }
+
+    switch (S.state) {
+      case "items":
+        if (has(t, ["listo", "es todo", "nada mas", "eso es todo", "solo eso", "nada"])) { S.misses = 0; askMode(); return; }
+        if (BEBIDAS.test(t) && !findDishes(t).length) { S.notes.push(drinkNote(raw) || "Bebida: " + clean(raw, 60)); var c0 = cartInfo(); say(["Anotado ✍️\n" + c0.text, "¿Algo más o es todo?"], PLATO_CHIPS); return; }
+        break;
+      case "mode":
+        if (has(t, ["deliv", "envio", "a mi casa", "a domicilio", "lleven", "traigan"])) { S.order.mode = "delivery"; S.state = "addr"; say(["Perfecto. Envíame tu dirección con una referencia (ej.: \"Sector 3, Grupo 5, Mz. B Lt. 12, frente al parque\")."], []); return; }
+        if (has(t, ["recojo", "recoger", "paso", "local", "para llevar"])) { S.order.mode = "recojo"; askPay(); return; }
+        break;
+      case "addr":
+        if (raw.trim().length >= 6) { S.order.addr = clean(raw, 140); askPay(); return; }
+        say(["¿Me pasas la dirección completa con una referencia?"], []); return;
+      case "pay":
+        if (has(t, ["yape"])) { S.order.pay = "Yape"; confirmOrder(); return; }
+        if (has(t, ["plin"])) { S.order.pay = "Plin"; confirmOrder(); return; }
+        if (has(t, ["efectivo", "cash", "billete", "sencillo"])) { S.order.pay = "Efectivo"; confirmOrder(); return; }
+        if (has(t, ["tarjeta", "visa", "pos"])) { S.order.pay = "Tarjeta (por confirmar)"; confirmOrder(); return; }
+        break;
+      case "confirm":
+        if (has(t, ["si", "enviar", "confirm", "ok", "dale", "listo", "claro"])) { sendOrder(); return; }
+        if (has(t, ["no", "cambiar", "cambio"])) { S.cart = {}; S.notes = []; S.state = "items"; say(["Sin problema, armemos el pedido de nuevo. ¿Qué te provoca?"], PLATO_CHIPS); return; }
+        break;
+      case "res_people":
+        if (has(t, ["mas de 15"])) { S.res.people = 16; nextRes(); return; }
+        var p = parsePeople(t) || (/^\d{1,2}$/.test(t) ? parseInt(t, 10) : NUM[t] || 0);
+        if (p > 0) { S.res.people = p; nextRes(); return; }
+        break;
+      case "res_day":
+        var d = parseDay(t);
+        if (d >= 0) { S.res.day = d; var h0 = parseTime(t); if (h0 >= 0) { setTime(h0); return; } nextRes(); return; }
+        break;
+      case "res_time":
+        var h = parseTime(t);
+        if (h < 0 && /^\d{1,2}(:\d{2})?\s*(am|pm)?$/.test(t)) h = parseTime("a las " + t);
+        if (h >= 0) { setTime(h); return; }
+        break;
+      case "res_name":
+        var name = clean(raw, 40).replace(/^(a nombre de|es|soy|de)\s+/i, "");
+        if (name.length >= 2) { S.res.name = name; nextRes(); return; }
+        break;
+      case "res_occ":
+        S.res.occasion = has(t, ["ninguna", "no", "nada"]) ? "" : clean(raw, 40);
+        nextRes(); return;
+      case "res_confirm":
+        if (has(t, ["si", "enviar", "confirm", "ok", "dale", "listo", "claro"])) { sendRes(); return; }
+        if (has(t, ["no", "cambiar", "cambio"])) { startRes(""); return; }
+        break;
+    }
+
+    var dishes = findDishes(t);
+    if (dishes.length && has(t, ["cuanto", "precio", "cuesta", "a como", "vale", "esta el", "esta la"])) {
+      S.misses = 0;
+      say(["Aquí tienes 👇\n" + dishes.map(function (f) { return "• " + f.m.n + " · S/ " + f.m.p; }).join("\n"), "¿Te lo anoto?"],
+        dishes.slice(0, 3).map(function (f) { return "Quiero 1 " + f.m.n; }).concat(["Volver al inicio"]));
+      return;
+    }
+    if (dishes.length) { S.misses = 0; addDishes(dishes, raw); return; }
+    if (has(t, ["reserv", "mesa", "separar", "cumple"])) { S.misses = 0; startRes(t); return; }
+    if (has(t, ["carta", "que tienen", "que hay", "platos", "precio", "menu del dia", "recomienda"])) { S.misses = 0; carta(); return; }
+    if (has(t, ["pedir", "pedido", "quiero", "me mandas", "me envias", "ordenar"])) { S.misses = 0; startOrder(); return; }
+    if (has(t, ["deliv", "envio", "reparto", "llegan a", "hasta donde", "yape", "plin", "pago", "pagar", "tarjeta", "efectivo"])) { S.misses = 0; delivery(); return; }
+    if (has(t, ["trago", "bebida", "cerveza", "jarra", "pisco", "chilcano", "mojito", "chicha", "gaseosa"])) { S.misses = 0; tragos(); return; }
+    if (has(t, ["horario", "hora", "abren", "abierto", "atienden", "cierran", "donde", "direccion", "ubicacion", "como llego", "mapa"])) { S.misses = 0; horario(); return; }
+    if (has(t, ["gracias", "genial", "chevere", "perfecto"])) { more("¡A ti! Te esperamos 🔥"); return; }
+    if (has(t, ["hola", "buenas", "buenos", "buen dia", "alo", "hey"])) { S.misses = 0; welcome(); return; }
+
+    S.misses++;
+    if (S.misses >= 2) { handoff("Disculpa, no logré entenderte 😅 Mejor escríbele directo al local:", "Hola La Olla, " + clean(raw, 150)); return; }
+    say(["No te entendí bien 😅 ¿Quieres alguna de estas opciones?"], MENU_CHIPS);
+  }
+
+  function user(text) {
+    text = String(text).slice(0, 200);
+    if (!text.trim()) return;
+    addMsg("out", text); chips([]);
+    brain(text);
+  }
+  form.addEventListener("submit", function (e) { e.preventDefault(); var v = input.value; input.value = ""; user(v); });
+})();
