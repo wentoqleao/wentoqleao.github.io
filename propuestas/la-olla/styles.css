@@ -383,3 +383,16 @@ body{background:var(--crema)}
 .qty button{background:var(--naranja);border-color:var(--naranja);color:#fff}
 .hero .menu-card .kicker{color:var(--naranja-osc)}
 .btn-ver{margin-top:18px}
+
+/* ===== Proporción: el hero entra completo en la primera pantalla (2026-11-12) ===== */
+@media (min-width:900px){
+  .hero{min-height:100svh}
+  .hero-in,body .hero-in{padding-top:clamp(118px,17svh,166px);padding-bottom:clamp(56px,9svh,90px)}
+  .hero h1{font-size:clamp(2.8rem,min(7vw,10svh),6.2rem);margin-block:clamp(10px,1.8svh,20px) clamp(12px,2.2svh,24px)}
+  .hero .sub{font-size:clamp(1.05rem,min(1.7vw,2.5svh),1.35rem)}
+  .hero .ctas{margin-top:clamp(18px,3.2svh,36px)}
+  .menu-card{padding:clamp(20px,3svh,30px) 28px clamp(18px,2.6svh,26px)}
+  .menu-card h2{font-size:clamp(1.6rem,3.6svh,2.1rem);margin:6px 0 clamp(8px,1.6svh,16px)}
+  .menu-card ul{gap:clamp(6px,1.2svh,12px);margin-bottom:clamp(10px,1.8svh,18px)}
+  .scroll-cue{bottom:clamp(12px,2.4svh,22px)}
+}

@@ -198,3 +198,9 @@ footer{padding-block:40px 130px;color:var(--ink-mute);font-size:.9rem}
 .cart-clear{border:0;background:transparent;color:var(--ink-mute);font:600 .8rem var(--font);cursor:pointer;text-decoration:underline;padding:4px}
 
 @media (prefers-reduced-motion:reduce){.mesh{animation:none}}
+
+/* ===== Proporción: el hero entra completo en la primera pantalla (2026-11-12) ===== */
+@media (min-width:900px){
+  .hero{padding-block:clamp(108px,16svh,150px) clamp(44px,8svh,80px)}
+  .hero h1{font-size:clamp(2.4rem,min(6vw,9svh),4.9rem)}
+}

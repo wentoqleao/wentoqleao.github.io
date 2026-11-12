@@ -190,3 +190,14 @@ footer{border-top:1px solid var(--line);padding-block:44px 120px;color:var(--mut
 @media (min-width:900px){.mbook{display:none}footer{padding-bottom:44px}}
 
 @media (prefers-reduced-motion:reduce){.hero-mesh{animation:none}.status.open i{animation:none}}
+
+/* ===== Proporción: el hero entra completo en la primera pantalla (2026-11-12) ===== */
+@media (min-width:900px){
+  .hero{min-height:100svh}
+  .hero-in{padding-block:clamp(104px,15svh,140px) clamp(48px,8svh,90px)}
+  .hero h1{font-size:clamp(3.2rem,min(8.5vw,14svh),8.4rem);margin-block:clamp(12px,2svh,22px) clamp(14px,2.4svh,26px)}
+  .hero-photo{height:min(560px,calc(100svh - 230px));width:auto;max-width:100%;margin-inline:auto}
+}
+
+/* Proporción del título en pantallas bajas */
+@media (min-width:900px){.hero h1{line-height:.92}}
