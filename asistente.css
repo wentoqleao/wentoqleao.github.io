@@ -1,0 +1,40 @@
+/* Asistente del portafolio · Jose Aylas Gutierrez */
+.as-fab{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:10px;background:var(--ink,#161513);color:#fff;border:0;border-radius:999px;padding:12px 18px 12px 12px;font:600 15px/1 "Inter Tight",system-ui,sans-serif;cursor:pointer;box-shadow:0 14px 30px -12px rgba(0,0,0,.45)}
+.as-fab:hover{background:var(--acc,#C8431C)}
+.as-fab .dot{width:32px;height:32px;border-radius:50%;background:var(--acc,#C8431C);display:grid;place-items:center;font-size:16px}
+.as-fab:hover .dot{background:#fff;color:var(--acc,#C8431C)}
+.as-fab[aria-expanded="true"]{display:none}
+.as-panel{position:fixed;right:20px;bottom:20px;z-index:61;width:min(390px,calc(100vw - 24px));height:min(600px,calc(100dvh - 40px));background:#fff;border:1px solid var(--line,#DEDAD0);border-radius:20px;box-shadow:0 30px 60px -24px rgba(0,0,0,.45);display:flex;flex-direction:column;overflow:hidden;font-family:"Inter Tight",system-ui,sans-serif}
+.as-panel[hidden]{display:none}
+.as-head{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--ink,#161513);color:#fff}
+.as-head .av{width:36px;height:36px;border-radius:50%;background:var(--acc,#C8431C);display:grid;place-items:center;font:700 13px/1 Georgia,serif;flex:none}
+.as-head div{flex:1;min-width:0;display:flex;flex-direction:column}
+.as-head b{font-size:15px}
+.as-head span{font-size:12px;opacity:.75}
+.as-head button{background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:999px;width:34px;height:34px;font-size:18px;cursor:pointer;flex:none}
+.as-head button:hover{background:rgba(255,255,255,.28)}
+.as-chat{flex:1;overflow-y:auto;background:var(--bg,#F4F1EA);padding:14px 12px;display:flex;flex-direction:column;gap:8px;overscroll-behavior:contain}
+.as-msg{max-width:86%;min-width:60px;padding:9px 12px;border-radius:14px;font-size:14.5px;line-height:1.45;white-space:pre-line;word-wrap:break-word;animation:as-pop .18s ease-out}
+.as-msg.in{align-self:flex-start;background:#fff;border:1px solid var(--line,#DEDAD0);border-top-left-radius:4px;color:var(--ink,#161513)}
+.as-msg.out{align-self:flex-end;background:var(--ink,#161513);color:#fff;border-top-right-radius:4px}
+.as-links{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.as-links a{display:block;text-align:center;text-decoration:none;font-weight:600;font-size:14px;padding:9px 12px;border-radius:999px;border:1px solid var(--ink,#161513);color:var(--ink,#161513)}
+.as-links a:hover{background:var(--ink,#161513);color:#fff}
+.as-links a.wa{background:#1FA855;border-color:#1FA855;color:#fff}
+.as-links a.wa:hover{background:#178a45;border-color:#178a45}
+.as-typing{align-self:flex-start;background:#fff;border:1px solid var(--line,#DEDAD0);border-radius:14px;padding:10px 12px;display:flex;gap:4px}
+.as-typing i{width:6px;height:6px;border-radius:50%;background:#9a958c;animation:as-blink 1.1s infinite}
+.as-typing i:nth-child(2){animation-delay:.18s}.as-typing i:nth-child(3){animation-delay:.36s}
+@keyframes as-blink{0%,60%,100%{opacity:.3}30%{opacity:1}}
+@keyframes as-pop{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.as-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 12px 10px;background:var(--bg,#F4F1EA)}
+.as-chips:empty{padding:0}
+.as-chips button{background:#fff;color:var(--ink,#161513);border:1px solid var(--line,#DEDAD0);border-radius:999px;font:600 13px/1 "Inter Tight",system-ui,sans-serif;padding:9px 12px;cursor:pointer}
+.as-chips button:hover,.as-chips button:focus-visible{background:var(--acc,#C8431C);border-color:var(--acc,#C8431C);color:#fff;outline:none}
+.as-form{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line,#DEDAD0);background:#fff}
+.as-form input{flex:1;min-width:0;border:1px solid var(--line,#DEDAD0);border-radius:999px;padding:11px 14px;font:400 16px/1.2 "Inter Tight",system-ui,sans-serif;color:var(--ink,#161513);background:#fff}
+.as-form input:focus{outline:2px solid var(--acc,#C8431C);border-color:transparent}
+.as-form button{width:42px;height:42px;border-radius:50%;border:0;background:var(--acc,#C8431C);color:#fff;font-size:16px;cursor:pointer;flex:none}
+.as-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:520px){.as-fab{right:12px;bottom:12px}.as-panel{right:8px;left:8px;bottom:8px;width:auto;height:calc(100dvh - 16px);border-radius:16px}}
+@media (prefers-reduced-motion:reduce){.as-msg{animation:none}.as-typing i{animation:none}}
