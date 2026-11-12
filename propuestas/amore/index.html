@@ -11,8 +11,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Amore · Restaurante en Miraflores y La Molina</title>
 <meta name="description" content="Cocina de autor criolla y mediterránea en terraza. Reserva tu mesa en Miraflores o La Molina por WhatsApp.">
-<meta name="theme-color" content="#1F2B24">
-<link rel="icon" href="assets/img/logo.svg">
+<meta name="theme-color" content="#6E1A1B">
+<link rel="icon" href="assets/img/logo.webp">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="styles.css?v=20261112">
 <link rel="stylesheet" href="asistente.css?v=20261112">
@@ -24,13 +24,13 @@
 <body class="pk-pro amore">
 <a class="skip" href="#contenido">Saltar al contenido</a>
 <div class="pk"><span>Propuesta de página web para Amore · diseño de Jose Aylas Gutierrez</span></div>
-<div class="splash" data-splash aria-hidden="true"><div class="splash-in"><img src="assets/img/logo.svg" alt="" width="96" height="96"><b><em>Amore</em></b><small>Miraflores · La Molina</small></div></div>
+<div class="splash" data-splash aria-hidden="true"><div class="splash-in"><img src="assets/img/logo.webp" alt="" width="96" height="96"><b><em>Amore</em></b><small>Miraflores · La Molina</small></div></div>
 <div class="progress" data-progress aria-hidden="true"></div>
 <div class="cursor" data-cursor aria-hidden="true"><i class="dot"></i><i class="ring"></i></div>
 
 <header class="nav" data-nav>
   <div class="wrap nav-in">
-    <a class="logo" href="#inicio"><img src="assets/img/logo.svg" alt="" width="40" height="40"><em>Amore</em></a>
+    <a class="logo" href="#inicio"><img src="assets/img/logo.webp" alt="" width="40" height="40"><em>Amore</em></a>
     <nav class="nav-links" aria-label="Secciones">
       <a href="#carta">La carta</a>
       <a href="#sedes">Sedes</a>
@@ -46,9 +46,9 @@
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-in">
       <div>
-        <p class="kicker">Cocina de autor · Terraza</p>
+        <p class="kicker">Comida criolla &amp; fusión mediterránea</p>
         <h1 data-split>Sabores de casa,<br><em>con acento mediterráneo.</em></h1>
-        <p class="sub">Lomo saltado, fettuccine a la huancaína y paella, servidos en una terraza llena de plantas en Miraflores y La Molina.</p>
+        <p class="sub">Lomo saltado, pastas, pizzas al horno y coctelería de autor, en una terraza llena de plantas en Miraflores y La Molina.</p>
         <div class="ctas">
           <a class="btn btn-light" href="https://wa.me/51963801913?text=Hola%20Amore%2C%20quisiera%20hacer%20una%20reserva" data-wa target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>Reservar por WhatsApp</a>
           <a class="btn btn-line" href="#carta">Ver la carta</a>
@@ -80,6 +80,7 @@
       <div class="reveal" style="--d:120ms">
         <p>En Amore juntamos la cocina criolla con el Mediterráneo. Hacemos platos sencillos con un toque de autor e ingredientes frescos, para almorzar en familia o quedarse a la sobremesa.</p>
         <p>Te esperamos en nuestras dos terrazas, en Miraflores y en La Molina, con la misma carta y el mismo cariño en las dos.</p>
+        <div class="story-photo"><img src="assets/img/ossobuco.webp" alt="Mesa en la terraza de Amore con ossobuco, ceviche y cócteles" loading="lazy" width="500" height="375"></div>
       </div>
     </div>
   </section>
@@ -88,134 +89,533 @@
     <div class="wrap">
       <div class="carta-head reveal">
         <div><p class="kicker">De la cocina de Amore</p><h2 class="sec-title">La <em>carta</em></h2></div>
-        <p>Toca «Agregar» y arma tu pedido para recoger o para delivery. Llega al WhatsApp de la sede que elegiste.</p>
+        <p>Toca «Agregar» y arma tu pedido para recoger en tienda. Llega al WhatsApp de la sede que elegiste. Pizzas: precio personal.</p>
       </div>
       <div class="filtros reveal" role="group" aria-label="Filtrar la carta">
-        <button class="filtro" type="button" data-cat="todo" aria-pressed="true">Todo</button>
-        <button class="filtro" type="button" data-cat="entradas" aria-pressed="false">Para empezar</button>
-        <button class="filtro" type="button" data-cat="fondos" aria-pressed="false">Fondos</button>
-        <button class="filtro" type="button" data-cat="pastas" aria-pressed="false">Pastas y pizzas</button>
+        <button class="filtro" type="button" data-cat="favoritos" aria-pressed="true">Favoritos</button>
+        <button class="filtro" type="button" data-cat="entradas" aria-pressed="false">Entradas y ensaladas</button>
+        <button class="filtro" type="button" data-cat="peruanos" aria-pressed="false">Peruanos imperdibles</button>
+        <button class="filtro" type="button" data-cat="pastas" aria-pressed="false">Pastas</button>
+        <button class="filtro" type="button" data-cat="especialidades" aria-pressed="false">Especialidades</button>
+        <button class="filtro" type="button" data-cat="pizzas" aria-pressed="false">Pizzas</button>
         <button class="filtro" type="button" data-cat="postres" aria-pressed="false">Postres</button>
-        <button class="filtro" type="button" data-cat="bebidas" aria-pressed="false">Bar</button>
+        <button class="filtro" type="button" data-cat="bar" aria-pressed="false">Bar</button>
       </div>
       <div class="platos">
-        <article class="dish no-img reveal" data-cat="entradas" data-tilt style="--d:0ms">
+        <article class="dish reveal" data-cat="favoritos" data-tilt style="--d:0ms">
+          <div class="dish-img"><img src="assets/img/spaghetti-negro.webp" alt="Spaghetti negro con salsa rosé de langostinos" loading="lazy" width="800" height="600"></div>
           <div class="dish-body">
-            <div class="dish-top"><h3>Ceviche carretillero</h3><span class="price">Consultar</span></div>
-            <p>Ceviche de pescado con chicharrón de calamar.</p>
+            <div class="dish-top"><h3>Spaghetti negro con salsa rosé de langostinos</h3><span class="price">S/ 62</span></div>
+            <p>Spaghetti de tinta de calamar con salsa de langostinos, crema y parmesano.</p>
             <div class="dish-foot"><span class="tag">Favorito</span></div>
           </div>
         </article>
-        <article class="dish no-img reveal" data-cat="entradas" data-tilt style="--d:90ms">
+        <article class="dish reveal" data-cat="favoritos" data-tilt style="--d:90ms">
+          <div class="dish-img"><img src="assets/img/ceviche-clasico.webp" alt="Ceviche clásico / diabla" loading="lazy" width="800" height="600"></div>
           <div class="dish-body">
-            <div class="dish-top"><h3>Chicharrón de calamar</h3><span class="price">Consultar</span></div>
-            <p>Calamar crocante con salsa de la casa.</p>
+            <div class="dish-top"><h3>Ceviche clásico / diabla</h3><span class="price">S/ 62</span></div>
+            <p>Pesca del día en cubos con suave leche de tigre, choclo y camote glaseado.</p>
             <div class="dish-foot"></div>
           </div>
         </article>
-        <article class="dish no-img reveal" data-cat="entradas" data-tilt style="--d:180ms">
+        <article class="dish reveal" data-cat="favoritos" data-tilt style="--d:180ms">
+          <div class="dish-img"><img src="assets/img/lomo-3-pimientas.webp" alt="Lomo a las 3 pimientas" loading="lazy" width="800" height="600"></div>
           <div class="dish-body">
-            <div class="dish-top"><h3>Pulpo a la parrilla</h3><span class="price">Consultar</span></div>
-            <p>Pulpo grillado con guarnición de la casa.</p>
+            <div class="dish-top"><h3>Lomo a las 3 pimientas</h3><span class="price">S/ 69</span></div>
+            <p>Medallón de lomo fino a la plancha, verduras al grill y papas provenzal.</p>
             <div class="dish-foot"></div>
           </div>
         </article>
-        <article class="dish no-img reveal" data-cat="entradas" data-tilt style="--d:0ms">
+        <article class="dish reveal" data-cat="favoritos" data-tilt style="--d:0ms">
+          <div class="dish-img"><img src="assets/img/ossobuco.webp" alt="Ossobuco" loading="lazy" width="800" height="600"></div>
           <div class="dish-body">
-            <div class="dish-top"><h3>Tartar de salmón</h3><span class="price">Consultar</span></div>
-            <p>Salmón fresco picado a cuchillo.</p>
+            <div class="dish-top"><h3>Ossobuco</h3><span class="price">S/ 66</span></div>
+            <p>Cocinado lentamente en su jugo, con polenta y aceite de trufa blanca.</p>
             <div class="dish-foot"></div>
           </div>
         </article>
-        <article class="dish no-img reveal" data-cat="entradas" data-tilt style="--d:90ms">
+        <article class="dish reveal" data-cat="favoritos" data-tilt style="--d:90ms">
+          <div class="dish-img"><img src="assets/img/hamburguesa.webp" alt="Hamburguesa de la casa" loading="lazy" width="800" height="600"></div>
           <div class="dish-body">
-            <div class="dish-top"><h3>Ensalada burrata</h3><span class="price">Consultar</span></div>
-            <p>Burrata cremosa con tomates y hojas verdes.</p>
+            <div class="dish-top"><h3>Hamburguesa de la casa</h3><span class="price">S/ 41</span></div>
+            <p>Doble hamburguesa, cheddar, salsa de la casa, pepinillos y papas nativas.</p>
             <div class="dish-foot"></div>
           </div>
         </article>
-        <article class="dish no-img reveal" data-cat="fondos" data-tilt style="--d:180ms">
+        <article class="dish reveal" data-cat="favoritos" data-tilt style="--d:180ms">
+          <div class="dish-img"><img src="assets/img/pizza-margarita.webp" alt="Pizza margarita" loading="lazy" width="800" height="600"></div>
           <div class="dish-body">
-            <div class="dish-top"><h3>Lomo saltado</h3><span class="price">S/ 65</span></div>
-            <p>Lomo fino al wok con cebolla, tomate y papas fritas.</p>
+            <div class="dish-top"><h3>Pizza margarita</h3><span class="price">S/ 36</span></div>
+            <p>Tomate, mozzarella fresca, rodajas de tomate y albahaca. Familiar: S/ 59.</p>
+            <div class="dish-foot"><span class="tag light">Personal</span></div>
+          </div>
+        </article>
+        <article class="dish reveal" data-cat="favoritos" data-tilt style="--d:0ms">
+          <div class="dish-img"><img src="assets/img/pizza-chicken-bbq.webp" alt="Pizza chicken BBQ" loading="lazy" width="800" height="600"></div>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pizza chicken BBQ</h3><span class="price">S/ 47</span></div>
+            <p>Mozzarella, pollo, tocino, piña y salsa BBQ. Familiar: S/ 71.</p>
+            <div class="dish-foot"><span class="tag light">Personal</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="favoritos" data-tilt style="--d:90ms">
+          <div class="dish-body">
+            <div class="dish-top"><h3>Lomo saltado tradicional</h3><span class="price">S/ 65</span></div>
+            <p>Lomo flambeado con verduras, papas nativas y arroz blanco. Opcional: tacu tacu.</p>
             <div class="dish-foot"><span class="tag">El más pedido</span></div>
           </div>
         </article>
-        <article class="dish no-img reveal" data-cat="fondos" data-tilt style="--d:0ms">
+        <article class="dish no-img reveal" data-cat="favoritos" data-tilt style="--d:180ms">
           <div class="dish-body">
-            <div class="dish-top"><h3>Arroz con pato borracho</h3><span class="price">Consultar</span></div>
-            <p>Arroz verde con pato macerado en cerveza negra.</p>
-            <div class="dish-foot"></div>
-          </div>
-        </article>
-        <article class="dish no-img reveal" data-cat="fondos" data-tilt style="--d:90ms">
-          <div class="dish-body">
-            <div class="dish-top"><h3>Seco borracho</h3><span class="price">Consultar</span></div>
-            <p>Guiso al culantro con frejoles.</p>
-            <div class="dish-foot"></div>
-          </div>
-        </article>
-        <article class="dish no-img reveal" data-cat="fondos" data-tilt style="--d:180ms">
-          <div class="dish-body">
-            <div class="dish-top"><h3>Paella de mariscos</h3><span class="price">S/ 44</span></div>
-            <p>Arroz con mariscos al estilo de la casa.</p>
-            <div class="dish-foot"></div>
-          </div>
-        </article>
-        <article class="dish no-img reveal" data-cat="pastas" data-tilt style="--d:0ms">
-          <div class="dish-body">
-            <div class="dish-top"><h3>Fettuccine a la huancaína con lomo</h3><span class="price">Consultar</span></div>
-            <p>Fettuccine en crema huancaína con lomo anticuchero.</p>
+            <div class="dish-top"><h3>Fettuccine a la huancaína con lomo anticuchero</h3><span class="price">S/ 65</span></div>
+            <p>Huancaína casera con dados de lomo en salsa anticuchera.</p>
             <div class="dish-foot"><span class="tag">Firma de la casa</span></div>
           </div>
         </article>
-        <article class="dish no-img reveal" data-cat="pastas" data-tilt style="--d:90ms">
+        <article class="dish no-img reveal" data-cat="entradas" data-tilt style="--d:0ms" hidden>
           <div class="dish-body">
-            <div class="dish-top"><h3>Spaghetti negro con langostinos</h3><span class="price">Consultar</span></div>
-            <p>Pasta en tinta de calamar con salsa rosé de langostinos.</p>
+            <div class="dish-top"><h3>Fingers de polenta frita y pomodoro</h3><span class="price">S/ 29</span></div>
+            <p>Bastones de polenta al panko con salsa pomodoro y salsa diabla.</p>
             <div class="dish-foot"></div>
           </div>
         </article>
-        <article class="dish no-img reveal" data-cat="pastas" data-tilt style="--d:180ms">
+        <article class="dish no-img reveal" data-cat="entradas" data-tilt style="--d:90ms" hidden>
           <div class="dish-body">
-            <div class="dish-top"><h3>Lasaña de rabo</h3><span class="price">Consultar</span></div>
-            <p>Lasaña de rabo de res al horno.</p>
+            <div class="dish-top"><h3>Ensalada Caesar con pollo</h3><span class="price">S/ 34</span></div>
+            <p>Romana, parmesano, tocino, croutons, pollo y aliño de anchoas.</p>
             <div class="dish-foot"></div>
           </div>
         </article>
-        <article class="dish no-img reveal" data-cat="pastas" data-tilt style="--d:0ms">
+        <article class="dish no-img reveal" data-cat="entradas" data-tilt style="--d:180ms" hidden>
           <div class="dish-body">
-            <div class="dish-top"><h3>Pizza rústica</h3><span class="price">Consultar</span></div>
-            <p>Masa delgada al horno.</p>
+            <div class="dish-top"><h3>Ensalada thai</h3><span class="price">S/ 39</span></div>
+            <p>Mix de coles, hierbas, langostinos, maní tostado y vinagreta de manzana.</p>
             <div class="dish-foot"></div>
           </div>
         </article>
-        <article class="dish no-img reveal" data-cat="postres" data-tilt style="--d:90ms">
+        <article class="dish no-img reveal" data-cat="entradas" data-tilt style="--d:0ms" hidden>
           <div class="dish-body">
-            <div class="dish-top"><h3>Tiramisú</h3><span class="price">Consultar</span></div>
-            <p>Clásico italiano con mascarpone y café.</p>
+            <div class="dish-top"><h3>Berenjena a la parmesana</h3><span class="price">S/ 38</span></div>
+            <p>Berenjena grillada, pomodoro, mozzarella y parmesano gratinado.</p>
             <div class="dish-foot"></div>
           </div>
         </article>
-        <article class="dish no-img reveal" data-cat="postres" data-tilt style="--d:180ms">
+        <article class="dish no-img reveal" data-cat="entradas" data-tilt style="--d:90ms" hidden>
           <div class="dish-body">
-            <div class="dish-top"><h3>Crème brûlée</h3><span class="price">Consultar</span></div>
-            <p>Crema de vainilla con costra de caramelo.</p>
+            <div class="dish-top"><h3>Langostinos al brandy</h3><span class="price">S/ 48</span></div>
+            <p>Langostinos flambeados, cebolla blanca, crema de leche y parmesano.</p>
             <div class="dish-foot"></div>
           </div>
         </article>
-        <article class="dish no-img reveal" data-cat="postres" data-tilt style="--d:0ms">
+        <article class="dish no-img reveal" data-cat="entradas" data-tilt style="--d:180ms" hidden>
           <div class="dish-body">
-            <div class="dish-top"><h3>Volcán de chocolate</h3><span class="price">Consultar</span></div>
-            <p>Bizcocho tibio con centro de chocolate fundido.</p>
+            <div class="dish-top"><h3>Carpaccio de lomo</h3><span class="price">S/ 48</span></div>
+            <p>Láminas de lomo fino, cherry, alioli, parmesano y reducción de balsámico.</p>
             <div class="dish-foot"></div>
           </div>
         </article>
-        <article class="dish no-img reveal" data-cat="bebidas" data-tilt style="--d:90ms">
+        <article class="dish no-img reveal" data-cat="entradas" data-tilt style="--d:0ms" hidden>
           <div class="dish-body">
-            <div class="dish-top"><h3>Sangría</h3><span class="price">Consultar</span></div>
-            <p>Vino tinto con frutas de estación.</p>
+            <div class="dish-top"><h3>Causas</h3><span class="price">S/ 49</span></div>
+            <p>Acevichada o de langostinos al panko.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="entradas" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Burrata rellena</h3><span class="price">S/ 51</span></div>
+            <p>Tomate italiano, aceite de oliva extra virgen, albahaca y pesto genovés.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="entradas" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Tartare Amore</h3><span class="price">S/ 63</span></div>
+            <p>Salmón y pesca del día acevichada, palta y galleta crocante de quinua.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="entradas" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pulpo a la parrilla</h3><span class="price">S/ 65</span></div>
+            <p>Con papas bebé a la crema y alioli de olivo.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="peruanos" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Seco borracho</h3><span class="price">S/ 53</span></div>
+            <p>Asado de tira en salsa de seco, frejol canario y arroz con choclo.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="peruanos" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Tiradito nikkei</h3><span class="price">S/ 49</span></div>
+            <p>Pescado en salsa nikkei cítrica, aceite de ajonjolí y palta.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="peruanos" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Chicharrón de calamar</h3><span class="price">S/ 49</span></div>
+            <p>Aros crocantes con yuca frita, choclo, cancha y leche de tigre.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="peruanos" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Ceviche carretillero</h3><span class="price">S/ 65</span></div>
+            <p>Ceviche con aros de calamar crocantes, choclo y camote glaseado.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="peruanos" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Arroz con pato borracho</h3><span class="price">S/ 73</span></div>
+            <p>Pato tostado, cerveza negra, chicha de jora y criolla con palta.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pastas" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Penne primavera</h3><span class="price">S/ 36</span></div>
+            <p>Zucchini, champiñones, pimientos, berenjena y salsa rosse.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pastas" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Tortellini de ricotta en salsa pesto</h3><span class="price">S/ 44</span></div>
+            <p>Pesto rústico con tomates cherry y albahaca.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pastas" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Lasagna de carne</h3><span class="price">S/ 46</span></div>
+            <p>Ragú de carne, bechamel, mozzarella y parmesano.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pastas" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Gnocchis a los 4 quesos</h3><span class="price">S/ 48</span></div>
+            <p>Queso azul, parmesano, gruyère y mozzarella gratinados.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pastas" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pappardelle con ragú de cola de buey</h3><span class="price">S/ 46</span></div>
+            <p>Guiso de cola de buey cocido lentamente y grana padano.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pastas" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Lasagna de cola de buey</h3><span class="price">S/ 47</span></div>
+            <p>Bechamel, guiso de cola de buey, mozzarella y parmesano.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pastas" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Fettuccine en salsa de langostinos</h3><span class="price">S/ 62</span></div>
+            <p>Langostinos, brandy, crema, tomates confitados y tierra de morcilla.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pastas" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Fettuccine frutti di mare</h3><span class="price">S/ 66</span></div>
+            <p>Mariscos, pulpo, salsa americana, tomate concassé y crema.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pastas" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Spaghetti carbonara estilo Amore</h3><span class="price">S/ 54</span></div>
+            <p>Salsa de yemas, tocino ahumado, parmesano y pimienta recién molida.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="especialidades" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Milanesa napolitana</h3><span class="price">S/ 42</span></div>
+            <p>Milanesa de pollo con pomodoro y queso gratinado, con papas fritas.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="especialidades" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Chaufa estilo Amore</h3><span class="price">S/ 44</span></div>
+            <p>Arroz al wok con pescado apanado al panko y huevo.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="especialidades" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pollo estilo Vietnam</h3><span class="price">S/ 44</span></div>
+            <p>Pollo al wok con vegetales de temporada y salsa nuoc cham.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="especialidades" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Yakimeshi</h3><span class="price">S/ 45</span></div>
+            <p>Arroz al wok con langostinos al vino, tocino y pollo char-siu.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="especialidades" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Arroz estilo paella</h3><span class="price">S/ 66</span></div>
+            <p>Arroz arbóreo en caldo de mariscos, langostinos, conchas, pulpo y chorizo.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="especialidades" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Codillo de cerdo crocante</h3><span class="price">S/ 69</span></div>
+            <p>Codillo confitado al ajo con champiñones al ajillo.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="especialidades" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Costillar a la BBQ</h3><span class="price">S/ 69</span></div>
+            <p>Ribs de cerdo laqueados en BBQ casera, con pastel de papa.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="especialidades" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Salmón thai</h3><span class="price">S/ 73</span></div>
+            <p>Filete de salmón al curry con arroz oriental al wok.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="especialidades" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Asado de tira</h3><span class="price">S/ 79</span></div>
+            <p>Cocido lentamente, con gnocchis fritos.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="especialidades" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Chita crocante al ajo</h3><span class="price">S/ 89</span></div>
+            <p>Chita entera (500 g), chips de ajo, yuca frita y sarza criolla.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="especialidades" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Arroz marinero Amore</h3><span class="price">S/ 109</span></div>
+            <p>Arroz meloso norteño con pulpo, conchas, langostinos, pesca del día y gambas.</p>
             <div class="dish-foot"><span class="tag">Para compartir</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pizzas" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pizza americana</h3><span class="price">S/ 36</span></div>
+            <p>Tomate, mozzarella fresca y jamón. Familiar: S/ 59.</p>
+            <div class="dish-foot"><span class="tag light">Personal</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pizzas" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Calzone clásico</h3><span class="price">S/ 36</span></div>
+            <p>Tomate, mozzarella fresca y jamón. Familiar: S/ 61.</p>
+            <div class="dish-foot"><span class="tag light">Personal</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pizzas" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Calzone campesino</h3><span class="price">S/ 41</span></div>
+            <p>Tomate, mozzarella, jamón, cebolla, champiñones y aceituna negra. Familiar: S/ 65.</p>
+            <div class="dish-foot"><span class="tag light">Personal</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pizzas" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pizza internacional</h3><span class="price">S/ 41</span></div>
+            <p>Mozzarella, cebolla blanca, jamón y champiñones. Familiar: S/ 69.</p>
+            <div class="dish-foot"><span class="tag light">Personal</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pizzas" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pizza carbonara</h3><span class="price">S/ 43</span></div>
+            <p>Mozzarella, cebolla caramelizada, tocino, crema y tomillo. Familiar: S/ 69.</p>
+            <div class="dish-foot"><span class="tag light">Personal</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pizzas" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pizza pepperoni</h3><span class="price">S/ 41</span></div>
+            <p>Tomate, mozzarella fresca y pepperoni. Familiar: S/ 64.</p>
+            <div class="dish-foot"><span class="tag light">Personal</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pizzas" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pizza hawaiana</h3><span class="price">S/ 41</span></div>
+            <p>Mozzarella, piña, durazno y jamón. Familiar: S/ 63.</p>
+            <div class="dish-foot"><span class="tag light">Personal</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pizzas" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pizza mediterránea</h3><span class="price">S/ 41</span></div>
+            <p>Mozzarella, aceitunas verdes, champiñones y tomate. Familiar: S/ 69.</p>
+            <div class="dish-foot"><span class="tag light">Personal</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pizzas" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pizza vegetariana especial</h3><span class="price">S/ 43</span></div>
+            <p>Champiñones, zucchini, espárragos, pimientos y aceitunas. Familiar: S/ 71.</p>
+            <div class="dish-foot"><span class="tag light">Personal</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pizzas" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pizza Amore</h3><span class="price">S/ 44</span></div>
+            <p>Mozzarella, pimiento, chorizo, champiñones y cebolla. Familiar: S/ 71.</p>
+            <div class="dish-foot"><span class="tag light">Personal</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pizzas" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pizza porcón prosciutto</h3><span class="price">S/ 47</span></div>
+            <p>Mozzarella, hongos porcón, champiñones y prosciutto. Familiar: S/ 71.</p>
+            <div class="dish-foot"><span class="tag light">Personal</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pizzas" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pizza tres chanchitos</h3><span class="price">S/ 48</span></div>
+            <p>Mozzarella, tocino, jamón y salchicha frankfurter. Familiar: S/ 71.</p>
+            <div class="dish-foot"><span class="tag light">Personal</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pizzas" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pizza ranchera</h3><span class="price">S/ 48</span></div>
+            <p>Res, chorizo, pollo, tocino, pimientos y cebolla. Familiar: S/ 72.</p>
+            <div class="dish-foot"><span class="tag light">Personal</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="pizzas" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Focaccia</h3><span class="price">S/ 18</span></div>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="postres" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Brownie</h3><span class="price">S/ 26</span></div>
+            <p>Doble chocolate con pecanas y helado de vainilla.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="postres" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Crème brûlée</h3><span class="price">S/ 28</span></div>
+            <p>Crema de vainilla horneada con azúcar flambeada.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="postres" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Apple pie</h3><span class="price">S/ 29</span></div>
+            <p>Pie tradicional de receta familiar.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="postres" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Panqueque Amore</h3><span class="price">S/ 29</span></div>
+            <p>Relleno de duraznos flambeados al ron y canela, con helado.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="postres" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Merengado de chirimoya</h3><span class="price">S/ 34</span></div>
+            <p>Chirimoya, merengues crocantes, manjar blanco y chantilly.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="postres" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Volcán de chocolate</h3><span class="price">S/ 33</span></div>
+            <p>Bizcochuelo de corazón líquido, caliente y con helado.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="postres" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Tiramisú</h3><span class="price">S/ 33</span></div>
+            <p>Bizcotelas en café y amaretto con crema de queso.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="postres" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Mousse de lúcuma</h3><span class="price">S/ 33</span></div>
+            <p>Base de brownie, mousse de lúcuma y fudge de chocolate.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="bar" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Sangría de la casa (jarra 1 L)</h3><span class="price">S/ 69</span></div>
+            <p>Vino tinto, naranja, fruta picada y pisco. Media jarra: S/ 41.</p>
+            <div class="dish-foot"><span class="tag">Para compartir</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="bar" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Pisco sour</h3><span class="price">S/ 35</span></div>
+            <p>Pisco quebranta, limón, jarabe de goma y clara de huevo.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="bar" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Chilcano macerado</h3><span class="price">S/ 36</span></div>
+            <p>Macerado de coca, piña, arándanos, hierba luisa, kion y más.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="bar" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Amore tonic</h3><span class="price">S/ 46</span></div>
+            <p>Gin, cointreau, tónica, arándanos, maracuyá y ají amarillo.</p>
+            <div class="dish-foot"><span class="tag">De autor</span></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="bar" data-tilt style="--d:90ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Aperol spritz</h3><span class="price">S/ 34</span></div>
+            <p>Aperol, espumante y agua gasificada.</p>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="bar" data-tilt style="--d:180ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Limonada frozen</h3><span class="price">S/ 16</span></div>
+            <div class="dish-foot"></div>
+          </div>
+        </article>
+        <article class="dish no-img reveal" data-cat="bar" data-tilt style="--d:0ms" hidden>
+          <div class="dish-body">
+            <div class="dish-top"><h3>Dolce Amore</h3><span class="price">S/ 16</span></div>
+            <p>Piña natural, camu camu, hierba buena y jarabe de muña.</p>
+            <div class="dish-foot"></div>
           </div>
         </article>
       </div>
@@ -321,12 +721,12 @@
 
 <footer>
   <div class="wrap foot-grid">
-    <div><a class="logo" href="#inicio"><img src="assets/img/logo.svg" alt="" width="40" height="40"><em>Amore</em></a><p>Cocina de autor criolla y mediterránea en Miraflores y La Molina.</p><p class="social"><a href="https://www.instagram.com/amoremiraflores/" target="_blank" rel="noopener noreferrer">Instagram</a> · <a href="https://www.facebook.com/amorelamolina/" target="_blank" rel="noopener noreferrer">Facebook</a> · <a href="https://www.tiktok.com/@restaurante_amore" target="_blank" rel="noopener noreferrer">TikTok</a></p></div>
+    <div><a class="logo" href="#inicio"><img src="assets/img/logo.webp" alt="" width="40" height="40"><em>Amore</em></a><p>Cocina de autor criolla y mediterránea en Miraflores y La Molina.</p><p class="social"><a href="https://www.instagram.com/amoremiraflores/" target="_blank" rel="noopener noreferrer">Instagram</a> · <a href="https://www.facebook.com/amorelamolina/" target="_blank" rel="noopener noreferrer">Facebook</a> · <a href="https://www.tiktok.com/@restaurante_amore" target="_blank" rel="noopener noreferrer">TikTok</a></p></div>
     <div><h4>Sedes</h4><p>Miraflores: Calle Atahualpa 175 · 963 801 913<br>La Molina: Av. La Fontana 1125 · 940 210 318</p></div>
     <div><h4>Diseño web</h4><p>Jose Aylas Gutierrez</p></div>
   </div>
 </footer>
-<div class="demo-note">Propuesta de diseño para Amore. Carta y fotos referenciales hasta confirmar con el restaurante.</div>
+<div class="demo-note">Propuesta de diseño para Amore. Carta, precios y fotos tomados de su carta 2026 y su Instagram.</div>
 
 <a class="float-wa" href="https://wa.me/51963801913?text=Hola%20Amore%2C%20quisiera%20hacer%20una%20reserva" data-wa target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>
 <div class="cartbar" data-cart aria-hidden="true" aria-label="Tu pedido"><div class="info"><b data-cart-count>0 platos</b><span data-cart-total>S/ 0.00</span></div><a class="btn" data-cart-link href="#" target="_blank" rel="noopener noreferrer">Enviar pedido</a><button class="clear" type="button" data-clear aria-label="Vaciar pedido">×</button></div>

@@ -1,4 +1,4 @@
-:root{--verde:#2E4A3B;--hondo:#1F3329;--acento:#C8553D;--acento-osc:#A8412C;--rosa:#F0B9A6;--crema:#F5EEE3;--negro:#1F2B24;--suave:#56645B}
+:root{--verde:#972525;--hondo:#6E1A1B;--acento:#972525;--acento-osc:#6E1A1B;--rosa:#C9A55A;--crema:#F6EFE4;--negro:#2A1E1C;--suave:#6B5A55}
 @font-face{font-family:"Fraunces";font-style:normal;font-weight:400 700;font-display:swap;src:url(../assets/fonts/fraunces.woff2) format("woff2")}
 @font-face{font-family:"Fraunces";font-style:italic;font-weight:400 700;font-display:swap;src:url(../assets/fonts/fraunces-italic.woff2) format("woff2")}
 @font-face{font-family:"Inter";font-style:normal;font-weight:400 600;font-display:swap;src:url(../assets/fonts/inter.woff2) format("woff2")}
@@ -13,7 +13,7 @@ h1{font:600 2.6rem/1 "Fraunces",Georgia,serif;margin-top:6px}
 h1 em{font-style:italic;color:var(--rosa)}
 .chips{position:sticky;top:0;z-index:5;display:flex;gap:8px;overflow-x:auto;padding:12px 20px;background:var(--verde);scrollbar-width:none}
 .chips::-webkit-scrollbar{display:none}
-.chips a{flex:none;color:var(--crema);text-decoration:none;font:600 .85rem/1 "Inter",sans-serif;border:1.5px solid rgba(245,238,227,.6);border-radius:999px;padding:.65em 1.1em;white-space:nowrap}
+.chips a{flex:none;color:var(--crema);text-decoration:none;font:600 .85rem/1 "Inter",sans-serif;border:1.5px solid rgba(246,239,228,.6);border-radius:999px;padding:.65em 1.1em;white-space:nowrap}
 .chips a:hover,.chips a:focus-visible{background:var(--crema);color:var(--negro);outline:none}
 main{padding:8px 20px 20px}
 .cat{padding:26px 0 10px;border-bottom:1px solid rgba(31,43,36,.12)}
@@ -23,7 +23,7 @@ main{padding:8px 20px 20px}
 .cat li:first-child{border-top:0}
 .row{display:flex;align-items:baseline;gap:8px}
 .row h3{font:600 1.08rem/1.25 "Fraunces",Georgia,serif;min-width:0}
-.dots{flex:1;border-bottom:2px dotted rgba(46,74,59,.35);transform:translateY(-4px);min-width:16px}
+.dots{flex:1;border-bottom:2px dotted rgba(151,37,37,.3);transform:translateY(-4px);min-width:16px}
 .row b{font:600 1.08rem/1 "Fraunces",Georgia,serif;color:var(--acento);white-space:nowrap}
 .cat li p{font-size:.9rem;color:var(--suave);margin-top:4px;max-width:58ch}
 .info{margin:26px 0 8px;background:#fff;border-radius:18px;padding:20px;box-shadow:0 10px 30px -18px rgba(20,30,24,.4)}
@@ -34,4 +34,7 @@ footer{padding:10px 20px 34px;display:flex;flex-direction:column;align-items:cen
 .wa svg{width:1.3em;height:1.3em;fill:currentColor}
 .web{color:var(--verde);font-weight:600}
 .demo{font-size:.72rem;color:var(--suave)}
+.allergy{font-size:.8rem;color:var(--suave);font-style:italic}
+.cat h3.sub{font:600 .78rem/1.2 "Inter",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--acento);margin:18px 0 2px}
+.cat .sub+ul li{padding:9px 0}
 a:focus-visible{outline:3px solid var(--acento);outline-offset:2px}

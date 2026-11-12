@@ -39,7 +39,7 @@
       bar.setAttribute("aria-hidden", String(items === 0));
       count.textContent = items + (items === 1 ? " plato" : " platos");
       total.textContent = soles(sum);
-      link.href = waUrl("Hola Amore " + sede().n + ", quiero hacer este pedido:\n" + lines.join("\n") + "\nTotal referencial: " + soles(sum) + "\nEs para: (delivery / recojo)\nMi dirección es: ");
+      link.href = waUrl("Hola Amore " + sede().n + ", quiero hacer este pedido:\n" + lines.join("\n") + "\nTotal referencial: " + soles(sum) + "\nPara recoger en la sede " + sede().n + "\nNombre: \nHora de recojo: ");
       $$(".dish").forEach(function (d) {
         if (!d.dataset.id) return;
         var n = cart[d.dataset.id] ? cart[d.dataset.id].n : 0;

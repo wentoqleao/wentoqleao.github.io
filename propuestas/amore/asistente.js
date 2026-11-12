@@ -11,14 +11,85 @@
   var DIAS = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
   var NUM = { un: 1, uno: 1, una: 1, dos: 2, tres: 3, cuatro: 4, cinco: 5, seis: 6, siete: 7, ocho: 8, nueve: 9, diez: 10, doce: 12, quince: 15, veinte: 20 };
   var MENU = [
-    { n: "Lomo saltado", p: 65, a: ["lomo saltado"] },
-    { n: "Paella de mariscos", p: 44, a: ["paella de mariscos"] }
+    { n: "Spaghetti negro con salsa rosé de langostinos", p: 62, a: ["spaghetti negro con salsa rose de langostinos", "spaghetti negro", "tallarin negro", "pasta negra"] },
+    { n: "Ceviche clásico / diabla", p: 62, a: ["ceviche clasico diabla", "ceviche clasico", "ceviche diabla", "ceviche"] },
+    { n: "Lomo a las 3 pimientas", p: 69, a: ["lomo a las 3 pimientas", "lomo a las tres pimientas", "tres pimientas", "3 pimientas"] },
+    { n: "Ossobuco", p: 66, a: ["ossobuco"] },
+    { n: "Hamburguesa de la casa", p: 41, a: ["hamburguesa de la casa", "hamburguesas", "hamburguesa", "burger"] },
+    { n: "Pizza margarita", p: 36, a: ["pizza margarita", "margarita"] },
+    { n: "Pizza chicken BBQ", p: 47, a: ["pizza chicken bbq", "chicken bbq"] },
+    { n: "Lomo saltado tradicional", p: 65, a: ["lomo saltado tradicional", "lomos saltados", "lomo saltado", "lomito saltado"] },
+    { n: "Fettuccine a la huancaína con lomo anticuchero", p: 65, a: ["fettuccine a la huancaina con lomo anticuchero", "fettuccine a la huancaina", "fetuccini a la huancaina", "huancaina con lomo"] },
+    { n: "Fingers de polenta frita y pomodoro", p: 29, a: ["fingers de polenta frita y pomodoro"] },
+    { n: "Ensalada Caesar con pollo", p: 34, a: ["ensalada caesar con pollo"] },
+    { n: "Ensalada thai", p: 39, a: ["ensalada thai"] },
+    { n: "Berenjena a la parmesana", p: 38, a: ["berenjena a la parmesana"] },
+    { n: "Langostinos al brandy", p: 48, a: ["langostinos al brandy"] },
+    { n: "Carpaccio de lomo", p: 48, a: ["carpaccio de lomo"] },
+    { n: "Causas", p: 49, a: ["causas"] },
+    { n: "Burrata rellena", p: 51, a: ["burrata rellena"] },
+    { n: "Tartare Amore", p: 63, a: ["tartare amore"] },
+    { n: "Pulpo a la parrilla", p: 65, a: ["pulpo a la parrilla"] },
+    { n: "Seco borracho", p: 53, a: ["seco borracho"] },
+    { n: "Tiradito nikkei", p: 49, a: ["tiradito nikkei"] },
+    { n: "Chicharrón de calamar", p: 49, a: ["chicharron de calamar", "chicharron"] },
+    { n: "Ceviche carretillero", p: 65, a: ["ceviche carretillero", "carretillero"] },
+    { n: "Arroz con pato borracho", p: 73, a: ["arroz con pato borracho"] },
+    { n: "Penne primavera", p: 36, a: ["penne primavera"] },
+    { n: "Tortellini de ricotta en salsa pesto", p: 44, a: ["tortellini de ricotta en salsa pesto"] },
+    { n: "Lasagna de carne", p: 46, a: ["lasagna de carne", "lasagna", "lasana"] },
+    { n: "Gnocchis a los 4 quesos", p: 48, a: ["gnocchis a los 4 quesos", "gnocchis", "noquis"] },
+    { n: "Pappardelle con ragú de cola de buey", p: 46, a: ["pappardelle con ragu de cola de buey"] },
+    { n: "Lasagna de cola de buey", p: 47, a: ["lasagna de cola de buey"] },
+    { n: "Fettuccine en salsa de langostinos", p: 62, a: ["fettuccine en salsa de langostinos"] },
+    { n: "Fettuccine frutti di mare", p: 66, a: ["fettuccine frutti di mare"] },
+    { n: "Spaghetti carbonara estilo Amore", p: 54, a: ["spaghetti carbonara estilo amore", "carbonara"] },
+    { n: "Milanesa napolitana", p: 42, a: ["milanesa napolitana"] },
+    { n: "Chaufa estilo Amore", p: 44, a: ["chaufa estilo amore"] },
+    { n: "Pollo estilo Vietnam", p: 44, a: ["pollo estilo vietnam"] },
+    { n: "Yakimeshi", p: 45, a: ["yakimeshi"] },
+    { n: "Arroz estilo paella", p: 66, a: ["arroz estilo paella", "paella"] },
+    { n: "Codillo de cerdo crocante", p: 69, a: ["codillo de cerdo crocante"] },
+    { n: "Costillar a la BBQ", p: 69, a: ["costillar a la bbq"] },
+    { n: "Salmón thai", p: 73, a: ["salmon thai"] },
+    { n: "Asado de tira", p: 79, a: ["asado de tira"] },
+    { n: "Chita crocante al ajo", p: 89, a: ["chita crocante al ajo"] },
+    { n: "Arroz marinero Amore", p: 109, a: ["arroz marinero amore"] },
+    { n: "Pizza americana", p: 36, a: ["pizza americana", "americana"] },
+    { n: "Calzone clásico", p: 36, a: ["calzone clasico"] },
+    { n: "Calzone campesino", p: 41, a: ["calzone campesino"] },
+    { n: "Pizza internacional", p: 41, a: ["pizza internacional", "internacional"] },
+    { n: "Pizza carbonara", p: 43, a: ["pizza carbonara", "carbonara"] },
+    { n: "Pizza pepperoni", p: 41, a: ["pizza pepperoni", "pepperoni"] },
+    { n: "Pizza hawaiana", p: 41, a: ["pizza hawaiana", "hawaiana"] },
+    { n: "Pizza mediterránea", p: 41, a: ["pizza mediterranea", "mediterranea"] },
+    { n: "Pizza vegetariana especial", p: 43, a: ["pizza vegetariana especial", "vegetariana especial"] },
+    { n: "Pizza Amore", p: 44, a: ["pizza amore"] },
+    { n: "Pizza porcón prosciutto", p: 47, a: ["pizza porcon prosciutto", "porcon prosciutto"] },
+    { n: "Pizza tres chanchitos", p: 48, a: ["pizza tres chanchitos", "tres chanchitos"] },
+    { n: "Pizza ranchera", p: 48, a: ["pizza ranchera", "ranchera"] },
+    { n: "Focaccia", p: 18, a: ["focaccia"] },
+    { n: "Brownie", p: 26, a: ["brownie"] },
+    { n: "Crème brûlée", p: 28, a: ["creme br lee"] },
+    { n: "Apple pie", p: 29, a: ["apple pie"] },
+    { n: "Panqueque Amore", p: 29, a: ["panqueque amore"] },
+    { n: "Merengado de chirimoya", p: 34, a: ["merengado de chirimoya"] },
+    { n: "Volcán de chocolate", p: 33, a: ["volcan de chocolate", "volcan"] },
+    { n: "Tiramisú", p: 33, a: ["tiramisu", "tiramisu"] },
+    { n: "Mousse de lúcuma", p: 33, a: ["mousse de lucuma"] },
+    { n: "Sangría de la casa (jarra 1 L)", p: 69, a: ["sangria de la casa", "jarra de sangria", "sangria"] },
+    { n: "Pisco sour", p: 35, a: ["pisco sour", "pisco sour"] },
+    { n: "Chilcano macerado", p: 36, a: ["chilcano macerado"] },
+    { n: "Amore tonic", p: 46, a: ["amore tonic"] },
+    { n: "Aperol spritz", p: 34, a: ["aperol spritz"] },
+    { n: "Limonada frozen", p: 16, a: ["limonada frozen"] },
+    { n: "Dolce Amore", p: 16, a: ["dolce amore"] }
   ];
   MENU.forEach(function (m, i) { m.id = "p" + i; });
   var ALIASES = [];
   MENU.forEach(function (m) { m.a.forEach(function (a) { ALIASES.push({ a: a, m: m }); }); });
   ALIASES.sort(function (x, y) { return y.a.length - x.a.length; });
-  var BEBIDAS = /(sangria|vino|copa|coctel|pisco|chilcano|cerveza|gaseosa|agua|limonada|chicha|jugo)/;
+  var BEBIDAS = /(vino|copa|coctel|cerveza|pilsen|cusquena|corona|gaseosa|agua|chicha|jugo|mojito|gin|maracuya)/;
 
   /* ---------- Interfaz ---------- */
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
@@ -29,7 +100,7 @@
   var panel = el("div", "ol-panel"); panel.id = "ol-panel"; panel.hidden = true;
   panel.setAttribute("role", "dialog"); panel.setAttribute("aria-label", "Asistente de Amore");
   var head = el("div", "ol-head");
-  var logo = el("img"); logo.src = "assets/img/logo.svg"; logo.alt = ""; logo.width = 40; logo.height = 40;
+  var logo = el("img"); logo.src = "assets/img/logo.webp"; logo.alt = ""; logo.width = 40; logo.height = 40;
   var hd = el("div"); hd.appendChild(el("b", null, "Amore")); var st = el("span", null, ""); hd.appendChild(st);
   var close = el("button", null, "×"); close.type = "button"; close.setAttribute("aria-label", "Cerrar el chat");
   head.appendChild(logo); head.appendChild(hd); head.appendChild(close);
@@ -119,7 +190,7 @@
 
   /* ---------- Conversación ---------- */
   var MENU_CHIPS = ["Reservar mesa", "Ver la carta", "Hacer un pedido", "Horario y sedes", "Cambiar de sede", "Hablar con alguien"];
-  var PLATO_CHIPS = ["Lomo saltado", "Paella de mariscos", "Listo, es todo"];
+  var PLATO_CHIPS = ["Lomo saltado", "Spaghetti negro", "Ceviche clásico", "Pizza margarita", "Listo, es todo"];
   var S;
   function fresh() { S = { state: "menu", cart: {}, notes: [], order: {}, res: {}, misses: 0 }; }
   fresh();
@@ -132,15 +203,15 @@
   function more(extra) { S.state = "menu"; say([(extra ? extra + "\n\n" : "") + "¿Te ayudo con algo más?"], MENU_CHIPS); }
   function carta() {
     S.state = "menu";
-    say([{ t: "Los favoritos de la casa:\n• Ceviche carretillero\n• Lomo saltado · S/ 65\n• Fettuccine a la huancaína con lomo\n• Sangría", links: [{ t: "Ver la carta completa", href: "carta/" }] },
-      "Para pedir, escríbeme el plato y la cantidad, por ejemplo: \"2 lomos saltados\"."], ["Hacer un pedido", "Reservar mesa", "Volver al inicio"]);
+    say([{ t: "Los favoritos de la casa:\n• Spaghetti negro con salsa rosé de langostinos · S/ 62\n• Ceviche clásico / diabla · S/ 62\n• Lomo a las 3 pimientas · S/ 69\n• Ossobuco · S/ 66\n• Hamburguesa de la casa · S/ 41\n• Pizza margarita · S/ 36", links: [{ t: "Ver la carta completa", href: "carta/" }] },
+      "Para pedir, escríbeme el plato y la cantidad, por ejemplo: \"2 lomos saltados y una sangría\"."], ["Hacer un pedido", "Reservar mesa", "Volver al inicio"]);
   }
   function horario() {
     S.state = "menu";
     say([{ t: "Las dos sedes atienden todos los días de 12:30 pm a 10:30 pm.\n\n📍 Miraflores: Calle Atahualpa 175\n📍 La Molina: Av. La Fontana 1125\n\nAhora te atiendo para " + SN() + ".", links: [{ t: "Abrir " + SN() + " en Google Maps", href: SD().maps }] }, "¿Te ayudo con algo más?"], MENU_CHIPS);
   }
   function delivery() {
-    more("Para delivery o recojo, la sede te confirma por WhatsApp la cobertura y el costo según tu zona.\nPagos: te confirman los medios disponibles al responder.");
+    more("Atendemos en el restaurante y con recojo en tienda 🛍️ Arma tu pedido aquí, lo envías por WhatsApp a la sede " + SN() + " y pasas a recogerlo.");
   }
   function tragos() {
     more("🍷 Tenemos bar completo: sangría para compartir, vinos y cócteles. Los precios están en la carta o te los pasan por WhatsApp.");
@@ -191,9 +262,9 @@
   function askMode() {
     var c = cartInfo();
     if (!c.total && !S.notes.length) { say(["Aún no tienes nada en tu pedido. ¿Qué te provoca?"], PLATO_CHIPS); return; }
-    S.state = "mode"; say(["¿Es para delivery o para recoger en el local?"], ["Delivery", "Recojo en el local"]);
+    S.order.mode = "recojo"; say(["Los pedidos son para recoger en la sede " + SN() + " 🛍️"], []); askPay();
   }
-  function askPay() { S.state = "pay"; say(["¿Cómo pagarías?"], ["Yape", "Plin", "Efectivo"]); }
+  function askPay() { S.state = "pay"; say(["¿Cómo pagarías al recoger?"], ["Tarjeta", "Efectivo", "Yape"]); }
   function confirmOrder() {
     S.state = "confirm";
     var c = cartInfo();
@@ -309,7 +380,7 @@
         if (has(t, ["yape"])) { S.order.pay = "Yape"; confirmOrder(); return; }
         if (has(t, ["plin"])) { S.order.pay = "Plin"; confirmOrder(); return; }
         if (has(t, ["efectivo", "cash", "billete", "sencillo"])) { S.order.pay = "Efectivo"; confirmOrder(); return; }
-        if (has(t, ["tarjeta", "visa", "pos"])) { S.order.pay = "Tarjeta (por confirmar)"; confirmOrder(); return; }
+        if (has(t, ["tarjeta", "visa", "pos"])) { S.order.pay = "Tarjeta"; confirmOrder(); return; }
         break;
       case "confirm":
         if (has(t, ["si", "enviar", "confirm", "ok", "dale", "listo", "claro"])) { sendOrder(); return; }
