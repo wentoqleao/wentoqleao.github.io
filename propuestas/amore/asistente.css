@@ -46,3 +46,6 @@
 
 /* Móvil: solo el ícono, para no tapar el contenido */
 @media (max-width:600px){.ol-fab{padding:8px;gap:0;font-size:0}.ol-fab .dot{width:40px;height:40px;font-size:19px}}
+
+/* Un solo botón flotante: el asistente ocupa el lugar del botón de WhatsApp */
+@media (min-width:900px){.ol-fab{bottom:calc(22px + env(safe-area-inset-bottom,0px))}}
